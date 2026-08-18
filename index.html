@@ -1,458 +1,1576 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>For Bhavana Manasa ❤️</title>
+<title>For Bhavana Manasa ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* =========================================================
+   BASIC RESET
+========================================================= */
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #0d0710;
-      color: #fff;
-      overflow-x: hidden;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 50px 20px;
-      position: relative;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    /* Floating hearts */
-    .heart {
-      position: fixed;
-      bottom: -30px;
-      font-size: 20px;
-      opacity: 0.35;
-      animation: float 8s linear infinite;
-      pointer-events: none;
-      z-index: 5;
-    }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #050308;
+    color: white;
+    overflow-x: hidden;
+}
 
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
+section {
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   CINEMATIC BIRTH SKY
+========================================================= */
+
+#birthSky {
+    position: relative;
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 65%,
+            rgba(54, 25, 74, 0.7) 0%,
+            rgba(16, 10, 28, 0.8) 35%,
+            #030207 80%
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+
+/* Sky after opening */
+
+#birthSky.hideSky {
+    opacity: 0;
+    transform: scale(1.08);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.starField {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: white;
+    border-radius: 50%;
+
+    opacity: 0;
+
+    animation:
+        starAppear 2s forwards,
+        twinkle 3s ease-in-out infinite alternate;
+}
+
+.star.big {
+    width: 3px;
+    height: 3px;
+}
+
+@keyframes starAppear {
+    from {
         opacity: 0;
-      }
+        transform: scale(0);
+    }
 
-      20% {
+    to {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.25;
+    }
+
+    to {
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================================================
+   BIRTH SKY TEXT
+========================================================= */
+
+.skyContent {
+    position: relative;
+    z-index: 10;
+
+    width: 90%;
+    max-width: 850px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+
+    animation: contentAppear 2s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes contentAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Small opening text */
+
+.skySmall {
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,0.6);
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   PINK HEART
+========================================================= */
+
+.heartReveal {
+
+    width: 125px;
+    height: 125px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 35px;
+
+    opacity: 0;
+
+    animation:
+        heartAppear 2s ease forwards,
+        heartGlow 2s ease-in-out infinite alternate;
+
+    animation-delay: 3s, 5s;
+}
+
+
+/* actual heart */
+
+.heartShape {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 92px;
+
+    color: #ffb6d5;
+
+    text-shadow:
+        0 0 15px rgba(255, 159, 200, 0.9),
+        0 0 40px rgba(255, 111, 174, 0.7),
+        0 0 80px rgba(255, 100, 170, 0.45);
+
+    transform: scale(1);
+
+    animation:
+        heartPulse 2s ease-in-out infinite alternate;
+}
+
+
+/* pink glow behind heart */
+
+.heartGlow {
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 140, 190, 0.18);
+
+    filter: blur(25px);
+
+    z-index: -1;
+}
+
+@keyframes heartAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartPulse {
+
+    from {
+        transform: scale(0.92);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes heartGlow {
+
+    from {
+        filter: brightness(0.8);
+    }
+
+    to {
+        filter: brightness(1.25);
+    }
+}
+
+
+/* =========================================================
+   HEART → MOON TRANSITION
+========================================================= */
+
+.heartReveal.transformMoon {
+
+    animation:
+        heartToMoon 3s cubic-bezier(.7,0,.2,1) forwards;
+}
+
+@keyframes heartToMoon {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    35% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(0.85);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Hide heart */
+
+.heartReveal.transformMoon .heartShape {
+
+    animation:
+        heartDisappear 3s ease forwards;
+}
+
+@keyframes heartDisappear {
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    35% {
+        opacity: 0.9;
+        transform: scale(1.3);
+    }
+
+    60% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.moon {
+
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #fffdf7 0%,
+            #eeeae3 45%,
+            #c9c4c0 100%
+        );
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.75),
+        0 0 70px rgba(220,215,255,0.35);
+
+    opacity: 0;
+
+    transform: scale(0.3);
+
+    overflow: hidden;
+}
+
+
+/*
+   Dark overlay creates a waxing/First Quarter appearance.
+   This is intentionally NOT a full moon.
+*/
+
+.moon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    left: -45px;
+    top: -2px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(8,7,14,0.98) 0%,
+            rgba(8,7,14,0.96) 70%,
+            rgba(8,7,14,0.75) 100%
+        );
+}
+
+
+/* Moon craters */
+
+.crater {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(100,95,90,0.18);
+
+    z-index: 3;
+}
+
+.crater.one {
+    width: 16px;
+    height: 16px;
+    top: 25px;
+    right: 23px;
+}
+
+.crater.two {
+    width: 9px;
+    height: 9px;
+    top: 55px;
+    right: 38px;
+}
+
+.crater.three {
+    width: 13px;
+    height: 13px;
+    bottom: 20px;
+    right: 20px;
+}
+
+
+/* show moon */
+
+.heartReveal.showMoon .moon {
+
+    animation:
+        moonReveal 3s cubic-bezier(.2,.8,.2,1) forwards;
+
+    animation-delay: 0.2s;
+}
+
+@keyframes moonReveal {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-15deg);
+    }
+
+    45% {
+        opacity: 1;
+        transform: scale(1.25) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+/* =========================================================
+   DATE + MESSAGE
+========================================================= */
+
+.skyDate {
+
+    font-size: clamp(20px, 4vw, 32px);
+
+    letter-spacing: 7px;
+
+    margin-top: 20px;
+
+    color: #f4dbe6;
+
+    opacity: 0;
+
+    animation:
+        dateAppear 2s ease forwards;
+
+    animation-delay: 8s;
+}
+
+.skyDate span {
+
+    display: block;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    margin-top: 12px;
+
+    color: rgba(255,255,255,0.5);
+}
+
+@keyframes dateAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.skyLine {
+
+    max-width: 750px;
+
+    margin-top: 32px;
+
+    font-size: clamp(19px, 3vw, 28px);
+
+    line-height: 1.7;
+
+    color: #f4e7ed;
+
+    opacity: 0;
+
+    animation:
+        lineAppear 2.5s ease forwards;
+
+    animation-delay: 9.5s;
+}
+
+@keyframes lineAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.birthName {
+
+    margin-top: 25px;
+
+    font-size: clamp(25px, 5vw, 42px);
+
+    color: #ffb8d4;
+
+    opacity: 0;
+
+    animation:
+        nameAppear 2s ease forwards;
+
+    animation-delay: 11s;
+}
+
+@keyframes nameAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.startButton {
+
+    margin-top: 40px;
+
+    padding: 15px 32px;
+
+    border: 1px solid rgba(255,190,215,0.6);
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.03);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    animation:
+        buttonAppear 2s ease forwards;
+
+    animation-delay: 12.5s;
+
+    transition: 0.4s;
+}
+
+.startButton:hover {
+
+    background: rgba(255,180,210,0.18);
+
+    border-color: #ffb8d4;
+
+    transform: scale(1.05);
+}
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   STORY SECTION
+========================================================= */
+
+.story {
+
+    background:
+        linear-gradient(
+            180deg,
+            #0d0710,
+            #190b18
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.sectionLabel {
+
+    color: #e8a9c4;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+.story h2 {
+
+    font-size: clamp(38px, 7vw, 65px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+.storyText {
+
+    max-width: 700px;
+
+    font-size: 20px;
+
+    line-height: 2;
+
+    color: #ddd0d7;
+}
+
+.highlight {
+
+    color: #f2afca;
+}
+
+
+/* =========================================================
+   MEMORIES
+========================================================= */
+
+.memories {
+
+    background: #120912;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.memories h2 {
+
+    font-size: clamp(38px, 7vw, 65px);
+
+    font-weight: normal;
+
+    margin-bottom: 15px;
+}
+
+.memoryIntro {
+
+    color: #cdbfc6;
+
+    margin-bottom: 40px;
+}
+
+.gallery {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.photo {
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3d1934,
+            #1c1020
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #bdaeb7;
+
+    font-size: 15px;
+
+    padding: 20px;
+
+    transition: 0.5s;
+}
+
+.photo:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color: #e8a9c4;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3c1830,
+            #100710 70%
+        );
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.letterBox {
+
+    max-width: 750px;
+
+    padding: 45px 30px;
+
+    border:
+        1px solid
+        rgba(232,169,196,0.3);
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    backdrop-filter: blur(10px);
+}
+
+.letterBox h2 {
+
+    font-size:
+        clamp(35px, 7vw, 60px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+.letterBox p {
+
+    font-size: 20px;
+
+    line-height: 2;
+
+    color: #e5d8df;
+
+    margin-bottom: 20px;
+}
+
+.signature {
+
+    margin-top: 30px;
+
+    font-size: 24px;
+
+    color: #f1b2cb;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   FINAL BIRTHDAY SECTION
+========================================================= */
+
+.final {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #651c43 0%,
+            #270d28 40%,
+            #0d0710 75%
+        );
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+.bigHeart {
+
+    font-size: 80px;
+
+    margin-bottom: 25px;
+
+    animation:
+        finalPulse 2s infinite;
+}
+
+@keyframes finalPulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.final h2 {
+
+    font-size:
+        clamp(38px, 7vw, 65px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+.final p {
+
+    max-width: 650px;
+
+    font-size: 20px;
+
+    line-height: 1.9;
+
+    color: #eadde3;
+
+    margin-bottom: 30px;
+}
+
+.birthday {
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    color: #f2b3cc;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background: #080408;
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #756772;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floatingHeart {
+
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 20px;
+
+    opacity: 0.35;
+
+    animation:
+        floatHeart 9s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 50;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20% {
         opacity: 0.5;
-      }
+    }
 
-      100% {
-        transform: translateY(-110vh) rotate(360deg);
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
         opacity: 0;
-      }
     }
+}
 
-    /* Opening */
-    .hero {
-      background:
-        radial-gradient(circle at 50% 40%, #5c183c 0%, #240d25 35%, #0d0710 75%);
-      flex-direction: column;
-    }
 
-    .small-text {
-      font-size: 15px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: #e8b7c9;
-      margin-bottom: 25px;
-    }
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    .hero h1 {
-      font-size: clamp(45px, 10vw, 95px);
-      font-weight: normal;
-      margin-bottom: 15px;
-      letter-spacing: 2px;
-    }
-
-    .hero h1 span {
-      color: #f3b6ce;
-    }
-
-    .hero p {
-      max-width: 650px;
-      font-size: 19px;
-      line-height: 1.8;
-      color: #e9dce2;
-      margin-bottom: 35px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 15px 32px;
-      border: 1px solid #e8a9c4;
-      border-radius: 50px;
-      color: white;
-      text-decoration: none;
-      transition: 0.4s;
-      font-size: 16px;
-      letter-spacing: 1px;
-    }
-
-    .button:hover {
-      background: #e8a9c4;
-      color: #240d25;
-      transform: scale(1.05);
-    }
-
-    /* Story */
-    .story {
-      background: linear-gradient(180deg, #0d0710, #190b18);
-      flex-direction: column;
-    }
-
-    .section-label {
-      color: #e8a9c4;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    .story h2,
-    .letter h2,
-    .final h2 {
-      font-size: clamp(35px, 7vw, 65px);
-      font-weight: normal;
-      margin-bottom: 25px;
-    }
-
-    .story-text {
-      max-width: 700px;
-      font-size: 20px;
-      line-height: 2;
-      color: #ddd0d7;
-    }
-
-    .highlight {
-      color: #f2afca;
-    }
-
-    /* Memories */
-    .memories {
-      background: #120912;
-      flex-direction: column;
-    }
-
-    .memories h2 {
-      font-size: clamp(35px, 7vw, 65px);
-      font-weight: normal;
-      margin-bottom: 15px;
-    }
-
-    .memory-intro {
-      color: #cdbfc6;
-      margin-bottom: 40px;
-    }
+@media (max-width: 700px) {
 
     .gallery {
-      width: 100%;
-      max-width: 1000px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .photo {
-      aspect-ratio: 1 / 1;
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg, #3d1934, #1c1020);
-      border: 1px solid rgba(255,255,255,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #bdaeb7;
-      font-size: 15px;
-      padding: 20px;
-      transition: 0.5s;
-      overflow: hidden;
-    }
-
-    .photo:hover {
-      transform: translateY(-8px) scale(1.02);
-      border-color: #e8a9c4;
-    }
-
-    /* Letter */
-    .letter {
-      background:
-        radial-gradient(circle at center, #3c1830, #100710 70%);
-      flex-direction: column;
-    }
-
-    .letter-box {
-      max-width: 750px;
-      padding: 45px 30px;
-      border: 1px solid rgba(232,169,196,0.3);
-      border-radius: 25px;
-      background: rgba(255,255,255,0.035);
-      backdrop-filter: blur(10px);
-    }
-
-    .letter-box p {
-      font-size: 20px;
-      line-height: 2;
-      color: #e5d8df;
-      margin-bottom: 20px;
-    }
-
-    .signature {
-      margin-top: 30px;
-      font-size: 24px;
-      color: #f1b2cb;
-      font-style: italic;
-    }
-
-    /* Final */
-    .final {
-      background:
-        radial-gradient(circle at center, #651c43 0%, #270d28 40%, #0d0710 75%);
-      flex-direction: column;
-    }
-
-    .final .big-heart {
-      font-size: 80px;
-      margin-bottom: 25px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.15);
-      }
-    }
-
+    .storyText,
+    .letterBox p,
     .final p {
-      max-width: 650px;
-      font-size: 20px;
-      line-height: 1.9;
-      color: #eadde3;
-      margin-bottom: 30px;
-    }
 
-    .birthday {
-      font-size: 18px;
-      letter-spacing: 3px;
-      color: #f2b3cc;
-      text-transform: uppercase;
-    }
-
-    footer {
-      background: #080408;
-      padding: 25px;
-      text-align: center;
-      color: #756772;
-      font-size: 13px;
-    }
-
-    @media (max-width: 700px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero p,
-      .story-text,
-      .letter-box p,
-      .final p {
         font-size: 17px;
-      }
+    }
 
-      .letter-box {
+    .letterBox {
+
         padding: 30px 20px;
-      }
     }
 
-    @media (max-width: 450px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
+    .skyLine {
+
+        font-size: 19px;
     }
-  </style>
+
+    .skySmall {
+
+        letter-spacing: 4px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .gallery {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .heartShape {
+
+        font-size: 75px;
+    }
+
+    .moon {
+
+        width: 90px;
+        height: 90px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- Floating hearts -->
-  <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
-  <div class="heart" style="left:25%; animation-delay:2s;">♡</div>
-  <div class="heart" style="left:45%; animation-delay:4s;">❤️</div>
-  <div class="heart" style="left:65%; animation-delay:1s;">♡</div>
-  <div class="heart" style="left:85%; animation-delay:3s;">❤️</div>
 
-  <!-- HERO -->
-  <section class="hero">
+<!-- ======================================================
+     SCENE 1
+     THE NIGHT BHAVANA WAS BORN
+======================================================= -->
 
-    <div class="small-text">A little something for you</div>
+<section id="birthSky">
 
-    <h1>For <span>Bhavana</span> ❤️</h1>
+    <!-- Stars -->
 
-    <p>
-      One year. So many memories.
-      And somehow, I still can't believe I get to call you mine.
+    <div class="starField">
+
+        <span class="star big"
+              style="left:8%;top:15%;animation-delay:0.2s;"></span>
+
+        <span class="star"
+              style="left:17%;top:32%;animation-delay:0.8s;"></span>
+
+        <span class="star"
+              style="left:28%;top:12%;animation-delay:1.1s;"></span>
+
+        <span class="star big"
+              style="left:39%;top:25%;animation-delay:0.5s;"></span>
+
+        <span class="star"
+              style="left:48%;top:10%;animation-delay:1.5s;"></span>
+
+        <span class="star"
+              style="left:59%;top:28%;animation-delay:0.3s;"></span>
+
+        <span class="star big"
+              style="left:70%;top:15%;animation-delay:1.2s;"></span>
+
+        <span class="star"
+              style="left:81%;top:35%;animation-delay:0.6s;"></span>
+
+        <span class="star"
+              style="left:91%;top:18%;animation-delay:1.7s;"></span>
+
+        <span class="star"
+              style="left:13%;top:55%;animation-delay:1s;"></span>
+
+        <span class="star"
+              style="left:23%;top:70%;animation-delay:1.4s;"></span>
+
+        <span class="star big"
+              style="left:34%;top:52%;animation-delay:0.4s;"></span>
+
+        <span class="star"
+              style="left:44%;top:72%;animation-delay:1.8s;"></span>
+
+        <span class="star"
+              style="left:56%;top:58%;animation-delay:0.7s;"></span>
+
+        <span class="star"
+              style="left:67%;top:74%;animation-delay:1.3s;"></span>
+
+        <span class="star"
+              style="left:78%;top:54%;animation-delay:0.9s;"></span>
+
+        <span class="star"
+              style="left:88%;top:70%;animation-delay:1.6s;"></span>
+
+        <span class="star"
+              style="left:4%;top:82%;animation-delay:0.1s;"></span>
+
+        <span class="star"
+              style="left:96%;top:88%;animation-delay:1.9s;"></span>
+
+    </div>
+
+
+    <!-- Main sky content -->
+
+    <div class="skyContent">
+
+        <div class="skySmall">
+            Before our story began
+        </div>
+
+
+        <!-- Heart -->
+
+        <div class="heartReveal" id="heartMoon">
+
+            <div class="heartGlow"></div>
+
+            <div class="heartShape">
+                ♥
+            </div>
+
+
+            <!-- Moon -->
+
+            <div class="moon">
+
+                <div class="crater one"></div>
+                <div class="crater two"></div>
+                <div class="crater three"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Date -->
+
+        <div class="skyDate">
+
+            OCTOBER 2, 2003
+
+            <span>
+                ELURU • ANDHRA PRADESH • INDIA
+            </span>
+
+        </div>
+
+
+        <!-- Main line -->
+
+        <div class="skyLine">
+
+            “On a night when the moon was only half-lit,
+            the world welcomed someone who would one day
+            become my whole world.”
+
+        </div>
+
+
+        <!-- Name -->
+
+        <div class="birthName">
+
+            Bhavana Manasa ❤️
+
+        </div>
+
+
+        <!-- Continue -->
+
+        <a
+            href="#story"
+            class="startButton"
+        >
+
+            Begin Our Story ✨
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     SCENE 2
+     YOUR STORY
+======================================================= -->
+
+<section class="story" id="story">
+
+    <div class="sectionLabel">
+        Chapter One
+    </div>
+
+
+    <h2>
+        One Year of Us
+    </h2>
+
+
+    <p class="storyText">
+
+        A year ago, I didn't know how many beautiful
+        memories we were about to create together.
+
+        <br><br>
+
+        Somewhere between the conversations,
+        the laughs, the little fights, the silly moments,
+        and everything in between...
+
+        <br><br>
+
+        <span class="highlight">
+            you became one of the most special parts
+            of my life.
+        </span>
+
     </p>
 
-    <a href="#story" class="button">Begin Our Story ✨</a>
-
-  </section>
+</section>
 
 
-  <!-- STORY -->
-  <section class="story" id="story">
 
-    <div class="section-label">Chapter One</div>
+<!-- ======================================================
+     SCENE 3
+     MEMORIES
+======================================================= -->
 
-    <h2>One Year of Us</h2>
+<section class="memories">
 
-    <p class="story-text">
-      A year ago, I didn't know how many beautiful memories
-      we were about to create together.
+    <div class="sectionLabel">
+        Our Memories
+    </div>
 
-      <br><br>
 
-      Somewhere between the conversations,
-      the laughs, the little fights, the silly moments,
-      and everything in between...
+    <h2>
+        Little Moments ❤️
+    </h2>
 
-      <br><br>
 
-      <span class="highlight">you became one of the most special parts of my life.</span>
+    <p class="memoryIntro">
+
+        These are just a few moments
+        I never want to forget.
+
     </p>
 
-  </section>
-
-
-  <!-- MEMORIES -->
-  <section class="memories">
-
-    <div class="section-label">Our Memories</div>
-
-    <h2>Little Moments ❤️</h2>
-
-    <p class="memory-intro">
-      These are just a few moments I never want to forget.
-    </p>
 
     <div class="gallery">
 
-      <div class="photo">Your first photo together 📸</div>
-      <div class="photo">A memory I'll always keep ❤️</div>
-      <div class="photo">One of my favourite moments 🥰</div>
-      <div class="photo">That smile of yours ✨</div>
-      <div class="photo">Just us 💕</div>
-      <div class="photo">A moment worth remembering 🌹</div>
-      <div class="photo">Another beautiful memory 📷</div>
-      <div class="photo">One more for the memories ❤️</div>
-      <div class="photo">And many more to come... ✨</div>
+        <div class="photo">
+            Your first photo together 📸
+        </div>
+
+        <div class="photo">
+            A memory I'll always keep ❤️
+        </div>
+
+        <div class="photo">
+            One of my favourite moments 🥰
+        </div>
+
+        <div class="photo">
+            That smile of yours ✨
+        </div>
+
+        <div class="photo">
+            Just us 💕
+        </div>
+
+        <div class="photo">
+            A moment worth remembering 🌹
+        </div>
+
+        <div class="photo">
+            Another beautiful memory 📷
+        </div>
+
+        <div class="photo">
+            One more for the memories ❤️
+        </div>
+
+        <div class="photo">
+            And many more to come... ✨
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- LETTER -->
-  <section class="letter">
 
-    <div class="section-label">A Letter For You</div>
+<!-- ======================================================
+     SCENE 4
+     LETTER
+======================================================= -->
 
-    <div class="letter-box">
+<section class="letter">
 
-      <h2>Bhavana...</h2>
+    <div class="sectionLabel">
+        A Letter For You
+    </div>
 
-      <p>
-        I don't think I say it enough, but I'm genuinely grateful
-        that you came into my life.
-      </p>
 
-      <p>
-        Thank you for all the smiles, conversations, memories,
-        patience, love and those little moments that somehow
-        became my favourite memories.
-      </p>
+    <div class="letterBox">
 
-      <p>
-        This past year has been beautiful because you were a part of it.
-        And if I had the chance to do it all again,
-        I would still choose you.
-      </p>
+        <h2>
+            Bhavana...
+        </h2>
 
-      <p>
-        Here's to everything we've already shared,
-        and everything that is still waiting for us.
-      </p>
 
-      <div class="signature">
-        Always yours ❤️
-      </div>
+        <p>
+
+            I don't think I say it enough,
+            but I'm genuinely grateful that
+            you came into my life.
+
+        </p>
+
+
+        <p>
+
+            Thank you for all the smiles,
+            conversations, memories, patience,
+            love and those little moments that
+            somehow became my favourite memories.
+
+        </p>
+
+
+        <p>
+
+            This past year has been beautiful
+            because you were a part of it.
+
+            And if I had the chance to do it all again,
+            I would still choose you.
+
+        </p>
+
+
+        <p>
+
+            Here's to everything we've already shared,
+            and everything that is still waiting for us.
+
+        </p>
+
+
+        <div class="signature">
+
+            Always yours ❤️
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- FINAL -->
-  <section class="final">
 
-    <div class="big-heart">❤️</div>
+<!-- ======================================================
+     SCENE 5
+     BIRTHDAY ENDING
+======================================================= -->
 
-    <h2>Happy Birthday, Bhavana</h2>
+<section class="final">
+
+    <div class="bigHeart">
+        ❤️
+    </div>
+
+
+    <h2>
+        Happy Birthday, Bhavana
+    </h2>
+
 
     <p>
-      I hope this year brings you everything your heart wishes for.
 
-      <br><br>
+        I hope this year brings you everything
+        your heart wishes for.
 
-      Keep smiling.
-      Keep being the beautiful person you are.
+        <br><br>
 
-      <br><br>
+        Keep smiling.
+        Keep being the beautiful person you are.
 
-      And remember...
+        <br><br>
 
-      <br>
+        And remember...
 
-      <strong>
-        I'll always be cheering for you.
-      </strong>
+        <br>
+
+        <strong>
+            I'll always be cheering for you.
+        </strong>
+
     </p>
 
+
     <div class="birthday">
-      October 2nd • Your Special Day ✨
+
+        October 2nd • Your Special Day ✨
+
     </div>
 
-  </section>
+</section>
 
 
-  <footer>
+
+<footer>
+
     Made with ❤️ for Bhavana Manasa
-  </footer>
+
+</footer>
 
 
-  <script>
-    console.log("Made with love ❤️");
-  </script>
+
+<!-- ======================================================
+     FLOATING HEARTS
+======================================================= -->
+
+<div
+    class="floatingHeart"
+    style="left:10%;animation-delay:0s;"
+>
+    ❤️
+</div>
+
+<div
+    class="floatingHeart"
+    style="left:25%;animation-delay:2s;"
+>
+    ♡
+</div>
+
+<div
+    class="floatingHeart"
+    style="left:45%;animation-delay:4s;"
+>
+    ❤️
+</div>
+
+<div
+    class="floatingHeart"
+    style="left:65%;animation-delay:1s;"
+>
+    ♡
+</div>
+
+<div
+    class="floatingHeart"
+    style="left:85%;animation-delay:3s;"
+>
+    ❤️
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   HEART → MOON ANIMATION
+========================================================= */
+
+const heartMoon =
+    document.getElementById("heartMoon");
+
+
+/*
+   The heart appears first.
+
+   Then after approximately 6 seconds,
+   it begins transforming into the Moon.
+*/
+
+setTimeout(() => {
+
+    heartMoon.classList.add("transformMoon");
+
+    setTimeout(() => {
+
+        heartMoon.classList.add("showMoon");
+
+    }, 500);
+
+}, 6000);
+
+
+
+/* =========================================================
+   OPTIONAL:
+   Click "Begin Our Story" and smoothly enter story
+========================================================= */
+
+document
+    .querySelector(".startButton")
+    .addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const story =
+            document.getElementById("story");
+
+        story.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+
+</script>
+
 
 </body>
 </html>
