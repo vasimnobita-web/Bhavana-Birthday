@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For Bhavana Manasa ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #0d0710;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      opacity: 0.35;
+      animation: float 8s linear infinite;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Opening */
+    .hero {
+      background:
+        radial-gradient(circle at 50% 40%, #5c183c 0%, #240d25 35%, #0d0710 75%);
+      flex-direction: column;
+    }
+
+    .small-text {
+      font-size: 15px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #e8b7c9;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 10vw, 95px);
+      font-weight: normal;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 span {
+      color: #f3b6ce;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 19px;
+      line-height: 1.8;
+      color: #e9dce2;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 32px;
+      border: 1px solid #e8a9c4;
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      transition: 0.4s;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .button:hover {
+      background: #e8a9c4;
+      color: #240d25;
+      transform: scale(1.05);
+    }
+
+    /* Story */
+    .story {
+      background: linear-gradient(180deg, #0d0710, #190b18);
+      flex-direction: column;
+    }
+
+    .section-label {
+      color: #e8a9c4;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .story h2,
+    .letter h2,
+    .final h2 {
+      font-size: clamp(35px, 7vw, 65px);
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .story-text {
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 2;
+      color: #ddd0d7;
+    }
+
+    .highlight {
+      color: #f2afca;
+    }
+
+    /* Memories */
+    .memories {
+      background: #120912;
+      flex-direction: column;
+    }
+
+    .memories h2 {
+      font-size: clamp(35px, 7vw, 65px);
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    .memory-intro {
+      color: #cdbfc6;
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .photo {
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, #3d1934, #1c1020);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bdaeb7;
+      font-size: 15px;
+      padding: 20px;
+      transition: 0.5s;
+      overflow: hidden;
+    }
+
+    .photo:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #e8a9c4;
+    }
+
+    /* Letter */
+    .letter {
+      background:
+        radial-gradient(circle at center, #3c1830, #100710 70%);
+      flex-direction: column;
+    }
+
+    .letter-box {
+      max-width: 750px;
+      padding: 45px 30px;
+      border: 1px solid rgba(232,169,196,0.3);
+      border-radius: 25px;
+      background: rgba(255,255,255,0.035);
+      backdrop-filter: blur(10px);
+    }
+
+    .letter-box p {
+      font-size: 20px;
+      line-height: 2;
+      color: #e5d8df;
+      margin-bottom: 20px;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #f1b2cb;
+      font-style: italic;
+    }
+
+    /* Final */
+    .final {
+      background:
+        radial-gradient(circle at center, #651c43 0%, #270d28 40%, #0d0710 75%);
+      flex-direction: column;
+    }
+
+    .final .big-heart {
+      font-size: 80px;
+      margin-bottom: 25px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    .final p {
+      max-width: 650px;
+      font-size: 20px;
+      line-height: 1.9;
+      color: #eadde3;
+      margin-bottom: 30px;
+    }
+
+    .birthday {
+      font-size: 18px;
+      letter-spacing: 3px;
+      color: #f2b3cc;
+      text-transform: uppercase;
+    }
+
+    footer {
+      background: #080408;
+      padding: 25px;
+      text-align: center;
+      color: #756772;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero p,
+      .story-text,
+      .letter-box p,
+      .final p {
+        font-size: 17px;
+      }
+
+      .letter-box {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+  <div class="heart" style="left:25%; animation-delay:2s;">♡</div>
+  <div class="heart" style="left:45%; animation-delay:4s;">❤️</div>
+  <div class="heart" style="left:65%; animation-delay:1s;">♡</div>
+  <div class="heart" style="left:85%; animation-delay:3s;">❤️</div>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="small-text">A little something for you</div>
+
+    <h1>For <span>Bhavana</span> ❤️</h1>
+
+    <p>
+      One year. So many memories.
+      And somehow, I still can't believe I get to call you mine.
+    </p>
+
+    <a href="#story" class="button">Begin Our Story ✨</a>
+
+  </section>
+
+
+  <!-- STORY -->
+  <section class="story" id="story">
+
+    <div class="section-label">Chapter One</div>
+
+    <h2>One Year of Us</h2>
+
+    <p class="story-text">
+      A year ago, I didn't know how many beautiful memories
+      we were about to create together.
+
+      <br><br>
+
+      Somewhere between the conversations,
+      the laughs, the little fights, the silly moments,
+      and everything in between...
+
+      <br><br>
+
+      <span class="highlight">you became one of the most special parts of my life.</span>
+    </p>
+
+  </section>
+
+
+  <!-- MEMORIES -->
+  <section class="memories">
+
+    <div class="section-label">Our Memories</div>
+
+    <h2>Little Moments ❤️</h2>
+
+    <p class="memory-intro">
+      These are just a few moments I never want to forget.
+    </p>
+
+    <div class="gallery">
+
+      <div class="photo">Your first photo together 📸</div>
+      <div class="photo">A memory I'll always keep ❤️</div>
+      <div class="photo">One of my favourite moments 🥰</div>
+      <div class="photo">That smile of yours ✨</div>
+      <div class="photo">Just us 💕</div>
+      <div class="photo">A moment worth remembering 🌹</div>
+      <div class="photo">Another beautiful memory 📷</div>
+      <div class="photo">One more for the memories ❤️</div>
+      <div class="photo">And many more to come... ✨</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LETTER -->
+  <section class="letter">
+
+    <div class="section-label">A Letter For You</div>
+
+    <div class="letter-box">
+
+      <h2>Bhavana...</h2>
+
+      <p>
+        I don't think I say it enough, but I'm genuinely grateful
+        that you came into my life.
+      </p>
+
+      <p>
+        Thank you for all the smiles, conversations, memories,
+        patience, love and those little moments that somehow
+        became my favourite memories.
+      </p>
+
+      <p>
+        This past year has been beautiful because you were a part of it.
+        And if I had the chance to do it all again,
+        I would still choose you.
+      </p>
+
+      <p>
+        Here's to everything we've already shared,
+        and everything that is still waiting for us.
+      </p>
+
+      <div class="signature">
+        Always yours ❤️
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+  <section class="final">
+
+    <div class="big-heart">❤️</div>
+
+    <h2>Happy Birthday, Bhavana</h2>
+
+    <p>
+      I hope this year brings you everything your heart wishes for.
+
+      <br><br>
+
+      Keep smiling.
+      Keep being the beautiful person you are.
+
+      <br><br>
+
+      And remember...
+
+      <br>
+
+      <strong>
+        I'll always be cheering for you.
+      </strong>
+    </p>
+
+    <div class="birthday">
+      October 2nd • Your Special Day ✨
+    </div>
+
+  </section>
+
+
+  <footer>
+    Made with ❤️ for Bhavana Manasa
+  </footer>
+
+
+  <script>
+    console.log("Made with love ❤️");
+  </script>
+
+</body>
+</html>
