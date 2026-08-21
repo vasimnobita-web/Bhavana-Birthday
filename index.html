@@ -2,1079 +2,2123 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>For Bhavana Manasa ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   BASIC RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
 }
 
-body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #050308;
-    color: white;
-    overflow-x: hidden;
+body{
+    background:#030205;
+    color:#fff;
+    font-family:"Cormorant Garamond",serif;
 }
 
-section {
-    min-height: 100vh;
-}
+/* =====================================================
+   SCENES
+===================================================== */
 
+.scene{
+    position:fixed;
+    inset:0;
 
-/* =========================================================
-   CINEMATIC BIRTH SKY
-========================================================= */
+    width:100%;
+    height:100%;
 
-#birthSky {
-    position: relative;
-    height: 100vh;
-    min-height: 650px;
-    overflow: hidden;
+    overflow:hidden;
 
-    background:
-        radial-gradient(
-            ellipse at 50% 65%,
-            rgba(54, 25, 74, 0.7) 0%,
-            rgba(16, 10, 28, 0.8) 35%,
-            #030207 80%
-        );
+    opacity:0;
+    visibility:hidden;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
+    transform:scale(1.04);
 
     transition:
-        opacity 2s ease,
-        transform 2s ease;
+        opacity 1.2s ease,
+        transform 1.4s ease;
 }
 
+.scene.active{
+    opacity:1;
+    visibility:visible;
 
-/* Sky after opening */
-
-#birthSky.hideSky {
-    opacity: 0;
-    transform: scale(1.08);
-    pointer-events: none;
+    transform:scale(1);
 }
 
-
-/* =========================================================
+/* =====================================================
    STARS
-========================================================= */
+===================================================== */
 
-.starField {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
+.stars{
+    position:absolute;
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
 }
 
-.star {
-    position: absolute;
+.star{
+    position:absolute;
 
-    width: 2px;
-    height: 2px;
+    width:2px;
+    height:2px;
 
-    background: white;
-    border-radius: 50%;
+    border-radius:50%;
 
-    opacity: 0;
-
-    animation:
-        starAppear 2s forwards,
-        twinkle 3s ease-in-out infinite alternate;
-}
-
-.star.big {
-    width: 3px;
-    height: 3px;
-}
-
-@keyframes starAppear {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 0.8;
-        transform: scale(1);
-    }
-}
-
-@keyframes twinkle {
-    from {
-        opacity: 0.25;
-    }
-
-    to {
-        opacity: 0.9;
-    }
-}
-
-
-/* =========================================================
-   BIRTH SKY TEXT
-========================================================= */
-
-.skyContent {
-    position: relative;
-    z-index: 10;
-
-    width: 90%;
-    max-width: 850px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    opacity: 0;
-
-    animation: contentAppear 2s ease forwards;
-    animation-delay: 2s;
-}
-
-@keyframes contentAppear {
-
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-/* Small opening text */
-
-.skySmall {
-    font-size: 13px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-
-    color: rgba(255,255,255,0.6);
-
-    margin-bottom: 20px;
-}
-
-
-/* =========================================================
-   PINK HEART
-========================================================= */
-
-.heartReveal {
-
-    width: 125px;
-    height: 125px;
-
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 35px;
-
-    opacity: 0;
-
-    animation:
-        heartAppear 2s ease forwards,
-        heartGlow 2s ease-in-out infinite alternate;
-
-    animation-delay: 3s, 5s;
-}
-
-
-/* actual heart */
-
-.heartShape {
-
-    font-family: Arial, sans-serif;
-
-    font-size: 92px;
-
-    color: #ffb6d5;
-
-    text-shadow:
-        0 0 15px rgba(255, 159, 200, 0.9),
-        0 0 40px rgba(255, 111, 174, 0.7),
-        0 0 80px rgba(255, 100, 170, 0.45);
-
-    transform: scale(1);
-
-    animation:
-        heartPulse 2s ease-in-out infinite alternate;
-}
-
-
-/* pink glow behind heart */
-
-.heartGlow {
-
-    position: absolute;
-
-    width: 130px;
-    height: 130px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 140, 190, 0.18);
-
-    filter: blur(25px);
-
-    z-index: -1;
-}
-
-@keyframes heartAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(0.2);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes heartPulse {
-
-    from {
-        transform: scale(0.92);
-    }
-
-    to {
-        transform: scale(1.08);
-    }
-}
-
-@keyframes heartGlow {
-
-    from {
-        filter: brightness(0.8);
-    }
-
-    to {
-        filter: brightness(1.25);
-    }
-}
-
-
-/* =========================================================
-   HEART → MOON TRANSITION
-========================================================= */
-
-.heartReveal.transformMoon {
-
-    animation:
-        heartToMoon 3s cubic-bezier(.7,0,.2,1) forwards;
-}
-
-@keyframes heartToMoon {
-
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    35% {
-        transform: scale(1.5);
-        opacity: 1;
-    }
-
-    70% {
-        transform: scale(0.85);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-
-/* Hide heart */
-
-.heartReveal.transformMoon .heartShape {
-
-    animation:
-        heartDisappear 3s ease forwards;
-}
-
-@keyframes heartDisappear {
-
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    35% {
-        opacity: 0.9;
-        transform: scale(1.3);
-    }
-
-    60% {
-        opacity: 0;
-        transform: scale(0.3);
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
-/* =========================================================
-   MOON
-========================================================= */
-
-.moon {
-
-    position: absolute;
-
-    width: 105px;
-    height: 105px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 35%,
-            #fffdf7 0%,
-            #eeeae3 45%,
-            #c9c4c0 100%
-        );
+    background:#fff;
 
     box-shadow:
-        0 0 25px rgba(255,255,255,0.75),
-        0 0 70px rgba(220,215,255,0.35);
+        0 0 7px #fff,
+        0 0 15px #fff;
 
-    opacity: 0;
-
-    transform: scale(0.3);
-
-    overflow: hidden;
+    animation:
+        twinkle var(--speed)
+        ease-in-out infinite;
 }
 
+.star.big{
+    width:3px;
+    height:3px;
+}
 
-/*
-   Dark overlay creates a waxing/First Quarter appearance.
-   This is intentionally NOT a full moon.
-*/
+@keyframes twinkle{
 
-.moon::after {
+    0%,
+    100%{
+        opacity:.15;
+        transform:scale(.5);
+    }
 
-    content: "";
+    50%{
+        opacity:1;
+        transform:scale(1.7);
+    }
+}
 
-    position: absolute;
+/* =====================================================
+   COMMON BUTTON
+===================================================== */
 
-    width: 110px;
-    height: 110px;
+.magic{
+    position:relative;
 
-    border-radius: 50%;
+    border:1px solid #ffffff55;
 
-    left: -45px;
-    top: -2px;
+    background:#ffffff12;
+
+    color:#fff;
+
+    padding:13px 23px;
+
+    border-radius:50px;
+
+    font:
+        10px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+}
+
+.magic:hover{
+    transform:translateY(-3px);
+
+    background:#ffffff25;
+}
+
+/* =====================================================
+   SCENE 1
+===================================================== */
+
+#scene1{
 
     background:
         radial-gradient(
-            circle,
-            rgba(8,7,14,0.98) 0%,
-            rgba(8,7,14,0.96) 70%,
-            rgba(8,7,14,0.75) 100%
+            circle at 50% 42%,
+            #42283e 0%,
+            #1c101f 45%,
+            #040306 100%
         );
 }
 
+.center{
+    position:absolute;
+    inset:0;
 
-/* Moon craters */
+    z-index:10;
 
-.crater {
+    display:flex;
 
-    position: absolute;
+    flex-direction:column;
 
-    border-radius: 50%;
+    align-items:center;
+    justify-content:center;
 
-    background: rgba(100,95,90,0.18);
-
-    z-index: 3;
+    text-align:center;
 }
 
-.crater.one {
-    width: 16px;
-    height: 16px;
-    top: 25px;
-    right: 23px;
+/* =====================================================
+   CANDLE
+===================================================== */
+
+.candlePage{
+    transition:
+        opacity 1s ease,
+        transform 1.2s ease,
+        filter 1.2s ease;
 }
 
-.crater.two {
-    width: 9px;
-    height: 9px;
-    top: 55px;
-    right: 38px;
+.candlePage.hide{
+
+    opacity:0;
+
+    transform:scale(1.15);
+
+    filter:blur(10px);
 }
 
-.crater.three {
-    width: 13px;
-    height: 13px;
-    bottom: 20px;
-    right: 20px;
+.wish{
+    margin-bottom:18px;
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#ffffffaa;
 }
 
+.cake{
+    position:relative;
 
-/* show moon */
-
-.heartReveal.showMoon .moon {
-
-    animation:
-        moonReveal 3s cubic-bezier(.2,.8,.2,1) forwards;
-
-    animation-delay: 0.2s;
+    width:160px;
+    height:125px;
 }
 
-@keyframes moonReveal {
+.plate{
+    position:absolute;
 
-    0% {
-        opacity: 0;
-        transform: scale(0.3) rotate(-15deg);
-    }
+    left:50%;
+    bottom:3px;
 
-    45% {
-        opacity: 1;
-        transform: scale(1.25) rotate(5deg);
-    }
+    transform:translateX(-50%);
 
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-}
+    width:170px;
+    height:18px;
 
-
-/* =========================================================
-   DATE + MESSAGE
-========================================================= */
-
-.skyDate {
-
-    font-size: clamp(20px, 4vw, 32px);
-
-    letter-spacing: 7px;
-
-    margin-top: 20px;
-
-    color: #f4dbe6;
-
-    opacity: 0;
-
-    animation:
-        dateAppear 2s ease forwards;
-
-    animation-delay: 8s;
-}
-
-.skyDate span {
-
-    display: block;
-
-    font-size: 12px;
-
-    letter-spacing: 5px;
-
-    margin-top: 12px;
-
-    color: rgba(255,255,255,0.5);
-}
-
-@keyframes dateAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-.skyLine {
-
-    max-width: 750px;
-
-    margin-top: 32px;
-
-    font-size: clamp(19px, 3vw, 28px);
-
-    line-height: 1.7;
-
-    color: #f4e7ed;
-
-    opacity: 0;
-
-    animation:
-        lineAppear 2.5s ease forwards;
-
-    animation-delay: 9.5s;
-}
-
-@keyframes lineAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-.birthName {
-
-    margin-top: 25px;
-
-    font-size: clamp(25px, 5vw, 42px);
-
-    color: #ffb8d4;
-
-    opacity: 0;
-
-    animation:
-        nameAppear 2s ease forwards;
-
-    animation-delay: 11s;
-}
-
-@keyframes nameAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-
-/* =========================================================
-   CONTINUE BUTTON
-========================================================= */
-
-.startButton {
-
-    margin-top: 40px;
-
-    padding: 15px 32px;
-
-    border: 1px solid rgba(255,190,215,0.6);
-
-    border-radius: 50px;
-
-    background: rgba(255,255,255,0.03);
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 15px;
-
-    letter-spacing: 2px;
-
-    opacity: 0;
-
-    animation:
-        buttonAppear 2s ease forwards;
-
-    animation-delay: 12.5s;
-
-    transition: 0.4s;
-}
-
-.startButton:hover {
-
-    background: rgba(255,180,210,0.18);
-
-    border-color: #ffb8d4;
-
-    transform: scale(1.05);
-}
-
-@keyframes buttonAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   STORY SECTION
-========================================================= */
-
-.story {
+    border-radius:50%;
 
     background:
         linear-gradient(
-            180deg,
-            #0d0710,
-            #190b18
+            #ffe5ef,
+            #a96080
         );
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 70px 20px;
 }
 
-.sectionLabel {
+.cakebody{
 
-    color: #e8a9c4;
+    position:absolute;
 
-    letter-spacing: 4px;
+    left:50%;
+    bottom:17px;
 
-    text-transform: uppercase;
+    transform:translateX(-50%);
 
-    font-size: 13px;
+    width:120px;
+    height:67px;
 
-    margin-bottom: 20px;
-}
-
-.story h2 {
-
-    font-size: clamp(38px, 7vw, 65px);
-
-    font-weight: normal;
-
-    margin-bottom: 25px;
-}
-
-.storyText {
-
-    max-width: 700px;
-
-    font-size: 20px;
-
-    line-height: 2;
-
-    color: #ddd0d7;
-}
-
-.highlight {
-
-    color: #f2afca;
-}
-
-
-/* =========================================================
-   MEMORIES
-========================================================= */
-
-.memories {
-
-    background: #120912;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 70px 20px;
-}
-
-.memories h2 {
-
-    font-size: clamp(38px, 7vw, 65px);
-
-    font-weight: normal;
-
-    margin-bottom: 15px;
-}
-
-.memoryIntro {
-
-    color: #cdbfc6;
-
-    margin-bottom: 40px;
-}
-
-.gallery {
-
-    width: 100%;
-
-    max-width: 1000px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-.photo {
-
-    aspect-ratio: 1 / 1;
-
-    border-radius: 18px;
+    border-radius:
+        12px 12px 20px 20px;
 
     background:
         linear-gradient(
             135deg,
-            #3d1934,
-            #1c1020
+            #fffaff,
+            #e6a5c1
         );
 
-    border:
-        1px solid rgba(255,255,255,0.12);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #bdaeb7;
-
-    font-size: 15px;
-
-    padding: 20px;
-
-    transition: 0.5s;
+    box-shadow:
+        0 10px 30px #0008;
 }
 
-.photo:hover {
+.icing{
+
+    position:absolute;
+
+    left:50%;
+    bottom:68px;
+
+    transform:translateX(-50%);
+
+    width:130px;
+    height:24px;
+
+    border-radius:50%;
+
+    background:#fffaff;
+}
+
+.candle{
+
+    position:absolute;
+
+    left:50%;
+    bottom:78px;
+
+    transform:translateX(-50%);
+
+    width:14px;
+    height:60px;
+
+    border-radius:5px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #fff 0 5px,
+            #ec9fbd 5px 10px
+        );
+}
+
+.wick{
+
+    position:absolute;
+
+    left:50%;
+    top:-9px;
+
+    width:2px;
+    height:10px;
+
+    transform:translateX(-50%);
+
+    background:#222;
+}
+
+.flame{
+
+    position:absolute;
+
+    left:50%;
+    top:-42px;
+
+    width:22px;
+    height:34px;
 
     transform:
-        translateY(-8px)
-        scale(1.02);
+        translateX(-50%)
+        rotate(45deg);
 
-    border-color: #e8a9c4;
+    border-radius:
+        50% 50% 50% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffbc0,
+            #ffae38,
+            #ff557a
+        );
+
+    box-shadow:
+        0 0 12px #fff,
+        0 0 35px #ffb52e,
+        0 0 70px #ff6d9b;
+
+    animation:flame .7s alternate infinite;
 }
 
+@keyframes flame{
 
-/* =========================================================
-   LETTER
-========================================================= */
+    to{
+        transform:
+            translateX(-50%)
+            rotate(49deg)
+            scale(1.08);
+    }
+}
 
-.letter {
+.smoke{
+
+    position:absolute;
+
+    left:50%;
+    top:-55px;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:#ffffff55;
+
+    filter:blur(5px);
+
+    opacity:0;
+}
+
+.smoke.go{
+    animation:
+        smoke 2.7s ease-out forwards;
+}
+
+@keyframes smoke{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,0)
+            scale(.5);
+    }
+
+    20%{
+        opacity:.6;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(25px,-125px)
+            scale(4);
+    }
+}
+
+.makeWish{
+
+    margin-top:7px;
+
+    font:
+        clamp(35px,7vw,65px)
+        "Great Vibes",
+        cursive;
+
+    color:#ffd7e7;
+
+    text-shadow:
+        0 0 22px #ff98bb;
+}
+
+.sub{
+
+    margin:
+        3px 0 24px;
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#ffffffbb;
+}
+
+/* =====================================================
+   BIRTHDAY
+===================================================== */
+
+.bdayPage{
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(.7);
+
+    transition:
+        1.4s
+        cubic-bezier(.16,.8,.2,1);
+}
+
+.bdayPage.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:scale(1);
+}
+
+.birthday{
+
+    font:
+        clamp(55px,11vw,120px)
+        "Great Vibes",
+        cursive;
+
+    color:#ffd7e7;
+
+    text-shadow:
+        0 0 20px #ff9fc1,
+        0 0 65px #ff4c8d;
+}
+
+.name{
+
+    margin-top:-5px;
+
+    font-size:
+        clamp(28px,5vw,54px);
+
+    letter-spacing:3px;
+}
+
+.date{
+
+    margin-top:15px;
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:4px;
+
+    color:#ffffffbb;
+}
+
+/* =====================================================
+   LIGHT EXPLOSION
+===================================================== */
+
+.lightBurst{
+
+    position:fixed;
+
+    z-index:1000;
+
+    left:50%;
+    top:50%;
+
+    width:25px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.1);
+
+    box-shadow:
+        0 0 30px #fff,
+        0 0 80px #ffd6e8,
+        0 0 160px #ff8db7;
+}
+
+.lightBurst.go{
+
+    animation:
+        lightExplosion
+        1.9s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes lightExplosion{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.1);
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(100);
+    }
+}
+
+/* =====================================================
+   MOON SCENE
+===================================================== */
+
+#moonScene{
 
     background:
         radial-gradient(
-            circle at center,
-            #3c1830,
-            #100710 70%
+            circle at 50% 43%,
+            #1e2441,
+            #080a17 58%,
+            #020207
         );
-
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 70px 20px;
 }
 
-.letterBox {
+.moonGlow{
 
-    max-width: 750px;
+    position:absolute;
 
-    padding: 45px 30px;
+    left:50%;
+    top:43%;
+
+    width:min(90vw,560px);
+    height:min(90vw,560px);
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffffff4d,
+            #cbd8ff18 40%,
+            transparent 72%
+        );
+
+    filter:blur(10px);
+
+    animation:
+        moonHalo 4s
+        ease-in-out infinite;
+}
+
+@keyframes moonHalo{
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.1);
+    }
+}
+
+/*
+   IMPORTANT:
+   This uses the moon image you provided.
+*/
+
+.moon{
+
+    position:absolute;
+
+    z-index:5;
+
+    left:50%;
+    top:43%;
+
+    width:min(72vw,390px);
+    height:min(72vw,390px);
+
+    object-fit:contain;
+
+    opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.08)
+        rotate(-20deg);
+
+    filter:
+        drop-shadow(0 0 20px #fff)
+        drop-shadow(0 0 75px #9daeff);
+}
+
+.moon.reveal{
+
+    animation:
+        moonReveal
+        2.5s
+        cubic-bezier(.16,.8,.2,1)
+        forwards;
+}
+
+@keyframes moonReveal{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.08)
+            rotate(-25deg);
+
+        filter:blur(15px);
+    }
+
+    30%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.12)
+            rotate(5deg);
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1)
+            rotate(0);
+
+        filter:
+            drop-shadow(0 0 20px #fff)
+            drop-shadow(0 0 75px #9daeff);
+    }
+}
+
+.moonText{
+
+    position:absolute;
+
+    z-index:10;
+
+    left:0;
+    right:0;
+
+    bottom:5%;
+
+    text-align:center;
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:1.2s;
+}
+
+.moonText.show{
+
+    opacity:1;
+
+    transform:none;
+}
+
+.moonDate{
+
+    margin-bottom:8px;
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:3px;
+}
+
+.moonQuote{
+
+    font-size:
+        clamp(18px,3vw,28px);
+
+    font-style:italic;
+}
+
+/* =====================================================
+   STAR FIELD TRANSITION
+===================================================== */
+
+.starWarp{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:2000;
+
+    background:#020207;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    overflow:hidden;
+}
+
+.starWarp.active{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.warpStar{
+
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 8px #fff;
+
+    animation:
+        warpStar
+        1.8s
+        ease-in
+        forwards;
+}
+
+@keyframes warpStar{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translate(0,0)
+            scale(.5);
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(3);
+    }
+}
+
+/* =====================================================
+   LETTER SCENE
+===================================================== */
+
+#scene2{
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #fffafd,
+            #ffe7f0 52%,
+            #f1b2cb
+        );
+
+    color:#603247;
+}
+
+/* COVER */
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:20px;
+
+    transition:
+        1s ease;
+}
+
+.cover.out{
+
+    opacity:0;
+
+    transform:
+        scale(1.08);
+
+    filter:blur(6px);
+
+    pointer-events:none;
+}
+
+.kicker{
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#a05f79;
+}
+
+.coverTitle{
+
+    max-width:850px;
+
+    margin:
+        10px 0 25px;
+
+    font-size:
+        clamp(34px,7vw,72px);
+
+    line-height:1.02;
+
+    font-weight:500;
+
+    color:#6c3048;
+}
+
+/* ENVELOPE */
+
+.envelope{
+
+    position:relative;
+
+    width:min(370px,84vw);
+    height:min(240px,54vw);
+
+    cursor:pointer;
+
+    filter:
+        drop-shadow(
+            0 25px 35px #813b5655
+        );
+}
+
+.envBase{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
 
     border:
-        1px solid
-        rgba(232,169,196,0.3);
+        1px solid #e0adbf;
 
-    border-radius: 25px;
+    border-radius:8px;
 
     background:
-        rgba(255,255,255,0.035);
-
-    backdrop-filter: blur(10px);
+        linear-gradient(
+            145deg,
+            #fff,
+            #f8dce7
+        );
 }
 
-.letterBox h2 {
+.eleft,
+.eright,
+.ebottom{
+
+    position:absolute;
+
+    z-index:2;
+}
+
+.eleft{
+
+    left:0;
+    bottom:0;
+
+    width:50%;
+    height:100%;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 100%,
+            0 100%
+        );
+
+    background:#f6d5e2;
+}
+
+.eright{
+
+    right:0;
+    bottom:0;
+
+    width:50%;
+    height:100%;
+
+    clip-path:
+        polygon(
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    background:#f3cedd;
+}
+
+.ebottom{
+
+    inset:0;
+
+    z-index:3;
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 39%,
+            100% 100%
+        );
+
+    background:#f9e0e9;
+}
+
+.flap{
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:63%;
+
+    z-index:5;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8fb,
+            #f1c9da
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    transform-origin:top;
+
+    transition:
+        transform 1s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.seal{
+
+    position:absolute;
+
+    z-index:8;
+
+    left:50%;
+    top:53%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#d66d91;
+
+    color:#fff;
+
+    font-size:25px;
+
+    box-shadow:
+        0 5px 20px #9a3e6366;
+
+    transition:.5s;
+}
+
+.envelope.open .flap{
+
+    transform:rotateX(180deg);
+}
+
+.envelope.open .seal{
+
+    opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.2);
+}
+
+.tap{
+
+    margin-top:18px;
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:3px;
+
+    color:#9d5872;
+
+    animation:
+        tapPulse
+        1.8s infinite;
+}
+
+@keyframes tapPulse{
+
+    50%{
+        opacity:.35;
+    }
+}
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letterLayer{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:15;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:14px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    background:#fff0f6ed;
+
+    transition:.5s;
+}
+
+.letterLayer.show{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.paper{
+
+    position:relative;
+
+    width:min(930px,94vw);
+
+    height:min(84vh,720px);
+
+    padding:
+        clamp(22px,4vw,50px);
+
+    overflow:hidden;
+
+    background:#fffdfd;
+
+    box-shadow:
+        0 35px 100px #833e5a55;
+
+    transform:
+        translateY(190px)
+        scale(.18)
+        rotateX(75deg);
+
+    transform-origin:
+        bottom center;
+
+    opacity:0;
+}
+
+.letterLayer.show .paper{
+
+    animation:
+        paperUnfold
+        2.2s
+        cubic-bezier(.16,.82,.2,1)
+        forwards;
+}
+
+@keyframes paperUnfold{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(190px)
+            scale(.18)
+            rotateX(75deg);
+    }
+
+    25%{
+        opacity:1;
+    }
+
+    50%{
+
+        transform:
+            translateY(-35px)
+            scale(1.04)
+            rotateX(-12deg);
+    }
+
+    70%{
+
+        transform:
+            translateY(8px)
+            scale(1.01)
+            rotateX(5deg);
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
+    }
+}
+
+.letterHead{
+
+    text-align:center;
+}
+
+.letterHead small{
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#aa6680;
+}
+
+.letterHead h2{
+
+    margin:
+        6px 0;
 
     font-size:
-        clamp(35px, 7vw, 60px);
+        clamp(28px,5vw,53px);
 
-    font-weight: normal;
+    line-height:1.05;
 
-    margin-bottom: 25px;
+    font-weight:500;
+
+    color:#6a3047;
 }
 
-.letterBox p {
-
-    font-size: 20px;
-
-    line-height: 2;
-
-    color: #e5d8df;
-
-    margin-bottom: 20px;
+.heart{
+    color:#d66d91;
 }
 
-.signature {
+.letterBody{
 
-    margin-top: 30px;
+    height:
+        calc(100% - 145px);
 
-    font-size: 24px;
+    overflow:auto;
 
-    color: #f1b2cb;
+    scrollbar-width:none;
 
-    font-style: italic;
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:13px;
 }
 
+.letterBody::-webkit-scrollbar{
+    display:none;
+}
 
-/* =========================================================
-   FINAL BIRTHDAY SECTION
-========================================================= */
+.letterBody p{
 
-.final {
+    font-size:
+        clamp(12px,1.6vw,18px);
+
+    line-height:1.48;
+
+    color:#593142;
+}
+
+.divider{
+
+    height:1px;
+
+    margin:
+        0 15%;
+
+    background:#e8bdcc;
+}
+
+/* =====================================================
+   OUR MEMORIES BUTTON
+===================================================== */
+
+.memoriesButtonWrap{
+
+    position:absolute;
+
+    z-index:30;
+
+    left:0;
+    right:0;
+
+    bottom:24px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+
+    transform:
+        translateY(35px)
+        scale(.9);
+
+    pointer-events:none;
+
+    transition:
+        opacity 1s ease,
+        transform 1s
+        cubic-bezier(.16,.8,.2,1);
+}
+
+.memoriesButtonWrap.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events:auto;
+}
+
+.memoriesBtn{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    min-width:190px;
+
+    padding:13px 22px;
+
+    border:
+        1px solid #d88aa7;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffffe8,
+            #ffe1edcf
+        );
+
+    color:#71354d;
+
+    font:
+        20px
+        "Cormorant Garamond",
+        serif;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 30px #8c375d2e;
+
+    backdrop-filter:blur(12px);
+
+    transition:.4s;
+
+    overflow:hidden;
+}
+
+.memoriesBtn:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 14px 35px #8c375d40,
+        0 0 35px #d66d9140;
+}
+
+.memoriesHeart{
+
+    color:#d45d88;
+
+    font-size:25px;
+
+    text-shadow:
+        0 0 8px #ff9dbc,
+        0 0 18px #ffb7cc;
+
+    animation:
+        heartBeat
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    15%{
+        transform:scale(1.25);
+    }
+
+    30%{
+        transform:scale(1);
+    }
+
+    45%{
+        transform:scale(1.15);
+    }
+
+    60%{
+        transform:scale(1);
+    }
+}
+
+.memoriesArrow{
+
+    font-family:Arial,sans-serif;
+
+    font-size:18px;
+
+    opacity:.55;
+
+    transition:.4s;
+}
+
+.memoriesBtn:hover .memoriesArrow{
+
+    transform:translateX(5px);
+
+    opacity:1;
+}
+
+.memoriesBtn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 30%,
+            #ffffffbf 50%,
+            transparent 70%
+        );
+
+    background-size:250% 100%;
+
+    animation:
+        shimmer
+        4s ease-in-out infinite;
+
+    pointer-events:none;
+}
+
+@keyframes shimmer{
+
+    0%{
+        background-position:200% 0;
+    }
+
+    45%,100%{
+        background-position:-100% 0;
+    }
+}
+
+/* =====================================================
+   MEMORY SCENE
+===================================================== */
+
+#scene3{
+
+    background:
+        linear-gradient(
+            160deg,
+            #fff6fa,
+            #fbdce8 55%,
+            #f4b6cf
+        );
+
+    color:#603247;
+}
+
+.memoryPage{
+
+    width:100%;
+    height:100%;
+
+    overflow-y:auto;
+
+    padding:
+        42px 16px 70px;
+
+    text-align:center;
+}
+
+.memoryKicker{
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#a35c76;
+}
+
+.memoryTitle{
+
+    margin:
+        7px 0 5px;
+
+    font-size:
+        clamp(40px,7vw,72px);
+
+    font-weight:500;
+
+    color:#6c3048;
+}
+
+.memorySub{
+
+    margin-bottom:24px;
+
+    font-size:17px;
+
+    color:#8b5369;
+}
+
+.memories{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    text-align:left;
+}
+
+.memory{
+
+    padding:9px;
+
+    background:#fff9fb;
+
+    box-shadow:
+        0 12px 30px #8a3e5722;
+
+    opacity:0;
+
+    transform:
+        translateY(45px)
+        rotate(var(--r));
+
+    animation:
+        memoryIn
+        .9s
+        forwards;
+
+    animation-delay:
+        var(--delay);
+}
+
+@keyframes memoryIn{
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            rotate(var(--r));
+    }
+}
+
+.photo{
+
+    height:230px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2bfd2,
+            #fff1f6
+        );
+
+    color:#9d6077;
+
+    font-size:42px;
+}
+
+.photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.caption{
+
+    padding:
+        10px 6px 4px;
+
+    font-size:18px;
+
+    color:#69364c;
+}
+
+/* =====================================================
+   PHOTO FILM TRANSITION
+===================================================== */
+
+.filmTransition{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    background:#090609;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    overflow:hidden;
+}
+
+.filmTransition.go{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.filmStrip{
+
+    position:absolute;
+
+    left:-30%;
+
+    top:50%;
+
+    width:160%;
+
+    height:190px;
+
+    transform:
+        translateY(-50%)
+        rotate(-3deg);
+
+    display:flex;
+
+    gap:12px;
+
+    animation:
+        filmMove
+        2.2s
+        linear forwards;
+}
+
+.filmFrame{
+
+    flex:0 0 230px;
+
+    height:165px;
+
+    padding:7px;
+
+    background:#111;
+
+    border:
+        2px solid #555;
+
+    box-shadow:
+        0 0 20px #000;
+}
+
+.filmFrame img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+@keyframes filmMove{
+
+    0%{
+        transform:
+            translate(-25%,-50%)
+            rotate(-3deg);
+    }
+
+    100%{
+        transform:
+            translate(15%,-50%)
+            rotate(-3deg);
+    }
+}
+
+/* =====================================================
+   JOURNEY SCENE
+===================================================== */
+
+#scene4{
 
     background:
         radial-gradient(
-            circle at center,
-            #651c43 0%,
-            #270d28 40%,
-            #0d0710 75%
+            circle at 50% 45%,
+            #321c34,
+            #09070d 70%
         );
-
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 50px 20px;
 }
 
-.bigHeart {
+.journey{
 
-    font-size: 80px;
+    position:absolute;
 
-    margin-bottom: 25px;
+    inset:0;
 
-    animation:
-        finalPulse 2s infinite;
+    z-index:10;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
 }
 
-@keyframes finalPulse {
+.journeyItem{
 
-    0%,100% {
-        transform: scale(1);
-    }
+    position:absolute;
 
-    50% {
-        transform: scale(1.15);
-    }
+    max-width:850px;
+
+    opacity:0;
+
+    transform:
+        translateY(35px)
+        scale(.95);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
 }
 
-.final h2 {
+.journeyItem.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.journeyDate{
+
+    margin-bottom:18px;
+
+    font:
+        10px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:6px;
+
+    color:#f2b7ce;
+}
+
+.journeyText{
 
     font-size:
-        clamp(38px, 7vw, 65px);
+        clamp(30px,6vw,70px);
 
-    font-weight: normal;
+    line-height:1.05;
 
-    margin-bottom: 25px;
+    color:#fff2f7;
+
+    text-shadow:
+        0 0 30px #ff9fc155;
 }
 
-.final p {
+.journeySmall{
 
-    max-width: 650px;
+    max-width:650px;
 
-    font-size: 20px;
+    margin:
+        20px auto 0;
 
-    line-height: 1.9;
+    font-size:
+        clamp(17px,2.5vw,25px);
 
-    color: #eadde3;
+    line-height:1.5;
 
-    margin-bottom: 30px;
+    color:#d9b9c7;
+
+    font-style:italic;
 }
 
-.birthday {
+.journeyProgress{
 
-    font-size: 18px;
+    position:absolute;
 
-    letter-spacing: 3px;
+    bottom:35px;
 
-    color: #f2b3cc;
+    left:50%;
 
-    text-transform: uppercase;
+    transform:translateX(-50%);
+
+    font:
+        8px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:4px;
+
+    color:#ffffff77;
 }
 
+/* =====================================================
+   FINAL SCENE
+===================================================== */
 
-/* =========================================================
-   FOOTER
-========================================================= */
+#scene5{
 
-footer {
-
-    background: #080408;
-
-    padding: 25px;
-
-    text-align: center;
-
-    color: #756772;
-
-    font-size: 13px;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #171b34,
+            #060711 65%,
+            #020205
+        );
 }
 
+.finalStars{
 
-/* =========================================================
-   FLOATING HEARTS
-========================================================= */
+    position:absolute;
 
-.floatingHeart {
+    inset:0;
+}
 
-    position: fixed;
+.finalMoon{
 
-    bottom: -30px;
+    position:absolute;
 
-    font-size: 20px;
+    z-index:3;
 
-    opacity: 0.35;
+    left:50%;
+    top:40%;
+
+    width:min(62vw,350px);
+    height:min(62vw,350px);
+
+    object-fit:contain;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.5);
+
+    opacity:0;
+
+    filter:
+        drop-shadow(0 0 22px #fff)
+        drop-shadow(0 0 75px #aebcff);
+
+    transition:
+        3s cubic-bezier(.16,.8,.2,1);
+}
+
+.finalMoon.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+.finalMessage{
+
+    position:absolute;
+
+    z-index:10;
+
+    left:15px;
+    right:15px;
+
+    bottom:10%;
+
+    text-align:center;
+
+    opacity:0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        2s ease;
+}
+
+.finalMessage.show{
+
+    opacity:1;
+
+    transform:none;
+}
+
+.finalSmall{
+
+    font:
+        9px
+        "Montserrat",
+        sans-serif;
+
+    letter-spacing:4px;
+
+    color:#ffffff88;
+
+    margin-bottom:18px;
+}
+
+.finalLine{
+
+    font-size:
+        clamp(21px,4vw,38px);
+
+    font-style:italic;
+
+    color:#f8dce8;
+}
+
+.finalName{
+
+    margin-top:20px;
+
+    font:
+        clamp(48px,9vw,90px)
+        "Great Vibes",
+        cursive;
+
+    color:#ffd8e8;
+
+    text-shadow:
+        0 0 25px #ff9cbd,
+        0 0 70px #ff4f8e;
+}
+
+.finalHeart{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:28px;
 
     animation:
-        floatHeart 9s linear infinite;
-
-    pointer-events: none;
-
-    z-index: 50;
+        finalHeartBeat
+        1.7s
+        infinite;
 }
 
-@keyframes floatHeart {
+@keyframes finalHeartBeat{
 
-    0% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 0.5;
-    }
-
-    100% {
-
-        transform:
-            translateY(-110vh)
-            rotate(360deg);
-
-        opacity: 0;
+    50%{
+        transform:scale(1.25);
     }
 }
 
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
-/* =========================================================
-   MOBILE
-========================================================= */
+@media(max-width:750px){
 
-@media (max-width: 700px) {
-
-    .gallery {
+    .memories{
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
     }
 
-    .storyText,
-    .letterBox p,
-    .final p {
-
-        font-size: 17px;
+    .photo{
+        height:180px;
     }
 
-    .letterBox {
+    .paper{
 
-        padding: 30px 20px;
+        height:87vh;
+
+        padding:
+            20px 16px;
     }
 
-    .skyLine {
+    .letterBody{
 
-        font-size: 19px;
+        justify-content:flex-start;
     }
 
-    .skySmall {
+    .letterBody p{
 
-        letter-spacing: 4px;
+        font-size:11.5px;
+
+        line-height:1.4;
     }
 }
 
-@media (max-width: 450px) {
+@media(max-width:500px){
 
-    .gallery {
+    .memoriesButtonWrap{
 
-        grid-template-columns:
-            1fr;
+        bottom:18px;
     }
 
-    .heartShape {
+    .memoriesBtn{
 
-        font-size: 75px;
+        min-width:175px;
+
+        padding:
+            12px 20px;
+
+        font-size:19px;
     }
 
-    .moon {
+    .memoriesHeart{
+        font-size:23px;
+    }
 
-        width: 90px;
-        height: 90px;
+    .filmFrame{
+        flex-basis:180px;
+        height:130px;
+    }
+}
+
+@media(max-width:430px){
+
+    .memories{
+
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        height:260px;
+    }
+
+    .letterHead h2{
+        font-size:29px;
     }
 }
 
@@ -1085,492 +2129,1485 @@ footer {
 <body>
 
 
-<!-- ======================================================
+<!-- =====================================================
      SCENE 1
-     THE NIGHT BHAVANA WAS BORN
-======================================================= -->
+===================================================== -->
 
-<section id="birthSky">
+<section
+    id="scene1"
+    class="scene active"
+>
 
-    <!-- Stars -->
+    <div
+        class="stars"
+        id="stars1"
+    ></div>
 
-    <div class="starField">
 
-        <span class="star big"
-              style="left:8%;top:15%;animation-delay:0.2s;"></span>
+    <div
+        class="center candlePage"
+        id="candlePage"
+    >
 
-        <span class="star"
-              style="left:17%;top:32%;animation-delay:0.8s;"></span>
+        <div class="wish">
+            before anything else...
+        </div>
 
-        <span class="star"
-              style="left:28%;top:12%;animation-delay:1.1s;"></span>
 
-        <span class="star big"
-              style="left:39%;top:25%;animation-delay:0.5s;"></span>
+        <div class="cake">
 
-        <span class="star"
-              style="left:48%;top:10%;animation-delay:1.5s;"></span>
+            <div class="plate"></div>
 
-        <span class="star"
-              style="left:59%;top:28%;animation-delay:0.3s;"></span>
+            <div class="cakebody"></div>
 
-        <span class="star big"
-              style="left:70%;top:15%;animation-delay:1.2s;"></span>
+            <div class="icing"></div>
 
-        <span class="star"
-              style="left:81%;top:35%;animation-delay:0.6s;"></span>
+            <div class="candle">
 
-        <span class="star"
-              style="left:91%;top:18%;animation-delay:1.7s;"></span>
+                <div class="wick"></div>
 
-        <span class="star"
-              style="left:13%;top:55%;animation-delay:1s;"></span>
+                <div
+                    class="flame"
+                    id="flame"
+                ></div>
 
-        <span class="star"
-              style="left:23%;top:70%;animation-delay:1.4s;"></span>
+                <div
+                    class="smoke"
+                    id="smoke"
+                ></div>
 
-        <span class="star big"
-              style="left:34%;top:52%;animation-delay:0.4s;"></span>
+            </div>
 
-        <span class="star"
-              style="left:44%;top:72%;animation-delay:1.8s;"></span>
+        </div>
 
-        <span class="star"
-              style="left:56%;top:58%;animation-delay:0.7s;"></span>
 
-        <span class="star"
-              style="left:67%;top:74%;animation-delay:1.3s;"></span>
+        <div class="makeWish">
+            A little moment, just for you…
+        </div>
 
-        <span class="star"
-              style="left:78%;top:54%;animation-delay:0.9s;"></span>
+        <div class="sub">
+            one little birthday moment for you
+        </div>
 
-        <span class="star"
-              style="left:88%;top:70%;animation-delay:1.6s;"></span>
 
-        <span class="star"
-              style="left:4%;top:82%;animation-delay:0.1s;"></span>
-
-        <span class="star"
-              style="left:96%;top:88%;animation-delay:1.9s;"></span>
+        <button
+            class="magic"
+            id="blow"
+        >
+            ✨ BLOW THE CANDLE ✨
+        </button>
 
     </div>
 
 
-    <!-- Main sky content -->
+    <div
+        class="center bdayPage"
+        id="bdayPage"
+    >
 
-    <div class="skyContent">
-
-        <div class="skySmall">
-            Before our story began
+        <div class="birthday">
+            Happy Birthday
         </div>
 
-
-        <!-- Heart -->
-
-        <div class="heartReveal" id="heartMoon">
-
-            <div class="heartGlow"></div>
-
-            <div class="heartShape">
-                ♥
-            </div>
-
-
-            <!-- Moon -->
-
-            <div class="moon">
-
-                <div class="crater one"></div>
-                <div class="crater two"></div>
-                <div class="crater three"></div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Date -->
-
-        <div class="skyDate">
-
-            OCTOBER 2, 2003
-
-            <span>
-                ELURU • ANDHRA PRADESH • INDIA
-            </span>
-
-        </div>
-
-
-        <!-- Main line -->
-
-        <div class="skyLine">
-
-            “On a night when the moon was only half-lit,
-            the world welcomed someone who would one day
-            become my whole world.”
-
-        </div>
-
-
-        <!-- Name -->
-
-        <div class="birthName">
-
+        <div class="name">
             Bhavana Manasa ❤️
+        </div>
+
+        <div class="date">
+            OCTOBER 2 • 2003 • ELURU
+        </div>
+
+
+        <button
+            class="magic"
+            id="seeMoon"
+            style="margin-top:28px"
+        >
+            🌙 SEE THE NIGHT YOU WERE BORN
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LIGHT BURST
+===================================================== -->
+
+<div
+    class="lightBurst"
+    id="lightBurst"
+></div>
+
+
+<!-- =====================================================
+     MOON
+===================================================== -->
+
+<section
+    id="moonScene"
+    class="scene"
+>
+
+    <div
+        class="stars"
+        id="starsMoon"
+    ></div>
+
+    <div class="moonGlow"></div>
+
+
+    <img
+        src="moon.png"
+        class="moon"
+        id="moon"
+        alt="Moon"
+    >
+
+
+    <div
+        class="moonText"
+        id="moonText"
+    >
+
+        <div class="moonDate">
+            OCTOBER 2 • 2003 • ELURU, ANDHRA PRADESH
+        </div>
+
+        <div class="moonQuote">
+
+            “Somewhere beneath this sky,<br>
+            you began your story.”
 
         </div>
 
 
-        <!-- Continue -->
+        <button
+            class="magic"
+            id="goLetter"
+            style="margin-top:18px"
+        >
+            CONTINUE OUR STORY ✨
+        </button>
 
-        <a
-            href="#story"
-            class="startButton"
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STAR WARP
+===================================================== -->
+
+<div
+    class="starWarp"
+    id="starWarp"
+></div>
+
+
+<!-- =====================================================
+     SCENE 2
+===================================================== -->
+
+<section
+    id="scene2"
+    class="scene"
+>
+
+
+    <!-- LETTER COVER -->
+
+    <div
+        class="cover"
+        id="cover"
+    >
+
+        <div class="kicker">
+            a little letter, written just for you
+        </div>
+
+
+        <h1 class="coverTitle">
+            The Little Things That Became Everything
+        </h1>
+
+
+        <div
+            class="envelope"
+            id="envelope"
         >
 
-            Begin Our Story ✨
+            <div class="envBase">
 
-        </a>
+                <div class="eleft"></div>
+
+                <div class="eright"></div>
+
+                <div class="ebottom"></div>
+
+                <div class="flap"></div>
+
+                <div class="seal">
+                    ♥
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tap">
+            TAP THE LETTER TO OPEN IT
+        </div>
+
+    </div>
+
+
+    <!-- LETTER -->
+
+    <div
+        class="letterLayer"
+        id="letterLayer"
+    >
+
+        <div class="paper">
+
+
+            <div class="letterHead">
+
+                <small>
+                    for you, on your birthday
+                </small>
+
+                <h2>
+                    The Little Things That Became Everything
+                </h2>
+
+                <div class="heart">
+                    ♥
+                </div>
+
+            </div>
+
+
+            <div class="letterBody">
+
+                <p>
+
+                    Hey Bhavana, it has been more than a year
+                    since you came into my life, and I feel
+                    incredibly lucky to have you.
+
+                    This has been the most beautiful phase of
+                    my life, and sometimes I still can't believe
+                    you're mine.
+
+                    I still remember seeing you for the first
+                    time on June 21, the day of my interview.
+
+                    From that moment, you became my crush —
+                    and even after we started our relationship,
+                    I never stopped crushing on you.
+
+                    After I joined the organization, I kept
+                    admiring you and secretly waiting for the
+                    moment you'd look at me.
+
+                    Somehow, it feels like the universe planned
+                    everything for us.
+
+                    Everything happened like a little miracle,
+                    and our journey began. ❤️
+
+                </p>
+
+
+                <div class="divider"></div>
+
+
+                <p>
+
+                    Since that day, every little moment with you
+                    has become special — our first chat, that
+                    beautiful night when we expressed our
+                    feelings, our first hand-hold, midnight walk,
+                    hug, kiss, and all the little things that
+                    followed.
+
+                    I love the way you hold my hand, lean on my
+                    shoulder, look at me with love, and sometimes
+                    give me that wonderfully creepy look. 😂❤️
+
+                    You notice everything about me; you comfort
+                    me when I'm sad, celebrate harder when I'm
+                    happy, and take care of me when I'm
+                    struggling.
+
+                    You changed me from Adivi Manishi to City
+                    Manishi. 😂
+
+                    Our silly fights somehow make us stronger,
+                    and your belief in me makes me believe in
+                    myself.
+
+                    I'm sorry for all the times I've hurt you —
+                    although I know after reading this, you may
+                    want to hit me anyway. 😂
+
+                    That's your Wild Love... your Doola
+                    Daanaaaaa. ❤️
+
+                    I never imagined someone could love me this
+                    much.
+
+                    Every gift and every little thing from you
+                    means more to me than I can explain.
+
+                    But more than all the gifts, I love the person
+                    who gave them to me.
+
+                    Love youuuuu, my love —
+                    Naa Pilla. ❤️
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="memoriesButtonWrap"
+                id="memoriesButtonWrap"
+            >
+
+                <button
+                    class="memoriesBtn"
+                    id="enterMemories"
+                >
+
+                    <span class="memoriesHeart">
+                        ♥
+                    </span>
+
+                    <span>
+                        Our Memories
+                    </span>
+
+                    <span class="memoriesArrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-
-<!-- ======================================================
-     SCENE 2
-     YOUR STORY
-======================================================= -->
-
-<section class="story" id="story">
-
-    <div class="sectionLabel">
-        Chapter One
-    </div>
-
-
-    <h2>
-        One Year of Us
-    </h2>
-
-
-    <p class="storyText">
-
-        A year ago, I didn't know how many beautiful
-        memories we were about to create together.
-
-        <br><br>
-
-        Somewhere between the conversations,
-        the laughs, the little fights, the silly moments,
-        and everything in between...
-
-        <br><br>
-
-        <span class="highlight">
-            you became one of the most special parts
-            of my life.
-        </span>
-
-    </p>
-
-</section>
-
-
-
-<!-- ======================================================
+<!-- =====================================================
      SCENE 3
-     MEMORIES
-======================================================= -->
+===================================================== -->
 
-<section class="memories">
+<section
+    id="scene3"
+    class="scene"
+>
 
-    <div class="sectionLabel">
-        Our Memories
-    </div>
+    <div class="memoryPage">
 
-
-    <h2>
-        Little Moments ❤️
-    </h2>
-
-
-    <p class="memoryIntro">
-
-        These are just a few moments
-        I never want to forget.
-
-    </p>
-
-
-    <div class="gallery">
-
-        <div class="photo">
-            Your first photo together 📸
+        <div class="memoryKicker">
+            our little universe
         </div>
 
-        <div class="photo">
-            A memory I'll always keep ❤️
-        </div>
-
-        <div class="photo">
-            One of my favourite moments 🥰
-        </div>
-
-        <div class="photo">
-            That smile of yours ✨
-        </div>
-
-        <div class="photo">
-            Just us 💕
-        </div>
-
-        <div class="photo">
-            A moment worth remembering 🌹
-        </div>
-
-        <div class="photo">
-            Another beautiful memory 📷
-        </div>
-
-        <div class="photo">
-            One more for the memories ❤️
-        </div>
-
-        <div class="photo">
-            And many more to come... ✨
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ======================================================
-     SCENE 4
-     LETTER
-======================================================= -->
-
-<section class="letter">
-
-    <div class="sectionLabel">
-        A Letter For You
-    </div>
-
-
-    <div class="letterBox">
-
-        <h2>
-            Bhavana...
+        <h2 class="memoryTitle">
+            Our Memories
         </h2>
 
-
-        <p>
-
-            I don't think I say it enough,
-            but I'm genuinely grateful that
-            you came into my life.
-
-        </p>
+        <div class="memorySub">
+            little moments that became my favourite memories ❤️
+        </div>
 
 
-        <p>
-
-            Thank you for all the smiles,
-            conversations, memories, patience,
-            love and those little moments that
-            somehow became my favourite memories.
-
-        </p>
+        <div class="memories">
 
 
-        <p>
+            <div
+                class="memory"
+                style="--r:-2deg;--delay:.1s"
+            >
 
-            This past year has been beautiful
-            because you were a part of it.
+                <div class="photo">
 
-            And if I had the chance to do it all again,
-            I would still choose you.
+                    <img
+                        src="memory1.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
 
-        </p>
+                </div>
+
+                <div class="caption">
+                    Your first photo together
+                </div>
+
+            </div>
 
 
-        <p>
+            <div
+                class="memory"
+                style="--r:2deg;--delay:.2s"
+            >
 
-            Here's to everything we've already shared,
-            and everything that is still waiting for us.
+                <div class="photo">
 
-        </p>
+                    <img
+                        src="memory2.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    A memory I'll always keep ❤️
+                </div>
+
+            </div>
 
 
-        <div class="signature">
+            <div
+                class="memory"
+                style="--r:-1deg;--delay:.3s"
+            >
 
-            Always yours ❤️
+                <div class="photo">
 
+                    <img
+                        src="memory3.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    One of my favourite moments 🥰
+                </div>
+
+            </div>
+
+
+            <div
+                class="memory"
+                style="--r:2deg;--delay:.4s"
+            >
+
+                <div class="photo">
+
+                    <img
+                        src="memory4.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    That smile of yours ✨
+                </div>
+
+            </div>
+
+
+            <div
+                class="memory"
+                style="--r:-2deg;--delay:.5s"
+            >
+
+                <div class="photo">
+
+                    <img
+                        src="memory5.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    Just us 💕
+                </div>
+
+            </div>
+
+
+            <div
+                class="memory"
+                style="--r:1deg;--delay:.6s"
+            >
+
+                <div class="photo">
+
+                    <img
+                        src="memory6.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    A moment worth remembering 🌹
+                </div>
+
+            </div>
+
+
+            <div
+                class="memory"
+                style="--r:-1deg;--delay:.7s"
+            >
+
+                <div class="photo">
+
+                    <img
+                        src="memory7.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    Another beautiful memory 📷
+                </div>
+
+            </div>
+
+
+            <div
+                class="memory"
+                style="--r:2deg;--delay:.8s"
+            >
+
+                <div class="photo">
+
+                    <img
+                        src="memory8.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    One more for the memories ❤️
+                </div>
+
+            </div>
+
+
+            <div
+                class="memory"
+                style="--r:-1deg;--delay:.9s"
+            >
+
+                <div class="photo">
+
+                    <img
+                        src="memory9.jpg"
+                        onerror="
+                        this.style.display='none';
+                        this.parentElement.innerHTML='📷'
+                        "
+                    >
+
+                </div>
+
+                <div class="caption">
+                    And many more to come... ✨
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="magic"
+            id="startJourney"
+            style="
+                margin-top:30px;
+                color:#69364c;
+                border-color:#c67d99;
+                background:#ffffff70;
+            "
+        >
+            CONTINUE OUR JOURNEY →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FILM TRANSITION
+===================================================== -->
+
+<div
+    class="filmTransition"
+    id="filmTransition"
+>
+
+    <div
+        class="filmStrip"
+        id="filmStrip"
+    >
+
+        <div class="filmFrame">
+            <img src="memory1.jpg">
+        </div>
+
+        <div class="filmFrame">
+            <img src="memory2.jpg">
+        </div>
+
+        <div class="filmFrame">
+            <img src="memory3.jpg">
+        </div>
+
+        <div class="filmFrame">
+            <img src="memory4.jpg">
+        </div>
+
+        <div class="filmFrame">
+            <img src="memory5.jpg">
+        </div>
+
+        <div class="filmFrame">
+            <img src="memory6.jpg">
         </div>
 
     </div>
 
-</section>
+</div>
 
 
+<!-- =====================================================
+     SCENE 4 — JOURNEY
+===================================================== -->
 
-<!-- ======================================================
-     SCENE 5
-     BIRTHDAY ENDING
-======================================================= -->
+<section
+    id="scene4"
+    class="scene"
+>
 
-<section class="final">
+    <div
+        class="stars"
+        id="starsJourney"
+    ></div>
 
-    <div class="bigHeart">
-        ❤️
+
+    <div class="journey">
+
+
+        <div
+            class="journeyItem"
+            data-time="0"
+        >
+
+            <div class="journeyDate">
+                SOME STORIES BEGIN QUIETLY...
+            </div>
+
+            <div class="journeyText">
+                It all started<br>
+                with one ordinary day.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="4500"
+        >
+
+            <div class="journeyDate">
+                JUNE 21
+            </div>
+
+            <div class="journeyText">
+                The day I first saw you.
+            </div>
+
+            <div class="journeySmall">
+                I didn't know it then,
+                but you were about to become
+                my favourite person.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="9000"
+        >
+
+            <div class="journeyDate">
+                OUR FIRST CHAT
+            </div>
+
+            <div class="journeyText">
+                One conversation...
+            </div>
+
+            <div class="journeySmall">
+                Somehow, one conversation
+                became another.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="13500"
+        >
+
+            <div class="journeyDate">
+                THE NIGHT WE SAID IT ❤️
+            </div>
+
+            <div class="journeyText">
+                Everything suddenly
+                felt different.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="18000"
+        >
+
+            <div class="journeyDate">
+                OUR FIRST WALK 🌙
+            </div>
+
+            <div class="journeyText">
+                Two people.
+                One midnight road.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="22500"
+        >
+
+            <div class="journeyDate">
+                OUR FIRST HUG 🤍
+            </div>
+
+            <div class="journeyText">
+                And suddenly,
+                the world felt smaller.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="27000"
+        >
+
+            <div class="journeyDate">
+                OUR FIRST KISS ❤️
+            </div>
+
+            <div class="journeyText">
+                One moment.
+                A thousand feelings.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="31500"
+        >
+
+            <div class="journeyDate">
+                THEN...
+            </div>
+
+            <div class="journeyText">
+                We became us.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="36000"
+        >
+
+            <div class="journeyDate">
+                TODAY
+            </div>
+
+            <div class="journeyText">
+                More than a year later...
+            </div>
+
+            <div class="journeySmall">
+                And I still can't believe
+                I get to call you mine.
+            </div>
+
+        </div>
+
+
+        <div
+            class="journeyItem"
+            data-time="40500"
+        >
+
+            <div class="journeyDate">
+                AND THIS...
+            </div>
+
+            <div class="journeyText">
+                Is only the beginning.
+            </div>
+
+        </div>
+
+
     </div>
 
 
-    <h2>
-        Happy Birthday, Bhavana
-    </h2>
-
-
-    <p>
-
-        I hope this year brings you everything
-        your heart wishes for.
-
-        <br><br>
-
-        Keep smiling.
-        Keep being the beautiful person you are.
-
-        <br><br>
-
-        And remember...
-
-        <br>
-
-        <strong>
-            I'll always be cheering for you.
-        </strong>
-
-    </p>
-
-
-    <div class="birthday">
-
-        October 2nd • Your Special Day ✨
-
+    <div
+        class="journeyProgress"
+        id="journeyProgress"
+    >
+        OUR STORY • 01
     </div>
 
 </section>
 
 
+<!-- =====================================================
+     SCENE 5 — FINAL
+===================================================== -->
 
-<footer>
-
-    Made with ❤️ for Bhavana Manasa
-
-</footer>
-
-
-
-<!-- ======================================================
-     FLOATING HEARTS
-======================================================= -->
-
-<div
-    class="floatingHeart"
-    style="left:10%;animation-delay:0s;"
+<section
+    id="scene5"
+    class="scene"
 >
-    ❤️
-</div>
 
-<div
-    class="floatingHeart"
-    style="left:25%;animation-delay:2s;"
->
-    ♡
-</div>
+    <div
+        class="finalStars"
+        id="finalStars"
+    ></div>
 
-<div
-    class="floatingHeart"
-    style="left:45%;animation-delay:4s;"
->
-    ❤️
-</div>
 
-<div
-    class="floatingHeart"
-    style="left:65%;animation-delay:1s;"
->
-    ♡
-</div>
+    <img
+        src="moon.png"
+        class="finalMoon"
+        id="finalMoon"
+        alt="Moon"
+    >
 
-<div
-    class="floatingHeart"
-    style="left:85%;animation-delay:3s;"
->
-    ❤️
-</div>
 
+    <div
+        class="finalMessage"
+        id="finalMessage"
+    >
+
+        <div class="finalSmall">
+            AND MANY MORE MEMORIES TO COME...
+        </div>
+
+
+        <div class="finalLine">
+
+            “If I could go back to the beginning,<br>
+            I'd still choose you.”
+
+        </div>
+
+
+        <div class="finalName">
+            Happy Birthday, My Love (Na Pilla)
+        </div>
+
+
+        <span class="finalHeart">
+            ❤️
+        </span>
+
+    </div>
+
+</section>
 
 
 <script>
 
-/* =========================================================
-   HEART → MOON ANIMATION
-========================================================= */
+/* =====================================================
+   STAR GENERATOR
+===================================================== */
 
-const heartMoon =
-    document.getElementById("heartMoon");
+function createStars(id,count){
+
+    const container =
+        document.getElementById(id);
+
+    if(!container) return;
+
+    for(let i=0;i<count;i++){
+
+        const star =
+            document.createElement("span");
+
+        star.className="star";
+
+        if(Math.random()<.12){
+            star.classList.add("big");
+        }
+
+        star.style.left =
+            Math.random()*100+"%";
+
+        star.style.top =
+            Math.random()*100+"%";
+
+        star.style.setProperty(
+            "--speed",
+            2 + Math.random()*4 + "s"
+        );
+
+        star.style.animationDelay =
+            -Math.random()*4+"s";
+
+        container.appendChild(star);
+    }
+}
+
+createStars("stars1",80);
+createStars("starsMoon",130);
+createStars("starsJourney",90);
+createStars("finalStars",120);
 
 
-/*
-   The heart appears first.
+/* =====================================================
+   CHANGE SCENE
+===================================================== */
 
-   Then after approximately 6 seconds,
-   it begins transforming into the Moon.
-*/
+function showScene(id){
 
-setTimeout(() => {
+    document
+        .querySelectorAll(".scene")
+        .forEach(scene=>{
+            scene.classList.remove("active");
+        });
 
-    heartMoon.classList.add("transformMoon");
+    const target =
+        document.getElementById(id);
 
-    setTimeout(() => {
-
-        heartMoon.classList.add("showMoon");
-
-    }, 500);
-
-}, 6000);
+    if(target){
+        target.classList.add("active");
+    }
+}
 
 
-
-/* =========================================================
-   OPTIONAL:
-   Click "Begin Our Story" and smoothly enter story
-========================================================= */
+/* =====================================================
+   CANDLE → LIGHT EXPLOSION
+===================================================== */
 
 document
-    .querySelector(".startButton")
-    .addEventListener("click", function(event) {
+.getElementById("blow")
+.addEventListener("click",()=>{
 
-        event.preventDefault();
+    document
+        .getElementById("flame")
+        .style.opacity="0";
 
-        const story =
-            document.getElementById("story");
+    document
+        .getElementById("smoke")
+        .classList.add("go");
 
-        story.scrollIntoView({
-            behavior: "smooth"
-        });
+
+    document
+        .getElementById("candlePage")
+        .classList.add("hide");
+
+
+    const burst =
+        document.getElementById("lightBurst");
+
+    burst.classList.add("go");
+
+
+    setTimeout(()=>{
+
+        document
+            .getElementById("bdayPage")
+            .classList.add("show");
+
+    },800);
+
+
+    setTimeout(()=>{
+
+        burst.classList.remove("go");
+
+    },2000);
+
+});
+
+
+/* =====================================================
+   BIRTHDAY → MOON
+   STAR FIELD TRANSITION
+===================================================== */
+
+document
+.getElementById("seeMoon")
+.addEventListener("click",()=>{
+
+    const warp =
+        document.getElementById("starWarp");
+
+    warp.innerHTML="";
+
+    warp.classList.add("active");
+
+
+    /* CREATE TRAVELLING STARS */
+
+    for(let i=0;i<100;i++){
+
+        const star =
+            document.createElement("span");
+
+        star.className="warpStar";
+
+        star.style.left =
+            "50%";
+
+        star.style.top =
+            "50%";
+
+        const angle =
+            Math.random()*Math.PI*2;
+
+        const distance =
+            300 + Math.random()*900;
+
+        star.style.setProperty(
+            "--x",
+            Math.cos(angle)*distance+"px"
+        );
+
+        star.style.setProperty(
+            "--y",
+            Math.sin(angle)*distance+"px"
+        );
+
+        star.style.animationDelay =
+            Math.random()*.35+"s";
+
+        warp.appendChild(star);
+    }
+
+
+    setTimeout(()=>{
+
+        showScene("moonScene");
+
+        document
+            .getElementById("moon")
+            .classList.add("reveal");
+
+    },850);
+
+
+    setTimeout(()=>{
+
+        warp.classList.remove("active");
+
+        document
+            .getElementById("moonText")
+            .classList.add("show");
+
+    },2500);
+
+});
+
+
+/* =====================================================
+   MOON → LETTER
+===================================================== */
+
+document
+.getElementById("goLetter")
+.addEventListener("click",()=>{
+
+    const warp =
+        document.getElementById("starWarp");
+
+    warp.innerHTML="";
+
+    warp.classList.add("active");
+
+
+    for(let i=0;i<80;i++){
+
+        const star =
+            document.createElement("span");
+
+        star.className="warpStar";
+
+        star.style.left =
+            "50%";
+
+        star.style.top =
+            "50%";
+
+        const angle =
+            Math.random()*Math.PI*2;
+
+        const distance =
+            250 + Math.random()*800;
+
+        star.style.setProperty(
+            "--x",
+            Math.cos(angle)*distance+"px"
+        );
+
+        star.style.setProperty(
+            "--y",
+            Math.sin(angle)*distance+"px"
+        );
+
+        star.style.animationDelay =
+            Math.random()*.25+"s";
+
+        warp.appendChild(star);
+    }
+
+
+    setTimeout(()=>{
+
+        showScene("scene2");
+
+    },850);
+
+
+    setTimeout(()=>{
+
+        warp.classList.remove("active");
+
+    },2100);
+
+});
+
+
+/* =====================================================
+   OPEN LETTER
+===================================================== */
+
+document
+.getElementById("envelope")
+.addEventListener("click",()=>{
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const cover =
+        document.getElementById("cover");
+
+    const letter =
+        document.getElementById("letterLayer");
+
+    const memoriesButton =
+        document.getElementById(
+            "memoriesButtonWrap"
+        );
+
+
+    envelope.classList.add("open");
+
+
+    setTimeout(()=>{
+
+        cover.classList.add("out");
+
+    },700);
+
+
+    setTimeout(()=>{
+
+        letter.classList.add("show");
+
+    },1050);
+
+
+    /*
+       Letter has time to:
+       1. rise
+       2. unfold
+       3. settle
+       4. reveal memories button
+    */
+
+    setTimeout(()=>{
+
+        memoriesButton.classList.add("show");
+
+    },3900);
+
+});
+
+
+/* =====================================================
+   LETTER → MEMORIES
+   PAPER / PHOTO FILM TRANSITION
+===================================================== */
+
+document
+.getElementById("enterMemories")
+.addEventListener("click",()=>{
+
+    const film =
+        document.getElementById(
+            "filmTransition"
+        );
+
+    film.classList.add("go");
+
+
+    setTimeout(()=>{
+
+        showScene("scene3");
+
+    },1000);
+
+
+    setTimeout(()=>{
+
+        film.classList.remove("go");
+
+    },2500);
+
+});
+
+
+/* =====================================================
+   MEMORIES → JOURNEY
+   PHOTO FILM TRANSITION
+===================================================== */
+
+document
+.getElementById("startJourney")
+.addEventListener("click",()=>{
+
+    const film =
+        document.getElementById(
+            "filmTransition"
+        );
+
+    film.classList.add("go");
+
+
+    setTimeout(()=>{
+
+        showScene("scene4");
+
+        startJourney();
+
+    },1050);
+
+
+    setTimeout(()=>{
+
+        film.classList.remove("go");
+
+    },2500);
+
+});
+
+
+/* =====================================================
+   JOURNEY ANIMATION
+===================================================== */
+
+let journeyStarted=false;
+
+function startJourney(){
+
+    if(journeyStarted) return;
+
+    journeyStarted=true;
+
+    const items =
+        document.querySelectorAll(
+            ".journeyItem"
+        );
+
+    items.forEach(item=>{
+        item.classList.remove("show");
+    });
+
+
+    items.forEach((item,index)=>{
+
+        const time =
+            parseInt(
+                item.dataset.time
+            );
+
+        setTimeout(()=>{
+
+            items.forEach(other=>{
+                other.classList.remove("show");
+            });
+
+            item.classList.add("show");
+
+
+            document
+                .getElementById(
+                    "journeyProgress"
+                )
+                .textContent =
+                    "OUR STORY • " +
+                    String(index+1).padStart(2,"0");
+
+
+        },time);
 
     });
 
 
-</script>
+    /*
+       After final moment,
+       move to ending.
+    */
 
+    setTimeout(()=>{
+
+        goToFinal();
+
+    },45500);
+
+}
+
+
+/* =====================================================
+   JOURNEY → STARS → MOON
+===================================================== */
+
+function goToFinal(){
+
+    const warp =
+        document.getElementById("starWarp");
+
+    warp.innerHTML="";
+
+    warp.classList.add("active");
+
+
+    for(let i=0;i<130;i++){
+
+        const star =
+            document.createElement("span");
+
+        star.className="warpStar";
+
+        star.style.left =
+            "50%";
+
+        star.style.top =
+            "50%";
+
+        const angle =
+            Math.random()*Math.PI*2;
+
+        const distance =
+            300 + Math.random()*1000;
+
+        star.style.setProperty(
+            "--x",
+            Math.cos(angle)*distance+"px"
+        );
+
+        star.style.setProperty(
+            "--y",
+            Math.sin(angle)*distance+"px"
+        );
+
+        star.style.animationDelay =
+            Math.random()*.4+"s";
+
+        warp.appendChild(star);
+    }
+
+
+    setTimeout(()=>{
+
+        showScene("scene5");
+
+        document
+            .getElementById("finalMoon")
+            .classList.add("show");
+
+    },1000);
+
+
+    setTimeout(()=>{
+
+        warp.classList.remove("active");
+
+        document
+            .getElementById("finalMessage")
+            .classList.add("show");
+
+    },3000);
+
+}
+
+</script>
 
 </body>
 </html>
