@@ -1,3612 +1,602 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>For Bhavana Manasa ❤️</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html,
-body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-}
-
-body{
-    background:#030205;
-    color:#fff;
-    font-family:"Cormorant Garamond",serif;
-}
-
-/* =====================================================
-   SCENES
-===================================================== */
-
-.scene{
-    position:fixed;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    overflow:hidden;
-
-    opacity:0;
-    visibility:hidden;
-
-    transform:scale(1.04);
-
-    transition:
-        opacity 1.2s ease,
-        transform 1.4s ease;
-}
-
-.scene.active{
-    opacity:1;
-    visibility:visible;
-
-    transform:scale(1);
-}
-
-/* =====================================================
-   STARS
-===================================================== */
-
-.stars{
-    position:absolute;
-    inset:0;
-
-    overflow:hidden;
-
-    pointer-events:none;
-}
-
-.star{
-    position:absolute;
-
-    width:2px;
-    height:2px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    box-shadow:
-        0 0 7px #fff,
-        0 0 15px #fff;
-
-    animation:
-        twinkle var(--speed)
-        ease-in-out infinite;
-}
-
-.star.big{
-    width:3px;
-    height:3px;
-}
-
-@keyframes twinkle{
-
-    0%,
-    100%{
-        opacity:.15;
-        transform:scale(.5);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.7);
-    }
-}
-
-/* =====================================================
-   COMMON BUTTON
-===================================================== */
-
-.magic{
-    position:relative;
-
-    border:1px solid #ffffff55;
-
-    background:#ffffff12;
-
-    color:#fff;
-
-    padding:13px 23px;
-
-    border-radius:50px;
-
-    font:
-        10px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(15px);
-
-    transition:.35s;
-}
-
-.magic:hover{
-    transform:translateY(-3px);
-
-    background:#ffffff25;
-}
-
-/* =====================================================
-   SCENE 1
-===================================================== */
-
-#scene1{
-
-    background:
-        radial-gradient(
-            circle at 50% 42%,
-            #42283e 0%,
-            #1c101f 45%,
-            #040306 100%
-        );
-}
-
-.center{
-    position:absolute;
-    inset:0;
-
-    z-index:10;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-}
-
-/* =====================================================
-   CANDLE
-===================================================== */
-
-.candlePage{
-    transition:
-        opacity 1s ease,
-        transform 1.2s ease,
-        filter 1.2s ease;
-}
-
-.candlePage.hide{
-
-    opacity:0;
-
-    transform:scale(1.15);
-
-    filter:blur(10px);
-}
-
-.wish{
-    margin-bottom:18px;
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    color:#ffffffaa;
-}
-
-.cake{
-    position:relative;
-
-    width:160px;
-    height:125px;
-}
-
-.plate{
-    position:absolute;
-
-    left:50%;
-    bottom:3px;
-
-    transform:translateX(-50%);
-
-    width:170px;
-    height:18px;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            #ffe5ef,
-            #a96080
-        );
-}
-
-.cakebody{
-
-    position:absolute;
-
-    left:50%;
-    bottom:17px;
-
-    transform:translateX(-50%);
-
-    width:120px;
-    height:67px;
-
-    border-radius:
-        12px 12px 20px 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fffaff,
-            #e6a5c1
-        );
-
-    box-shadow:
-        0 10px 30px #0008;
-}
-
-.icing{
-
-    position:absolute;
-
-    left:50%;
-    bottom:68px;
-
-    transform:translateX(-50%);
-
-    width:130px;
-    height:24px;
-
-    border-radius:50%;
-
-    background:#fffaff;
-}
-
-.candle{
-
-    position:absolute;
-
-    left:50%;
-    bottom:78px;
-
-    transform:translateX(-50%);
-
-    width:14px;
-    height:60px;
-
-    border-radius:5px;
-
-    background:
-        repeating-linear-gradient(
-            135deg,
-            #fff 0 5px,
-            #ec9fbd 5px 10px
-        );
-}
-
-.wick{
-
-    position:absolute;
-
-    left:50%;
-    top:-9px;
-
-    width:2px;
-    height:10px;
-
-    transform:translateX(-50%);
-
-    background:#222;
-}
-
-.flame{
-
-    position:absolute;
-
-    left:50%;
-    top:-42px;
-
-    width:22px;
-    height:34px;
-
-    transform:
-        translateX(-50%)
-        rotate(45deg);
-
-    border-radius:
-        50% 50% 50% 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fffbc0,
-            #ffae38,
-            #ff557a
-        );
-
-    box-shadow:
-        0 0 12px #fff,
-        0 0 35px #ffb52e,
-        0 0 70px #ff6d9b;
-
-    animation:flame .7s alternate infinite;
-}
-
-@keyframes flame{
-
-    to{
-        transform:
-            translateX(-50%)
-            rotate(49deg)
-            scale(1.08);
-    }
-}
-
-.smoke{
-
-    position:absolute;
-
-    left:50%;
-    top:-55px;
-
-    width:13px;
-    height:13px;
-
-    border-radius:50%;
-
-    background:#ffffff55;
-
-    filter:blur(5px);
-
-    opacity:0;
-}
-
-.smoke.go{
-    animation:
-        smoke 2.7s ease-out forwards;
-}
-
-@keyframes smoke{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translate(-50%,0)
-            scale(.5);
-    }
-
-    20%{
-        opacity:.6;
-    }
-
-    100%{
-        opacity:0;
-
-        transform:
-            translate(25px,-125px)
-            scale(4);
-    }
-}
-
-.makeWish{
-
-    margin-top:7px;
-
-    font:
-        clamp(35px,7vw,65px)
-        "Great Vibes",
-        cursive;
-
-    color:#ffd7e7;
-
-    text-shadow:
-        0 0 22px #ff98bb;
-}
-
-.sub{
-
-    margin:
-        3px 0 24px;
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    color:#000000bb;
-}
-
-/* =====================================================
-   BIRTHDAY
-===================================================== */
-
-.bdayPage{
-
-    opacity:0;
-    visibility:hidden;
-
-    transform:scale(.7);
-
-    transition:
-        1.4s
-        cubic-bezier(.16,.8,.2,1);
-}
-
-.bdayPage.show{
-
-    opacity:1;
-    visibility:visible;
-
-    transform:scale(1);
-}
-
-.birthday{
-
-    font:
-        clamp(55px,11vw,120px)
-        "Great Vibes",
-        cursive;
-
-    color:#ffd7e7;
-
-    text-shadow:
-        0 0 20px #ff9fc1,
-        0 0 65px #ff4c8d;
-}
-
-.name{
-
-    margin-top:-5px;
-
-    font-size:
-        clamp(28px,5vw,54px);
-
-    letter-spacing:3px;
-}
-
-.date{
-
-    margin-top:15px;
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:4px;
-
-    color:#ffffffbb;
-}
-
-/* =====================================================
-   LIGHT EXPLOSION
-===================================================== */
-
-.lightBurst{
-
-    position:fixed;
-
-    z-index:1000;
-
-    left:50%;
-    top:50%;
-
-    width:25px;
-    height:25px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.1);
-
-    box-shadow:
-        0 0 30px #fff,
-        0 0 80px #ffd6e8,
-        0 0 160px #ff8db7;
-}
-
-.lightBurst.go{
-
-    animation:
-        lightExplosion
-        1.9s
-        cubic-bezier(.2,.8,.2,1)
-        forwards;
-}
-
-@keyframes lightExplosion{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.1);
-    }
-
-    15%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(100);
-    }
-}
-
-/* =====================================================
-   MOON SCENE
-===================================================== */
-
-#moonScene{
-
-    background:
-        radial-gradient(
-            circle at 50% 43%,
-            #1e2441,
-            #080a17 58%,
-            #020207
-        );
-}
-
-.moonGlow{
-
-    position:absolute;
-
-    left:50%;
-    top:43%;
-
-    width:min(90vw,560px);
-    height:min(90vw,560px);
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #ffffff4d,
-            #cbd8ff18 40%,
-            transparent 72%
-        );
-
-    filter:blur(10px);
-
-    animation:
-        moonHalo 4s
-        ease-in-out infinite;
-}
-
-@keyframes moonHalo{
-
-    50%{
-        transform:
-            translate(-50%,-50%)
-            scale(1.1);
-    }
-}
-
-/*
-   IMPORTANT:
-   This uses the moon image you provided.
-*/
-
-.moon{
-
-    position:absolute;
-
-    z-index:5;
-
-    left:50%;
-    top:43%;
-
-    width:min(72vw,390px);
-    height:min(72vw,390px);
-
-    object-fit:contain;
-
-    opacity:0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.08)
-        rotate(-20deg);
-
-    filter:
-        drop-shadow(0 0 20px #fff)
-        drop-shadow(0 0 75px #9daeff);
-}
-
-.moon.reveal{
-
-    animation:
-        moonReveal
-        2.5s
-        cubic-bezier(.16,.8,.2,1)
-        forwards;
-}
-
-@keyframes moonReveal{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.08)
-            rotate(-25deg);
-
-        filter:blur(15px);
-    }
-
-    30%{
-
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.12)
-            rotate(5deg);
-    }
-
-    100%{
-
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1)
-            rotate(0);
-
-        filter:
-            drop-shadow(0 0 20px #fff)
-            drop-shadow(0 0 75px #9daeff);
-    }
-}
-
-.moonText{
-
-    position:absolute;
-
-    z-index:10;
-
-    left:0;
-    right:0;
-
-    bottom:5%;
-
-    text-align:center;
-
-    opacity:0;
-
-    transform:translateY(30px);
-
-    transition:1.2s;
-}
-
-.moonText.show{
-
-    opacity:1;
-
-    transform:none;
-}
-
-.moonDate{
-
-    margin-bottom:8px;
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:3px;
-}
-
-.moonQuote{
-
-    font-size:
-        clamp(18px,3vw,28px);
-
-    font-style:italic;
-}
-
-/* =====================================================
-   STAR FIELD TRANSITION
-===================================================== */
-
-.starWarp{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:2000;
-
-    background:#020207;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    pointer-events:none;
-
-    overflow:hidden;
-}
-
-.starWarp.active{
-
-    opacity:1;
-
-    visibility:visible;
-}
-
-.warpStar{
-
-    position:absolute;
-
-    width:2px;
-    height:2px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    box-shadow:
-        0 0 8px #fff;
-
-    animation:
-        warpStar
-        1.8s
-        ease-in
-        forwards;
-}
-
-@keyframes warpStar{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            translate(0,0)
-            scale(.5);
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-            translate(
-                var(--x),
-                var(--y)
-            )
-            scale(3);
-    }
-}
-
-/* =====================================================
-   LETTER SCENE
-===================================================== */
-
-#scene2{
-
-    background:
-        radial-gradient(
-            circle at 50% 10%,
-            #fffafd,
-            #ffe7f0 52%,
-            #f1b2cb
-        );
-
-    color:#603247;
-}
-
-/* COVER */
-
-.cover{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:20;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:20px;
-
-    transition:
-        1s ease;
-}
-
-.cover.out{
-
-    opacity:0;
-
-    transform:
-        scale(1.08);
-
-    filter:blur(6px);
-
-    pointer-events:none;
-}
-
-.kicker{
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    color:#a05f79;
-}
-
-.coverTitle{
-
-    max-width:850px;
-
-    margin:
-        10px 0 25px;
-
-    font-size:
-        clamp(34px,7vw,72px);
-
-    line-height:1.02;
-
-    font-weight:500;
-
-    color:#6c3048;
-}
-
-/* ENVELOPE */
-
-.envelope{
-
-    position:relative;
-
-    width:min(370px,84vw);
-    height:min(240px,54vw);
-
-    cursor:pointer;
-
-    filter:
-        drop-shadow(
-            0 25px 35px #813b5655
-        );
-}
-
-.envBase{
-
-    position:absolute;
-
-    inset:0;
-
-    overflow:hidden;
-
-    border:
-        1px solid #e0adbf;
-
-    border-radius:8px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #f8dce7
-        );
-}
-
-.eleft,
-.eright,
-.ebottom{
-
-    position:absolute;
-
-    z-index:2;
-}
-
-.eleft{
-
-    left:0;
-    bottom:0;
-
-    width:50%;
-    height:100%;
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 100%,
-            0 100%
-        );
-
-    background:#f6d5e2;
-}
-
-.eright{
-
-    right:0;
-    bottom:0;
-
-    width:50%;
-    height:100%;
-
-    clip-path:
-        polygon(
-            100% 0,
-            100% 100%,
-            0 100%
-        );
-
-    background:#f3cedd;
-}
-
-.ebottom{
-
-    inset:0;
-
-    z-index:3;
-
-    clip-path:
-        polygon(
-            0 100%,
-            50% 39%,
-            100% 100%
-        );
-
-    background:#f9e0e9;
-}
-
-.flap{
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:100%;
-    height:63%;
-
-    z-index:5;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff8fb,
-            #f1c9da
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 100%
-        );
-
-    transform-origin:top;
-
-    transition:
-        transform 1s
-        cubic-bezier(.2,.8,.2,1);
-}
-
-.seal{
-
-    position:absolute;
-
-    z-index:8;
-
-    left:50%;
-    top:53%;
-
-    transform:
-        translate(-50%,-50%);
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-
-    display:grid;
-
-    place-items:center;
-
-    background:#d66d91;
-
-    color:#fff;
-
-    font-size:25px;
-
-    box-shadow:
-        0 5px 20px #9a3e6366;
-
-    transition:.5s;
-}
-
-.envelope.open .flap{
-
-    transform:rotateX(180deg);
-}
-
-.envelope.open .seal{
-
-    opacity:0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.2);
-}
-
-.tap{
-
-    margin-top:18px;
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:3px;
-
-    color:#9d5872;
-
-    animation:
-        tapPulse
-        1.8s infinite;
-}
-
-@keyframes tapPulse{
-
-    50%{
-        opacity:.35;
-    }
-}
-
-/* =====================================================
-   LETTER
-===================================================== */
-
-.letterLayer{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:15;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:14px;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    background:#fff0f6ed;
-
-    transition:.5s;
-}
-
-.letterLayer.show{
-
-    opacity:1;
-
-    visibility:visible;
-}
-
-.paper{
-
-    position:relative;
-
-    width:min(930px,94vw);
-
-    height:min(84vh,720px);
-
-    padding:
-        clamp(22px,4vw,50px);
-
-    overflow:hidden;
-
-    background:#fffdfd;
-
-    box-shadow:
-        0 35px 100px #833e5a55;
-
-    transform:
-        translateY(190px)
-        scale(.18)
-        rotateX(75deg);
-
-    transform-origin:
-        bottom center;
-
-    opacity:0;
-}
-
-.letterLayer.show .paper{
-
-    animation:
-        paperUnfold
-        2.2s
-        cubic-bezier(.16,.82,.2,1)
-        forwards;
-}
-
-@keyframes paperUnfold{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            translateY(190px)
-            scale(.18)
-            rotateX(75deg);
-    }
-
-    25%{
-        opacity:1;
-    }
-
-    50%{
-
-        transform:
-            translateY(-35px)
-            scale(1.04)
-            rotateX(-12deg);
-    }
-
-    70%{
-
-        transform:
-            translateY(8px)
-            scale(1.01)
-            rotateX(5deg);
-    }
-
-    100%{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1)
-            rotateX(0);
-    }
-}
-
-.letterHead{
-
-    text-align:center;
-}
-
-.letterHead small{
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    color:#aa6680;
-}
-
-.letterHead h2{
-
-    margin:
-        6px 0;
-
-    font-size:
-        clamp(28px,5vw,53px);
-
-    line-height:1.05;
-
-    font-weight:500;
-
-    color:#6a3047;
-}
-
-.heart{
-    color:#d66d91;
-}
-
-.letterBody{
-
-    height:
-        calc(100% - 145px);
-
-    overflow:auto;
-
-    scrollbar-width:none;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    gap:13px;
-}
-
-.letterBody::-webkit-scrollbar{
-    display:none;
-}
-
-.letterBody p{
-
-    font-size:
-        clamp(12px,1.6vw,18px);
-
-    line-height:1.48;
-
-    color:#593142;
-}
-
-.divider{
-
-    height:1px;
-
-    margin:
-        0 15%;
-
-    background:#e8bdcc;
-}
-
-/* =====================================================
-   OUR MEMORIES BUTTON
-===================================================== */
-
-.memoriesButtonWrap{
-
-    position:absolute;
-
-    z-index:30;
-
-    left:0;
-    right:0;
-
-    bottom:24px;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    opacity:0;
-
-    transform:
-        translateY(35px)
-        scale(.9);
-
-    pointer-events:none;
-
-    transition:
-        opacity 1s ease,
-        transform 1s
-        cubic-bezier(.16,.8,.2,1);
-}
-
-.memoriesButtonWrap.show{
-
-    opacity:1;
-
-    transform:
-        translateY(0)
-        scale(1);
-
-    pointer-events:auto;
-}
-
-.memoriesBtn{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:12px;
-
-    min-width:190px;
-
-    padding:13px 22px;
-
-    border:
-        1px solid #d88aa7;
-
-    border-radius:50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffffe8,
-            #ffe1edcf
-        );
-
-    color:#71354d;
-
-    font:
-        20px
-        "Cormorant Garamond",
-        serif;
-
-    letter-spacing:1px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 8px 30px #8c375d2e;
-
-    backdrop-filter:blur(12px);
-
-    transition:.4s;
-
-    overflow:hidden;
-}
-
-.memoriesBtn:hover{
-
-    transform:
-        translateY(-4px)
-        scale(1.04);
-
-    box-shadow:
-        0 14px 35px #8c375d40,
-        0 0 35px #d66d9140;
-}
-
-.memoriesHeart{
-
-    color:#d45d88;
-
-    font-size:25px;
-
-    text-shadow:
-        0 0 8px #ff9dbc,
-        0 0 18px #ffb7cc;
-
-    animation:
-        heartBeat
-        1.5s
-        ease-in-out
-        infinite;
-}
-
-@keyframes heartBeat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    15%{
-        transform:scale(1.25);
-    }
-
-    30%{
-        transform:scale(1);
-    }
-
-    45%{
-        transform:scale(1.15);
-    }
-
-    60%{
-        transform:scale(1);
-    }
-}
-
-.memoriesArrow{
-
-    font-family:Arial,sans-serif;
-
-    font-size:18px;
-
-    opacity:.55;
-
-    transition:.4s;
-}
-
-.memoriesBtn:hover .memoriesArrow{
-
-    transform:translateX(5px);
-
-    opacity:1;
-}
-
-.memoriesBtn::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:50px;
-
-    background:
-        linear-gradient(
-            110deg,
-            transparent 30%,
-            #ffffffbf 50%,
-            transparent 70%
-        );
-
-    background-size:250% 100%;
-
-    animation:
-        shimmer
-        4s ease-in-out infinite;
-
-    pointer-events:none;
-}
-
-@keyframes shimmer{
-
-    0%{
-        background-position:200% 0;
-    }
-
-    45%,100%{
-        background-position:-100% 0;
-    }
-}
-
-/* =====================================================
-   MEMORY SCENE
-===================================================== */
-
-#scene3{
-
-    background:
-        linear-gradient(
-            160deg,
-            #fff6fa,
-            #fbdce8 55%,
-            #f4b6cf
-        );
-
-    color:#603247;
-}
-
-.memoryPage{
-
-    width:100%;
-    height:100%;
-
-    overflow-y:auto;
-
-    padding:
-        42px 16px 70px;
-
-    text-align:center;
-}
-
-.memoryKicker{
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    color:#a35c76;
-}
-
-.memoryTitle{
-
-    margin:
-        7px 0 5px;
-
-    font-size:
-        clamp(40px,7vw,72px);
-
-    font-weight:500;
-
-    color:#6c3048;
-}
-
-.memorySub{
-
-    margin-bottom:24px;
-
-    font-size:17px;
-
-    color:#8b5369;
-}
-
-.memories{
-
-    max-width:1050px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-    text-align:left;
-}
-
-.memory{
-
-    padding:9px;
-
-    background:#fff9fb;
-
-    box-shadow:
-        0 12px 30px #8a3e5722;
-
-    opacity:0;
-
-    transform:
-        translateY(45px)
-        rotate(var(--r));
-
-    animation:
-        memoryIn
-        .9s
-        forwards;
-
-    animation-delay:
-        var(--delay);
-}
-
-@keyframes memoryIn{
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            rotate(var(--r));
-    }
-}
-
-.photo{
-
-    height:230px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f2bfd2,
-            #fff1f6
-        );
-
-    color:#9d6077;
-
-    font-size:42px;
-}
-
-.photo img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-}
-
-.caption{
-
-    padding:
-        10px 6px 4px;
-
-    font-size:18px;
-
-    color:#69364c;
-}
-
-/* =====================================================
-   PHOTO FILM TRANSITION
-===================================================== */
-
-.filmTransition{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:3000;
-
-    background:#090609;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    pointer-events:none;
-
-    overflow:hidden;
-}
-
-.filmTransition.go{
-
-    opacity:1;
-
-    visibility:visible;
-}
-
-.filmStrip{
-
-    position:absolute;
-
-    left:-30%;
-
-    top:50%;
-
-    width:160%;
-
-    height:190px;
-
-    transform:
-        translateY(-50%)
-        rotate(-3deg);
-
-    display:flex;
-
-    gap:12px;
-
-    animation:
-        filmMove
-        2.2s
-        linear forwards;
-}
-
-.filmFrame{
-
-    flex:0 0 230px;
-
-    height:165px;
-
-    padding:7px;
-
-    background:#111;
-
-    border:
-        2px solid #555;
-
-    box-shadow:
-        0 0 20px #000;
-}
-
-.filmFrame img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-}
-
-@keyframes filmMove{
-
-    0%{
-        transform:
-            translate(-25%,-50%)
-            rotate(-3deg);
-    }
-
-    100%{
-        transform:
-            translate(15%,-50%)
-            rotate(-3deg);
-    }
-}
-
-/* =====================================================
-   JOURNEY SCENE
-===================================================== */
-
-#scene4{
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            #321c34,
-            #09070d 70%
-        );
-}
-
-.journey{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:10;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:25px;
-}
-
-.journeyItem{
-
-    position:absolute;
-
-    max-width:850px;
-
-    opacity:0;
-
-    transform:
-        translateY(35px)
-        scale(.95);
-
-    transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
-}
-
-.journeyItem.show{
-
-    opacity:1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-.journeyDate{
-
-    margin-bottom:18px;
-
-    font:
-        10px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:6px;
-
-    color:#f2b7ce;
-}
-
-.journeyText{
-
-    font-size:
-        clamp(30px,6vw,70px);
-
-    line-height:1.05;
-
-    color:#fff2f7;
-
-    text-shadow:
-        0 0 30px #ff9fc155;
-}
-
-.journeySmall{
-
-    max-width:650px;
-
-    margin:
-        20px auto 0;
-
-    font-size:
-        clamp(17px,2.5vw,25px);
-
-    line-height:1.5;
-
-    color:#d9b9c7;
-
-    font-style:italic;
-}
-
-.journeyProgress{
-
-    position:absolute;
-
-    bottom:35px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    font:
-        8px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:4px;
-
-    color:#ffffff77;
-}
-
-/* =====================================================
-   FINAL SCENE
-===================================================== */
-
-#scene5{
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            #171b34,
-            #060711 65%,
-            #020205
-        );
-}
-
-.finalStars{
-
-    position:absolute;
-
-    inset:0;
-}
-
-.finalMoon{
-
-    position:absolute;
-
-    z-index:3;
-
-    left:50%;
-    top:40%;
-
-    width:min(62vw,350px);
-    height:min(62vw,350px);
-
-    object-fit:contain;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.5);
-
-    opacity:0;
-
-    filter:
-        drop-shadow(0 0 22px #fff)
-        drop-shadow(0 0 75px #aebcff);
-
-    transition:
-        3s cubic-bezier(.16,.8,.2,1);
-}
-
-.finalMoon.show{
-
-    opacity:1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
-}
-
-.finalMessage{
-
-    position:absolute;
-
-    z-index:10;
-
-    left:15px;
-    right:15px;
-
-    bottom:10%;
-
-    text-align:center;
-
-    opacity:0;
-
-    transform:
-        translateY(30px);
-
-    transition:
-        2s ease;
-}
-
-.finalMessage.show{
-
-    opacity:1;
-
-    transform:none;
-}
-
-.finalSmall{
-
-    font:
-        9px
-        "Montserrat",
-        sans-serif;
-
-    letter-spacing:4px;
-
-    color:#ffffff88;
-
-    margin-bottom:18px;
-}
-
-.finalLine{
-
-    font-size:
-        clamp(21px,4vw,38px);
-
-    font-style:italic;
-
-    color:#f8dce8;
-}
-
-.finalName{
-
-    margin-top:20px;
-
-    font:
-        clamp(48px,9vw,90px)
-        "Great Vibes",
-        cursive;
-
-    color:#ffd8e8;
-
-    text-shadow:
-        0 0 25px #ff9cbd,
-        0 0 70px #ff4f8e;
-}
-
-.finalHeart{
-
-    display:block;
-
-    margin-top:8px;
-
-    font-size:28px;
-
-    animation:
-        finalHeartBeat
-        1.7s
-        infinite;
-}
-
-@keyframes finalHeartBeat{
-
-    50%{
-        transform:scale(1.25);
-    }
-}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{font-family:"Cormorant Garamond",serif;background:#030205;color:#fff}
+button{font:inherit}
+.scene{position:fixed;inset:0;width:100%;height:100%;overflow:hidden;opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity 1.1s ease,transform 1.3s ease}
+.scene.active{opacity:1;visibility:visible;transform:none}
+.center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 6px #fff,0 0 14px #fff;animation:tw var(--s) ease-in-out infinite}
+.star.big{width:3px;height:3px}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.7)}}
+.magic{border:1px solid #ffffff55;background:#ffffff12;color:#fff;padding:13px 24px;border-radius:50px;font:10px Montserrat,sans-serif;letter-spacing:2px;cursor:pointer;backdrop-filter:blur(12px);transition:.35s}
+.magic:hover{transform:translateY(-3px);background:#ffffff24}
+
+/* scene 1 */
+#scene1{background:radial-gradient(circle at 50% 42%,#3b263c,#180f1e 45%,#040307)}
+.candlePage{transition:opacity 1s,transform 1.1s,filter 1.1s}
+.candlePage.hide{opacity:0;transform:scale(1.15);filter:blur(10px)}
+.wish{font:10px Montserrat,sans-serif;letter-spacing:5px;text-transform:uppercase;color:#fff9;margin-bottom:18px}
+.cake{position:relative;width:160px;height:125px}
+.plate{position:absolute;left:50%;bottom:3px;transform:translateX(-50%);width:170px;height:18px;border-radius:50%;background:linear-gradient(#ffe5ef,#ad6684)}
+.cakebody{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);width:120px;height:67px;border-radius:12px 12px 20px 20px;background:linear-gradient(135deg,#fffaff,#e7a9c3);box-shadow:0 10px 30px #0008}
+.icing{position:absolute;left:50%;bottom:68px;transform:translateX(-50%);width:130px;height:24px;border-radius:50%;background:#fffaff}
+.candle{position:absolute;left:50%;bottom:78px;transform:translateX(-50%);width:14px;height:60px;border-radius:5px;background:repeating-linear-gradient(135deg,#fff 0 5px,#ec9fbd 5px 10px)}
+.wick{position:absolute;left:50%;top:-9px;width:2px;height:10px;transform:translateX(-50%);background:#222}
+.flame{position:absolute;left:50%;top:-42px;width:22px;height:34px;transform:translateX(-50%) rotate(45deg);border-radius:50% 50% 50% 0;background:linear-gradient(135deg,#fffbc0,#ffae38,#ff557a);box-shadow:0 0 12px #fff,0 0 32px #ffb52e,0 0 60px #ff6d9b;animation:fl .7s alternate infinite}
+@keyframes fl{to{transform:translateX(-50%) rotate(49deg) scale(1.08)}}
+.smoke{position:absolute;left:50%;top:-55px;width:13px;height:13px;border-radius:50%;background:#fff5;filter:blur(5px);opacity:0}
+.smoke.go{animation:sm 2.6s ease-out forwards}
+@keyframes sm{0%{opacity:0;transform:translate(-50%,0) scale(.5)}20%{opacity:.6}100%{opacity:0;transform:translate(25px,-125px) scale(4)}}
+.makeWish{margin-top:7px;font:clamp(35px,7vw,65px) "Great Vibes",cursive;color:#ffd7e7;text-shadow:0 0 22px #ff98bb}
+.sub{font:9px Montserrat,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#fff9;margin:3px 0 24px}
+.bdayPage{opacity:0;visibility:hidden;transform:scale(.7);transition:1.3s cubic-bezier(.16,.8,.2,1)}
+.bdayPage.show{opacity:1;visibility:visible;transform:none}
+.birthday{font:clamp(55px,11vw,120px) "Great Vibes",cursive;color:#ffd7e7;text-shadow:0 0 20px #ff9fc1,0 0 65px #ff4c8d}
+.name{font-size:clamp(28px,5vw,54px);letter-spacing:3px}
+.date{font:9px Montserrat,sans-serif;letter-spacing:4px;color:#fff9;margin-top:15px}
+
+/* dark candle transition */
+.darkBurst{position:fixed;inset:0;z-index:1000;background:#000;opacity:0;pointer-events:none;overflow:hidden}
+.darkBurst.go{animation:darkGo 2s cubic-bezier(.7,0,.15,1) forwards}
+.darkBurst:after{content:"";position:absolute;left:50%;top:50%;width:70px;height:70px;border-radius:50%;background:#26151f;transform:translate(-50%,-50%) scale(.2);opacity:0;filter:blur(18px)}
+.darkBurst.go:after{animation:warmFade 1.4s ease-out forwards}
+@keyframes darkGo{0%{opacity:0;background:#070509}20%{opacity:1;background:#030204}70%{opacity:1;background:#000}100%{opacity:0;background:#000}}
+@keyframes warmFade{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}25%{opacity:.45}100%{opacity:0;transform:translate(-50%,-50%) scale(4)}}
+
+/* moon */
+#moonScene{background:radial-gradient(circle at 50% 43%,#1e2441,#080a17 58%,#020207)}
+.moonGlow{position:absolute;left:50%;top:43%;width:min(90vw,560px);height:min(90vw,560px);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#ffffff4d,#cbd8ff18 40%,transparent 72%);filter:blur(10px);animation:mh 4s ease-in-out infinite}
+@keyframes mh{50%{transform:translate(-50%,-50%) scale(1.1)}}
+.moon{position:absolute;z-index:5;left:50%;top:43%;width:min(72vw,390px);height:min(72vw,390px);object-fit:contain;opacity:0;transform:translate(-50%,-50%) scale(.08) rotate(-20deg);filter:drop-shadow(0 0 20px #fff) drop-shadow(0 0 75px #9daeff)}
+.moon.reveal{animation:mr 2.5s cubic-bezier(.16,.8,.2,1) forwards}
+@keyframes mr{0%{opacity:0;transform:translate(-50%,-50%) scale(.08) rotate(-25deg);filter:blur(15px)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.12) rotate(5deg)}100%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}}
+.moonText{position:absolute;z-index:8;bottom:5%;left:0;right:0;text-align:center;opacity:0;transform:translateY(25px);transition:1s}
+.moonText.show{opacity:1;transform:none}
+.moonDate{font:9px Montserrat,sans-serif;letter-spacing:3px;margin-bottom:8px}
+.moonQuote{font-size:clamp(18px,3vw,28px);font-style:italic}
+
+/* star-field transition */
+.starWarp{position:fixed;inset:0;z-index:2000;background:#020207;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden}
+.starWarp.active{opacity:1;visibility:visible}
+.warpStar{position:absolute;left:50%;top:50%;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;animation:warp 1.8s ease-in forwards}
+@keyframes warp{0%{opacity:0;transform:translate(0,0) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(3)}}
+
+/* scene 2 cover */
+#scene2{background:radial-gradient(circle at 50% 10%,#fffafd,#ffe7f0 52%,#f1b2cb);color:#603247}
+.cover{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;transition:1s}
+.cover.out{opacity:0;transform:scale(1.08);filter:blur(6px);pointer-events:none}
+.kicker{font:9px Montserrat,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#a05f79}
+.coverTitle{max-width:850px;margin:10px 0 25px;font-size:clamp(34px,7vw,72px);line-height:1.02;font-weight:500;color:#6c3048}
+.envelope{position:relative;width:min(370px,84vw);height:min(240px,54vw);cursor:pointer;filter:drop-shadow(0 25px 35px #813b5655);perspective:1000px}
+.envBase{position:absolute;inset:0;overflow:hidden;border:1px solid #e0adbf;border-radius:8px;background:linear-gradient(145deg,#fff,#f8dce7)}
+.eleft,.eright,.ebottom{position:absolute;z-index:2}
+.eleft{left:0;bottom:0;width:50%;height:100%;clip-path:polygon(0 0,100% 100%,0 100%);background:#f6d5e2}
+.eright{right:0;bottom:0;width:50%;height:100%;clip-path:polygon(100% 0,100% 100%,0 100%);background:#f3cedd}
+.ebottom{inset:0;z-index:3;clip-path:polygon(0 100%,50% 39%,100% 100%);background:#f9e0e9}
+.flap{position:absolute;left:0;top:0;width:100%;height:63%;z-index:5;background:linear-gradient(145deg,#fff8fb,#f1c9da);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.seal{position:absolute;z-index:8;left:50%;top:53%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#d66d91;color:#fff;font-size:25px;box-shadow:0 5px 20px #9a3e6366;transition:.5s}
+.envelope.open .flap{transform:rotateX(180deg)}
+.envelope.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.2)}
+.tap{margin-top:18px;font:9px Montserrat,sans-serif;letter-spacing:3px;color:#9d5872;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* letter */
+.letterLayer{position:absolute;inset:0;z-index:15;display:flex;align-items:center;justify-content:center;padding:14px;opacity:0;visibility:hidden;background:#fff0f6ed;transition:.5s}
+.letterLayer.show{opacity:1;visibility:visible}
+.paper{position:relative;width:min(930px,94vw);height:min(84vh,720px);padding:clamp(22px,4vw,50px);overflow:hidden;background:#fffdfd;box-shadow:0 35px 100px #833e5a55;transform:translateY(190px) scale(.18) rotateX(75deg);transform-origin:bottom center;opacity:0}
+.letterLayer.show .paper{animation:paperUnfold 2.2s cubic-bezier(.16,.82,.2,1) forwards}
+@keyframes paperUnfold{0%{opacity:0;transform:translateY(190px) scale(.18) rotateX(75deg)}25%{opacity:1}50%{transform:translateY(-35px) scale(1.04) rotateX(-12deg)}70%{transform:translateY(8px) scale(1.01) rotateX(5deg)}100%{opacity:1;transform:none}}
+.letterHead{text-align:center}
+.letterHead small{font:9px Montserrat,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#aa6680}
+.letterHead h2{margin:6px 0;font-size:clamp(28px,5vw,53px);line-height:1.05;font-weight:500;color:#6a3047}
+.heart{color:#d66d91}
+.letterBody{height:calc(100% - 145px);overflow:auto;scrollbar-width:none;display:flex;flex-direction:column;justify-content:center;gap:13px}
+.letterBody::-webkit-scrollbar{display:none}
+.letterBody p{font-size:clamp(12px,1.6vw,18px);line-height:1.48;color:#593142}
+.divider{height:1px;margin:0 15%;background:#e8bdcc}
+
+/* memories button */
+.memoriesButtonWrap{position:absolute;z-index:30;left:0;right:0;bottom:24px;display:flex;justify-content:center;align-items:center;opacity:0;transform:translateY(35px) scale(.9);pointer-events:none;transition:opacity 1s ease,transform 1s cubic-bezier(.16,.8,.2,1)}
+.memoriesButtonWrap.show{opacity:1;transform:none;pointer-events:auto}
+.memoriesBtn{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;min-width:190px;padding:13px 22px;border:1px solid #d88aa7;border-radius:50px;background:linear-gradient(135deg,#ffffffe8,#ffe1edcf);color:#71354d;font:20px "Cormorant Garamond",serif;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 30px #8c375d2e;backdrop-filter:blur(12px);transition:.4s;overflow:hidden}
+.memoriesBtn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 14px 35px #8c375d40,0 0 35px #d66d9140}
+.memoriesHeart{color:#d45d88;font-size:25px;text-shadow:0 0 8px #ff9dbc,0 0 18px #ffb7cc;animation:hb 1.5s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.15)}60%{transform:scale(1)}}
+.memoriesArrow{font:18px Arial,sans-serif;opacity:.55;transition:.4s}
+.memoriesBtn:hover .memoriesArrow{transform:translateX(5px);opacity:1}
+
+/* memories */
+#scene3{background:linear-gradient(160deg,#fff6fa,#fbdce8 55%,#f4b6cf);color:#603247}
+.memoryPage{width:100%;height:100%;overflow-y:auto;padding:42px 16px 70px;text-align:center}
+.memoryKicker{font:9px Montserrat,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#a35c76}
+.memoryTitle{font-size:clamp(40px,7vw,72px);font-weight:500;color:#6c3048;margin:7px 0 5px}
+.memorySub{font-size:17px;color:#8b5369;margin-bottom:24px}
+.memories{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
+.memory{padding:9px;background:#fff9fb;box-shadow:0 12px 30px #8a3e5722;opacity:0;transform:translateY(45px) rotate(var(--r));animation:mi .9s forwards;animation-delay:var(--delay)}
+@keyframes mi{to{opacity:1;transform:translateY(0) rotate(var(--r))}}
+.photo{height:230px;overflow:hidden;background:linear-gradient(135deg,#f2bfd2,#fff1f6);display:flex;align-items:center;justify-content:center;color:#9d6077;font-size:42px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.caption{padding:10px 6px 4px;font-size:18px;color:#69364c}
+
+/* film transition */
+.filmTransition{position:fixed;inset:0;z-index:3000;background:#090609;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden}
+.filmTransition.go{opacity:1;visibility:visible}
+.filmStrip{position:absolute;left:-30%;top:50%;width:160%;height:190px;transform:translateY(-50%) rotate(-3deg);display:flex;gap:12px;animation:filmMove 2.2s linear forwards}
+.filmFrame{flex:0 0 230px;height:165px;padding:7px;background:#111;border:2px solid #555}
+.filmFrame img{width:100%;height:100%;object-fit:cover}
+@keyframes filmMove{0%{transform:translate(-25%,-50%) rotate(-3deg)}100%{transform:translate(15%,-50%) rotate(-3deg)}}
+
+/* journey */
+#scene4{background:radial-gradient(circle at 50% 45%,#321c34,#09070d 70%)}
+.journey{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px}
+.journeyItem{position:absolute;max-width:850px;opacity:0;transform:translateY(35px) scale(.95);transition:opacity 1.2s ease,transform 1.2s ease}
+.journeyItem.show{opacity:1;transform:none}
+.journeyDate{margin-bottom:18px;font:10px Montserrat,sans-serif;letter-spacing:6px;color:#f2b7ce}
+.journeyText{font-size:clamp(30px,6vw,70px);line-height:1.05;color:#fff2f7;text-shadow:0 0 30px #ff9fc155}
+.journeySmall{max-width:650px;margin:20px auto 0;font-size:clamp(17px,2.5vw,25px);line-height:1.5;color:#d9b9c7;font-style:italic}
+.journeyProgress{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);font:8px Montserrat,sans-serif;letter-spacing:4px;color:#ffffff77}
+
+/* final */
+#scene5{background:radial-gradient(circle at 50% 45%,#171b34,#060711 65%,#020205)}
+.finalStars{position:absolute;inset:0}
+.finalMoon{position:absolute;z-index:3;left:50%;top:40%;width:min(62vw,350px);height:min(62vw,350px);object-fit:contain;transform:translate(-50%,-50%) scale(.5);opacity:0;filter:drop-shadow(0 0 22px #fff) drop-shadow(0 0 75px #aebcff);transition:3s cubic-bezier(.16,.8,.2,1)}
+.finalMoon.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.finalMessage{position:absolute;z-index:10;left:15px;right:15px;bottom:10%;text-align:center;opacity:0;transform:translateY(30px);transition:2s}
+.finalMessage.show{opacity:1;transform:none}
+.finalSmall{font:9px Montserrat,sans-serif;letter-spacing:4px;color:#ffffff88;margin-bottom:18px}
+.finalLine{font-size:clamp(21px,4vw,38px);font-style:italic;color:#f8dce8}
+.finalName{margin-top:20px;font:clamp(48px,9vw,90px) "Great Vibes",cursive;color:#ffd8e8;text-shadow:0 0 25px #ff9cbd,0 0 70px #ff4f8e}
+.finalHeart{display:block;margin-top:8px;font-size:28px;animation:fh 1.7s infinite}
+@keyframes fh{50%{transform:scale(1.25)}}
 
 @media(max-width:750px){
-
-    .memories{
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .photo{
-        height:180px;
-    }
-
-    .paper{
-
-        height:87vh;
-
-        padding:
-            20px 16px;
-    }
-
-    .letterBody{
-
-        justify-content:flex-start;
-    }
-
-    .letterBody p{
-
-        font-size:11.5px;
-
-        line-height:1.4;
-    }
+ .memories{grid-template-columns:repeat(2,1fr)}
+ .photo{height:180px}
+ .paper{height:87vh;padding:20px 16px}
+ .letterBody{justify-content:flex-start}
+ .letterBody p{font-size:11.5px;line-height:1.4}
 }
-
 @media(max-width:500px){
-
-    .memoriesButtonWrap{
-
-        bottom:18px;
-    }
-
-    .memoriesBtn{
-
-        min-width:175px;
-
-        padding:
-            12px 20px;
-
-        font-size:19px;
-    }
-
-    .memoriesHeart{
-        font-size:23px;
-    }
-
-    .filmFrame{
-        flex-basis:180px;
-        height:130px;
-    }
+ .memoriesButtonWrap{bottom:18px}
+ .memoriesBtn{min-width:175px;padding:12px 20px;font-size:19px}
+ .filmFrame{flex-basis:180px;height:130px}
 }
-
 @media(max-width:430px){
-
-    .memories{
-
-        grid-template-columns:1fr;
-    }
-
-    .photo{
-        height:260px;
-    }
-
-    .letterHead h2{
-        font-size:29px;
-    }
+ .memories{grid-template-columns:1fr}
+ .photo{height:260px}
+ .letterHead h2{font-size:29px}
 }
-
 </style>
 </head>
 
-
 <body>
 
+<section id="scene1" class="scene active">
+<div class="stars" id="stars1"></div>
 
-<!-- =====================================================
-     SCENE 1
-===================================================== -->
+<div class="center candlePage" id="candlePage">
+<div class="wish">before anything else...</div>
+<div class="cake">
+<div class="plate"></div>
+<div class="cakebody"></div>
+<div class="icing"></div>
+<div class="candle">
+<div class="wick"></div>
+<div class="flame" id="flame"></div>
+<div class="smoke" id="smoke"></div>
+</div>
+</div>
 
-<section
-    id="scene1"
-    class="scene active"
->
+<div class="makeWish">A little moment, just for you…</div>
+<div class="sub">one little birthday moment for you</div>
 
-    <div
-        class="stars"
-        id="stars1"
-    ></div>
+<button class="magic" id="blow">✨ BLOW THE CANDLE ✨</button>
+</div>
 
-
-    <div
-        class="center candlePage"
-        id="candlePage"
-    >
-
-        <div class="wish">
-            before anything else...
-        </div>
-
-
-        <div class="cake">
-
-            <div class="plate"></div>
-
-            <div class="cakebody"></div>
-
-            <div class="icing"></div>
-
-            <div class="candle">
-
-                <div class="wick"></div>
-
-                <div
-                    class="flame"
-                    id="flame"
-                ></div>
-
-                <div
-                    class="smoke"
-                    id="smoke"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="makeWish">
-            A little moment, just for you…
-        </div>
-
-        <div class="sub">
-            one little birthday moment for you
-        </div>
-
-
-        <button
-            class="magic"
-            id="blow"
-        >
-            ✨ BLOW THE CANDLE ✨
-        </button>
-
-    </div>
-
-
-    <div
-        class="center bdayPage"
-        id="bdayPage"
-    >
-
-        <div class="birthday">
-            Happy Birthday
-        </div>
-
-        <div class="name">
-            Bhavana Manasa ❤️
-        </div>
-
-        <div class="date">
-            OCTOBER 2 • 2003 • ELURU
-        </div>
-
-
-        <button
-            class="magic"
-            id="seeMoon"
-            style="margin-top:28px"
-        >
-            🌙 SEE THE NIGHT YOU WERE BORN
-        </button>
-
-    </div>
-
+<div class="center bdayPage" id="bdayPage">
+<div class="birthday">Happy Birthday</div>
+<div class="name">Bhavana Manasa ❤️</div>
+<div class="date">OCTOBER 2 • 2003 • ELURU</div>
+<button class="magic" id="seeMoon" style="margin-top:28px">🌙 SEE THE NIGHT YOU WERE BORN</button>
+</div>
 </section>
 
+<div class="darkBurst" id="darkBurst"></div>
 
-<!-- =====================================================
-     LIGHT BURST
-===================================================== -->
-
-<div
-    class="lightBurst"
-    id="lightBurst"
-></div>
-
-
-<!-- =====================================================
-     MOON
-===================================================== -->
-
-<section
-    id="moonScene"
-    class="scene"
->
-
-    <div
-        class="stars"
-        id="starsMoon"
-    ></div>
-
-    <div class="moonGlow"></div>
-
-
-    <img
-        src="moon.png"
-        class="moon"
-        id="moon"
-        alt="Moon"
-    >
-
-
-    <div
-        class="moonText"
-        id="moonText"
-    >
-
-        <div class="moonDate">
-            OCTOBER 2 • 2003 • ELURU, ANDHRA PRADESH
-        </div>
-
-        <div class="moonQuote">
-
-            “Somewhere beneath this sky,<br>
-            you began your story.”
-
-        </div>
-
-
-        <button
-            class="magic"
-            id="goLetter"
-            style="margin-top:18px"
-        >
-            CONTINUE OUR STORY ✨
-        </button>
-
-    </div>
-
+<section id="moonScene" class="scene">
+<div class="stars" id="starsMoon"></div>
+<div class="moonGlow"></div>
+<img src="moon.png" class="moon" id="moon" alt="Moon">
+<div class="moonText" id="moonText">
+<div class="moonDate">OCTOBER 2 • 2003 • ELURU, ANDHRA PRADESH</div>
+<div class="moonQuote">“Somewhere beneath this sky,<br>you began your story.”</div>
+<button class="magic" id="goLetter" style="margin-top:18px">CONTINUE OUR STORY ✨</button>
+</div>
 </section>
 
+<div class="starWarp" id="starWarp"></div>
 
-<!-- =====================================================
-     STAR WARP
-===================================================== -->
+<section id="scene2" class="scene">
+<div class="cover" id="cover">
+<div class="kicker">a little letter, written just for you</div>
+<h1 class="coverTitle">The Little Things That Became Everything</h1>
 
-<div
-    class="starWarp"
-    id="starWarp"
-></div>
+<div class="envelope" id="envelope">
+<div class="envBase">
+<div class="eleft"></div>
+<div class="eright"></div>
+<div class="ebottom"></div>
+<div class="flap"></div>
+<div class="seal">♥</div>
+</div>
+</div>
 
+<div class="tap">TAP THE LETTER TO OPEN IT</div>
+</div>
 
-<!-- =====================================================
-     SCENE 2
-===================================================== -->
+<div class="letterLayer" id="letterLayer">
+<div class="paper">
 
-<section
-    id="scene2"
-    class="scene"
->
+<div class="letterHead">
+<small>for you, on your birthday</small>
+<h2>The Little Things That Became Everything</h2>
+<div class="heart">♥</div>
+</div>
 
+<div class="letterBody">
+<p>
+Hey Bhavana, it has been more than a year since you came into my life, and I feel incredibly lucky to have you. This has been the most beautiful phase of my life, and sometimes I still can't believe you're mine.
 
-    <!-- LETTER COVER -->
+I still remember seeing you for the first time on June 21, the day of my interview. From that moment, you became my crush — and even after we started our relationship, I never stopped crushing on you.
 
-    <div
-        class="cover"
-        id="cover"
-    >
+After I joined the organization, I kept admiring you and secretly waiting for the moment you'd look at me.
 
-        <div class="kicker">
-            a little letter, written just for you
-        </div>
+Somehow, it feels like the universe planned everything for us. Everything happened like a little miracle, and our journey began. ❤️
+</p>
 
+<div class="divider"></div>
 
-        <h1 class="coverTitle">
-            The Little Things That Became Everything
-        </h1>
+<p>
+Since that day, every little moment with you has become special — our first chat, that beautiful night when we expressed our feelings, our first hand-hold, midnight walk, hug, kiss, and all the little things that followed.
 
+I love the way you hold my hand, lean on my shoulder, look at me with love, and sometimes give me that wonderfully creepy look. 😂❤️
 
-        <div
-            class="envelope"
-            id="envelope"
-        >
+You notice everything about me; you comfort me when I'm sad, celebrate harder when I'm happy, and take care of me when I'm struggling.
 
-            <div class="envBase">
+You changed me from Adivi Manishi to City Manishi. 😂
 
-                <div class="eleft"></div>
+Our silly fights somehow make us stronger, and your belief in me makes me believe in myself.
 
-                <div class="eright"></div>
+I'm sorry for all the times I've hurt you — although I know after reading this, you may want to hit me anyway. 😂
 
-                <div class="ebottom"></div>
+That's your Wild Love... your Doola Daanaaaaa. ❤️
 
-                <div class="flap"></div>
+I never imagined someone could love me this much.
 
-                <div class="seal">
-                    ♥
-                </div>
+Every gift and every little thing from you means more to me than I can explain.
 
-            </div>
+But more than all the gifts, I love the person who gave them to me.
 
-        </div>
+Love youuuuu, my love — Naa Pilla. ❤️
+</p>
+</div>
 
+<div class="memoriesButtonWrap" id="memoriesButtonWrap">
+<button class="memoriesBtn" id="enterMemories">
+<span class="memoriesHeart">♥</span>
+<span>Our Memories</span>
+<span class="memoriesArrow">→</span>
+</button>
+</div>
 
-        <div class="tap">
-            TAP THE LETTER TO OPEN IT
-        </div>
-
-    </div>
-
-
-    <!-- LETTER -->
-
-    <div
-        class="letterLayer"
-        id="letterLayer"
-    >
-
-        <div class="paper">
-
-
-            <div class="letterHead">
-
-                <small>
-                    for you, on your birthday
-                </small>
-
-                <h2>
-                    The Little Things That Became Everything
-                </h2>
-
-                <div class="heart">
-                    ♥
-                </div>
-
-            </div>
-
-
-            <div class="letterBody">
-
-                <p>
-
-                    Hey Bhavana, it has been more than a year
-                    since you came into my life, and I feel
-                    incredibly lucky to have you.
-
-                    This has been the most beautiful phase of
-                    my life, and sometimes I still can't believe
-                    you're mine.
-
-                    I still remember seeing you for the first
-                    time on June 21, the day of my interview.
-
-                    From that moment, you became my crush —
-                    and even after we started our relationship,
-                    I never stopped crushing on you.
-
-                    After I joined the organization, I kept
-                    admiring you and secretly waiting for the
-                    moment you'd look at me.
-
-                    Somehow, it feels like the universe planned
-                    everything for us.
-
-                    Everything happened like a little miracle,
-                    and our journey began. ❤️
-
-                </p>
-
-
-                <div class="divider"></div>
-
-
-                <p>
-
-                    Since that day, every little moment with you
-                    has become special — our first chat, that
-                    beautiful night when we expressed our
-                    feelings, our first hand-hold, midnight walk,
-                    hug, kiss, and all the little things that
-                    followed.
-
-                    I love the way you hold my hand, lean on my
-                    shoulder, look at me with love, and sometimes
-                    give me that wonderfully creepy look. 😂❤️
-
-                    You notice everything about me; you comfort
-                    me when I'm sad, celebrate harder when I'm
-                    happy, and take care of me when I'm
-                    struggling.
-
-                    You changed me from Adivi Manishi to City
-                    Manishi. 😂
-
-                    Our silly fights somehow make us stronger,
-                    and your belief in me makes me believe in
-                    myself.
-
-                    I'm sorry for all the times I've hurt you —
-                    although I know after reading this, you may
-                    want to hit me anyway. 😂
-
-                    That's your Wild Love... your Doola
-                    Daanaaaaa. ❤️
-
-                    I never imagined someone could love me this
-                    much.
-
-                    Every gift and every little thing from you
-                    means more to me than I can explain.
-
-                    But more than all the gifts, I love the person
-                    who gave them to me.
-
-                    Love youuuuu, my love —
-                    Naa Pilla. ❤️
-
-                </p>
-
-            </div>
-
-
-            <div
-                class="memoriesButtonWrap"
-                id="memoriesButtonWrap"
-            >
-
-                <button
-                    class="memoriesBtn"
-                    id="enterMemories"
-                >
-
-                    <span class="memoriesHeart">
-                        ♥
-                    </span>
-
-                    <span>
-                        Our Memories
-                    </span>
-
-                    <span class="memoriesArrow">
-                        →
-                    </span>
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
+<section id="scene3" class="scene">
+<div class="memoryPage">
 
-<!-- =====================================================
-     SCENE 3
-===================================================== -->
+<div class="memoryKicker">our little universe</div>
+<h2 class="memoryTitle">Our Memories</h2>
+<div class="memorySub">little moments that became my favourite memories ❤️</div>
 
-<section
-    id="scene3"
-    class="scene"
->
+<div class="memories">
 
-    <div class="memoryPage">
+<div class="memory" style="--r:-2deg;--delay:.1s"><div class="photo"><img src="memory1.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">Your first photo together</div></div>
 
-        <div class="memoryKicker">
-            our little universe
-        </div>
+<div class="memory" style="--r:2deg;--delay:.2s"><div class="photo"><img src="memory2.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">A memory I'll always keep ❤️</div></div>
 
-        <h2 class="memoryTitle">
-            Our Memories
-        </h2>
+<div class="memory" style="--r:-1deg;--delay:.3s"><div class="photo"><img src="memory3.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">One of my favourite moments 🥰</div></div>
 
-        <div class="memorySub">
-            little moments that became my favourite memories ❤️
-        </div>
+<div class="memory" style="--r:2deg;--delay:.4s"><div class="photo"><img src="memory4.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">That smile of yours ✨</div></div>
 
+<div class="memory" style="--r:-2deg;--delay:.5s"><div class="photo"><img src="memory5.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">Just us 💕</div></div>
 
-        <div class="memories">
+<div class="memory" style="--r:1deg;--delay:.6s"><div class="photo"><img src="memory6.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">A moment worth remembering 🌹</div></div>
 
+<div class="memory" style="--r:-1deg;--delay:.7s"><div class="photo"><img src="memory7.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">Another beautiful memory 📷</div></div>
 
-            <div
-                class="memory"
-                style="--r:-2deg;--delay:.1s"
-            >
+<div class="memory" style="--r:2deg;--delay:.8s"><div class="photo"><img src="memory8.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">One more for the memories ❤️</div></div>
 
-                <div class="photo">
-
-                    <img
-                        src="memory1.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    Your first photo together
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:2deg;--delay:.2s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory2.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    A memory I'll always keep ❤️
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:-1deg;--delay:.3s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory3.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    One of my favourite moments 🥰
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:2deg;--delay:.4s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory4.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    That smile of yours ✨
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:-2deg;--delay:.5s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory5.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    Just us 💕
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:1deg;--delay:.6s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory6.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    A moment worth remembering 🌹
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:-1deg;--delay:.7s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory7.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    Another beautiful memory 📷
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:2deg;--delay:.8s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory8.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    One more for the memories ❤️
-                </div>
-
-            </div>
-
-
-            <div
-                class="memory"
-                style="--r:-1deg;--delay:.9s"
-            >
-
-                <div class="photo">
-
-                    <img
-                        src="memory9.jpg"
-                        onerror="
-                        this.style.display='none';
-                        this.parentElement.innerHTML='📷'
-                        "
-                    >
-
-                </div>
-
-                <div class="caption">
-                    And many more to come... ✨
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="magic"
-            id="startJourney"
-            style="
-                margin-top:30px;
-                color:#69364c;
-                border-color:#c67d99;
-                background:#ffffff70;
-            "
-        >
-            CONTINUE OUR JOURNEY →
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FILM TRANSITION
-===================================================== -->
-
-<div
-    class="filmTransition"
-    id="filmTransition"
->
-
-    <div
-        class="filmStrip"
-        id="filmStrip"
-    >
-
-        <div class="filmFrame">
-            <img src="memory1.jpg">
-        </div>
-
-        <div class="filmFrame">
-            <img src="memory2.jpg">
-        </div>
-
-        <div class="filmFrame">
-            <img src="memory3.jpg">
-        </div>
-
-        <div class="filmFrame">
-            <img src="memory4.jpg">
-        </div>
-
-        <div class="filmFrame">
-            <img src="memory5.jpg">
-        </div>
-
-        <div class="filmFrame">
-            <img src="memory6.jpg">
-        </div>
-
-    </div>
+<div class="memory" style="--r:-1deg;--delay:.9s"><div class="photo"><img src="memory9.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">And many more to come... ✨</div></div>
 
 </div>
 
+<button class="magic" id="startJourney" style="margin-top:30px;color:#69364c;border-color:#c67d99;background:#ffffff70">
+CONTINUE OUR JOURNEY →
+</button>
 
-<!-- =====================================================
-     SCENE 4 — JOURNEY
-===================================================== -->
-
-<section
-    id="scene4"
-    class="scene"
->
-
-    <div
-        class="stars"
-        id="starsJourney"
-    ></div>
-
-
-    <div class="journey">
-
-
-        <div
-            class="journeyItem"
-            data-time="0"
-        >
-
-            <div class="journeyDate">
-                SOME STORIES BEGIN QUIETLY...
-            </div>
-
-            <div class="journeyText">
-                It all started<br>
-                with one ordinary day.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="4500"
-        >
-
-            <div class="journeyDate">
-                JUNE 21
-            </div>
-
-            <div class="journeyText">
-                The day I first saw you.
-            </div>
-
-            <div class="journeySmall">
-                I didn't know it then,
-                but you were about to become
-                my favourite person.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="9000"
-        >
-
-            <div class="journeyDate">
-                OUR FIRST CHAT
-            </div>
-
-            <div class="journeyText">
-                One conversation...
-            </div>
-
-            <div class="journeySmall">
-                Somehow, one conversation
-                became another.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="13500"
-        >
-
-            <div class="journeyDate">
-                THE NIGHT WE SAID IT ❤️
-            </div>
-
-            <div class="journeyText">
-                Everything suddenly
-                felt different.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="18000"
-        >
-
-            <div class="journeyDate">
-                OUR FIRST WALK 🌙
-            </div>
-
-            <div class="journeyText">
-                Two people.
-                One midnight road.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="22500"
-        >
-
-            <div class="journeyDate">
-                OUR FIRST HUG 🤍
-            </div>
-
-            <div class="journeyText">
-                And suddenly,
-                the world felt smaller.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="27000"
-        >
-
-            <div class="journeyDate">
-                OUR FIRST KISS ❤️
-            </div>
-
-            <div class="journeyText">
-                One moment.
-                A thousand feelings.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="31500"
-        >
-
-            <div class="journeyDate">
-                THEN...
-            </div>
-
-            <div class="journeyText">
-                We became us.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="36000"
-        >
-
-            <div class="journeyDate">
-                TODAY
-            </div>
-
-            <div class="journeyText">
-                More than a year later...
-            </div>
-
-            <div class="journeySmall">
-                And I still can't believe
-                I get to call you mine.
-            </div>
-
-        </div>
-
-
-        <div
-            class="journeyItem"
-            data-time="40500"
-        >
-
-            <div class="journeyDate">
-                AND THIS...
-            </div>
-
-            <div class="journeyText">
-                Is only the beginning.
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <div
-        class="journeyProgress"
-        id="journeyProgress"
-    >
-        OUR STORY • 01
-    </div>
-
+</div>
 </section>
 
+<div class="filmTransition" id="filmTransition">
+<div class="filmStrip">
+<div class="filmFrame"><img src="memory1.jpg"></div>
+<div class="filmFrame"><img src="memory2.jpg"></div>
+<div class="filmFrame"><img src="memory3.jpg"></div>
+<div class="filmFrame"><img src="memory4.jpg"></div>
+<div class="filmFrame"><img src="memory5.jpg"></div>
+<div class="filmFrame"><img src="memory6.jpg"></div>
+</div>
+</div>
 
-<!-- =====================================================
-     SCENE 5 — FINAL
-===================================================== -->
+<section id="scene4" class="scene">
+<div class="stars" id="starsJourney"></div>
 
-<section
-    id="scene5"
-    class="scene"
->
+<div class="journey">
 
-    <div
-        class="finalStars"
-        id="finalStars"
-    ></div>
+<div class="journeyItem" data-time="0">
+<div class="journeyDate">SOME STORIES BEGIN QUIETLY...</div>
+<div class="journeyText">It all started<br>with one ordinary day.</div>
+</div>
 
+<div class="journeyItem" data-time="4500">
+<div class="journeyDate">JUNE 21</div>
+<div class="journeyText">The day I first saw you.</div>
+<div class="journeySmall">I didn't know it then, but you were about to become my favourite person.</div>
+</div>
 
-    <img
-        src="moon.png"
-        class="finalMoon"
-        id="finalMoon"
-        alt="Moon"
-    >
+<div class="journeyItem" data-time="9000">
+<div class="journeyDate">OUR FIRST CHAT</div>
+<div class="journeyText">One conversation...</div>
+<div class="journeySmall">Somehow, one conversation became another.</div>
+</div>
 
+<div class="journeyItem" data-time="13500">
+<div class="journeyDate">THE NIGHT WE SAID IT ❤️</div>
+<div class="journeyText">Everything suddenly felt different.</div>
+</div>
 
-    <div
-        class="finalMessage"
-        id="finalMessage"
-    >
+<div class="journeyItem" data-time="18000">
+<div class="journeyDate">OUR FIRST WALK 🌙</div>
+<div class="journeyText">Two people.<br>One midnight road.</div>
+</div>
 
-        <div class="finalSmall">
-            AND MANY MORE MEMORIES TO COME...
-        </div>
+<div class="journeyItem" data-time="22500">
+<div class="journeyDate">OUR FIRST HUG 🤍</div>
+<div class="journeyText">And suddenly, the world felt smaller.</div>
+</div>
 
+<div class="journeyItem" data-time="27000">
+<div class="journeyDate">OUR FIRST KISS ❤️</div>
+<div class="journeyText">One moment.<br>A thousand feelings.</div>
+</div>
 
-        <div class="finalLine">
+<div class="journeyItem" data-time="31500">
+<div class="journeyDate">THEN...</div>
+<div class="journeyText">We became us.</div>
+</div>
 
-            “If I could go back to the beginning,<br>
-            I'd still choose you.”
+<div class="journeyItem" data-time="36000">
+<div class="journeyDate">TODAY</div>
+<div class="journeyText">More than a year later...</div>
+<div class="journeySmall">And I still can't believe I get to call you mine.</div>
+</div>
 
-        </div>
+<div class="journeyItem" data-time="40500">
+<div class="journeyDate">AND THIS...</div>
+<div class="journeyText">Is only the beginning.</div>
+</div>
 
+</div>
 
-        <div class="finalName">
-            Happy Birthday, My Love (Na Pilla)
-        </div>
-
-
-        <span class="finalHeart">
-            ❤️
-        </span>
-
-    </div>
-
+<div class="journeyProgress" id="journeyProgress">OUR STORY • 01</div>
 </section>
 
+<section id="scene5" class="scene">
+<div class="stars" id="finalStars"></div>
+
+<img src="moon.png" class="finalMoon" id="finalMoon" alt="Moon">
+
+<div class="finalMessage" id="finalMessage">
+<div class="finalSmall">AND MANY MORE MEMORIES TO COME...</div>
+<div class="finalLine">“If I could go back to the beginning,<br>I'd still choose you.”</div>
+<div class="finalName">Happy Birthday, My Love(Naa Pilla)</div>
+<span class="finalHeart">❤️</span>
+</div>
+</section>
 
 <script>
-
-/* =====================================================
-   STAR GENERATOR
-===================================================== */
-
 function createStars(id,count){
-
-    const container =
-        document.getElementById(id);
-
-    if(!container) return;
-
-    for(let i=0;i<count;i++){
-
-        const star =
-            document.createElement("span");
-
-        star.className="star";
-
-        if(Math.random()<.12){
-            star.classList.add("big");
-        }
-
-        star.style.left =
-            Math.random()*100+"%";
-
-        star.style.top =
-            Math.random()*100+"%";
-
-        star.style.setProperty(
-            "--speed",
-            2 + Math.random()*4 + "s"
-        );
-
-        star.style.animationDelay =
-            -Math.random()*4+"s";
-
-        container.appendChild(star);
-    }
+ const c=document.getElementById(id);
+ for(let i=0;i<count;i++){
+  const s=document.createElement("span");
+  s.className="star";
+  if(Math.random()<.12)s.classList.add("big");
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.setProperty("--s",2+Math.random()*4+"s");
+  s.style.animationDelay=-Math.random()*4+"s";
+  c.appendChild(s);
+ }
 }
-
 createStars("stars1",80);
 createStars("starsMoon",130);
 createStars("starsJourney",90);
 createStars("finalStars",120);
 
-
-/* =====================================================
-   CHANGE SCENE
-===================================================== */
-
 function showScene(id){
-
-    document
-        .querySelectorAll(".scene")
-        .forEach(scene=>{
-            scene.classList.remove("active");
-        });
-
-    const target =
-        document.getElementById(id);
-
-    if(target){
-        target.classList.add("active");
-    }
+ document.querySelectorAll(".scene").forEach(s=>s.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
 }
 
-
-/* =====================================================
-   CANDLE → LIGHT EXPLOSION
-===================================================== */
-
-document
-.getElementById("blow")
-.addEventListener("click",()=>{
-
-    document
-        .getElementById("flame")
-        .style.opacity="0";
-
-    document
-        .getElementById("smoke")
-        .classList.add("go");
-
-
-    document
-        .getElementById("candlePage")
-        .classList.add("hide");
-
-
-    const burst =
-        document.getElementById("lightBurst");
-
-    burst.classList.add("go");
-
-
-    setTimeout(()=>{
-
-        document
-            .getElementById("bdayPage")
-            .classList.add("show");
-
-    },800);
-
-
-    setTimeout(()=>{
-
-        burst.classList.remove("go");
-
-    },2000);
-
-});
-
-
-/* =====================================================
-   BIRTHDAY → MOON
-   STAR FIELD TRANSITION
-===================================================== */
-
-document
-.getElementById("seeMoon")
-.addEventListener("click",()=>{
-
-    const warp =
-        document.getElementById("starWarp");
-
-    warp.innerHTML="";
-
-    warp.classList.add("active");
-
-
-    /* CREATE TRAVELLING STARS */
-
-    for(let i=0;i<100;i++){
-
-        const star =
-            document.createElement("span");
-
-        star.className="warpStar";
-
-        star.style.left =
-            "50%";
-
-        star.style.top =
-            "50%";
-
-        const angle =
-            Math.random()*Math.PI*2;
-
-        const distance =
-            300 + Math.random()*900;
-
-        star.style.setProperty(
-            "--x",
-            Math.cos(angle)*distance+"px"
-        );
-
-        star.style.setProperty(
-            "--y",
-            Math.sin(angle)*distance+"px"
-        );
-
-        star.style.animationDelay =
-            Math.random()*.35+"s";
-
-        warp.appendChild(star);
-    }
-
-
-    setTimeout(()=>{
-
-        showScene("moonScene");
-
-        document
-            .getElementById("moon")
-            .classList.add("reveal");
-
-    },850);
-
-
-    setTimeout(()=>{
-
-        warp.classList.remove("active");
-
-        document
-            .getElementById("moonText")
-            .classList.add("show");
-
-    },2500);
-
-});
-
-
-/* =====================================================
-   MOON → LETTER
-===================================================== */
-
-document
-.getElementById("goLetter")
-.addEventListener("click",()=>{
-
-    const warp =
-        document.getElementById("starWarp");
-
-    warp.innerHTML="";
-
-    warp.classList.add("active");
-
-
-    for(let i=0;i<80;i++){
-
-        const star =
-            document.createElement("span");
-
-        star.className="warpStar";
-
-        star.style.left =
-            "50%";
-
-        star.style.top =
-            "50%";
-
-        const angle =
-            Math.random()*Math.PI*2;
-
-        const distance =
-            250 + Math.random()*800;
-
-        star.style.setProperty(
-            "--x",
-            Math.cos(angle)*distance+"px"
-        );
-
-        star.style.setProperty(
-            "--y",
-            Math.sin(angle)*distance+"px"
-        );
-
-        star.style.animationDelay =
-            Math.random()*.25+"s";
-
-        warp.appendChild(star);
-    }
-
-
-    setTimeout(()=>{
-
-        showScene("scene2");
-
-    },850);
-
-
-    setTimeout(()=>{
-
-        warp.classList.remove("active");
-
-    },2100);
-
-});
-
-
-/* =====================================================
-   OPEN LETTER
-===================================================== */
-
-document
-.getElementById("envelope")
-.addEventListener("click",()=>{
-
-    const envelope =
-        document.getElementById("envelope");
-
-    const cover =
-        document.getElementById("cover");
-
-    const letter =
-        document.getElementById("letterLayer");
-
-    const memoriesButton =
-        document.getElementById(
-            "memoriesButtonWrap"
-        );
-
-
-    envelope.classList.add("open");
-
-
-    setTimeout(()=>{
-
-        cover.classList.add("out");
-
-    },700);
-
-
-    setTimeout(()=>{
-
-        letter.classList.add("show");
-
-    },1050);
-
-
-    /*
-       Letter has time to:
-       1. rise
-       2. unfold
-       3. settle
-       4. reveal memories button
-    */
-
-    setTimeout(()=>{
-
-        memoriesButton.classList.add("show");
-
-    },3900);
-
-});
-
-
-/* =====================================================
-   LETTER → MEMORIES
-   PAPER / PHOTO FILM TRANSITION
-===================================================== */
-
-document
-.getElementById("enterMemories")
-.addEventListener("click",()=>{
-
-    const film =
-        document.getElementById(
-            "filmTransition"
-        );
-
-    film.classList.add("go");
-
-
-    setTimeout(()=>{
-
-        showScene("scene3");
-
-    },1000);
-
-
-    setTimeout(()=>{
-
-        film.classList.remove("go");
-
-    },2500);
-
-});
-
-
-/* =====================================================
-   MEMORIES → JOURNEY
-   PHOTO FILM TRANSITION
-===================================================== */
-
-document
-.getElementById("startJourney")
-.addEventListener("click",()=>{
-
-    const film =
-        document.getElementById(
-            "filmTransition"
-        );
-
-    film.classList.add("go");
-
-
-    setTimeout(()=>{
-
-        showScene("scene4");
-
-        startJourney();
-
-    },1050);
-
-
-    setTimeout(()=>{
-
-        film.classList.remove("go");
-
-    },2500);
-
-});
-
-
-/* =====================================================
-   JOURNEY ANIMATION
-===================================================== */
-
+/* candle -> DARK transition */
+document.getElementById("blow").onclick=()=>{
+ document.getElementById("flame").style.opacity="0";
+ document.getElementById("smoke").classList.add("go");
+ document.getElementById("candlePage").classList.add("hide");
+
+ const dark=document.getElementById("darkBurst");
+ dark.classList.add("go");
+
+ setTimeout(()=>{
+  document.getElementById("bdayPage").classList.add("show");
+ },900);
+
+ setTimeout(()=>{
+  dark.classList.remove("go");
+ },2100);
+};
+
+/* birthday -> moon */
+document.getElementById("seeMoon").onclick=()=>{
+ const w=document.getElementById("starWarp");
+ w.innerHTML="";
+ w.classList.add("active");
+
+ for(let i=0;i<110;i++){
+  const s=document.createElement("span");
+  s.className="warpStar";
+  const a=Math.random()*Math.PI*2;
+  const d=300+Math.random()*900;
+  s.style.setProperty("--x",Math.cos(a)*d+"px");
+  s.style.setProperty("--y",Math.sin(a)*d+"px");
+  s.style.animationDelay=Math.random()*.3+"s";
+  w.appendChild(s);
+ }
+
+ setTimeout(()=>{
+  showScene("moonScene");
+  document.getElementById("moon").classList.add("reveal");
+ },850);
+
+ setTimeout(()=>{
+  w.classList.remove("active");
+  document.getElementById("moonText").classList.add("show");
+ },2500);
+};
+
+/* moon -> letter */
+document.getElementById("goLetter").onclick=()=>{
+ const w=document.getElementById("starWarp");
+ w.innerHTML="";
+ w.classList.add("active");
+
+ for(let i=0;i<85;i++){
+  const s=document.createElement("span");
+  s.className="warpStar";
+  const a=Math.random()*Math.PI*2;
+  const d=250+Math.random()*800;
+  s.style.setProperty("--x",Math.cos(a)*d+"px");
+  s.style.setProperty("--y",Math.sin(a)*d+"px");
+  s.style.animationDelay=Math.random()*.25+"s";
+  w.appendChild(s);
+ }
+
+ setTimeout(()=>{
+  showScene("scene2");
+ },850);
+
+ setTimeout(()=>{
+  w.classList.remove("active");
+ },2100);
+};
+
+/* envelope */
+document.getElementById("envelope").onclick=()=>{
+ document.getElementById("envelope").classList.add("open");
+ setTimeout(()=>document.getElementById("cover").classList.add("out"),700);
+ setTimeout(()=>document.getElementById("letterLayer").classList.add("show"),1050);
+ setTimeout(()=>document.getElementById("memoriesButtonWrap").classList.add("show"),3900);
+};
+
+/* letter -> memories */
+document.getElementById("enterMemories").onclick=()=>{
+ const film=document.getElementById("filmTransition");
+ film.classList.add("go");
+ setTimeout(()=>showScene("scene3"),1000);
+ setTimeout(()=>film.classList.remove("go"),2500);
+};
+
+/* memories -> journey */
 let journeyStarted=false;
 
+document.getElementById("startJourney").onclick=()=>{
+ const film=document.getElementById("filmTransition");
+ film.classList.add("go");
+
+ setTimeout(()=>{
+  showScene("scene4");
+  startJourney();
+ },1050);
+
+ setTimeout(()=>film.classList.remove("go"),2500);
+};
+
 function startJourney(){
+ if(journeyStarted)return;
+ journeyStarted=true;
 
-    if(journeyStarted) return;
+ const items=[...document.querySelectorAll(".journeyItem")];
 
-    journeyStarted=true;
+ items.forEach((item,index)=>{
+  setTimeout(()=>{
+   items.forEach(x=>x.classList.remove("show"));
+   item.classList.add("show");
+   document.getElementById("journeyProgress").textContent=
+      "OUR STORY • "+String(index+1).padStart(2,"0");
+  },parseInt(item.dataset.time));
+ });
 
-    const items =
-        document.querySelectorAll(
-            ".journeyItem"
-        );
-
-    items.forEach(item=>{
-        item.classList.remove("show");
-    });
-
-
-    items.forEach((item,index)=>{
-
-        const time =
-            parseInt(
-                item.dataset.time
-            );
-
-        setTimeout(()=>{
-
-            items.forEach(other=>{
-                other.classList.remove("show");
-            });
-
-            item.classList.add("show");
-
-
-            document
-                .getElementById(
-                    "journeyProgress"
-                )
-                .textContent =
-                    "OUR STORY • " +
-                    String(index+1).padStart(2,"0");
-
-
-        },time);
-
-    });
-
-
-    /*
-       After final moment,
-       move to ending.
-    */
-
-    setTimeout(()=>{
-
-        goToFinal();
-
-    },45500);
-
+ setTimeout(goFinal,45500);
 }
 
+/* journey -> stars -> moon */
+function goFinal(){
+ const w=document.getElementById("starWarp");
+ w.innerHTML="";
+ w.classList.add("active");
 
-/* =====================================================
-   JOURNEY → STARS → MOON
-===================================================== */
+ for(let i=0;i<130;i++){
+  const s=document.createElement("span");
+  s.className="warpStar";
+  const a=Math.random()*Math.PI*2;
+  const d=300+Math.random()*1000;
+  s.style.setProperty("--x",Math.cos(a)*d+"px");
+  s.style.setProperty("--y",Math.sin(a)*d+"px");
+  s.style.animationDelay=Math.random()*.4+"s";
+  w.appendChild(s);
+ }
 
-function goToFinal(){
+ setTimeout(()=>{
+  showScene("scene5");
+  document.getElementById("finalMoon").classList.add("show");
+ },1000);
 
-    const warp =
-        document.getElementById("starWarp");
-
-    warp.innerHTML="";
-
-    warp.classList.add("active");
-
-
-    for(let i=0;i<130;i++){
-
-        const star =
-            document.createElement("span");
-
-        star.className="warpStar";
-
-        star.style.left =
-            "50%";
-
-        star.style.top =
-            "50%";
-
-        const angle =
-            Math.random()*Math.PI*2;
-
-        const distance =
-            300 + Math.random()*1000;
-
-        star.style.setProperty(
-            "--x",
-            Math.cos(angle)*distance+"px"
-        );
-
-        star.style.setProperty(
-            "--y",
-            Math.sin(angle)*distance+"px"
-        );
-
-        star.style.animationDelay =
-            Math.random()*.4+"s";
-
-        warp.appendChild(star);
-    }
-
-
-    setTimeout(()=>{
-
-        showScene("scene5");
-
-        document
-            .getElementById("finalMoon")
-            .classList.add("show");
-
-    },1000);
-
-
-    setTimeout(()=>{
-
-        warp.classList.remove("active");
-
-        document
-            .getElementById("finalMessage")
-            .classList.add("show");
-
-    },3000);
-
+ setTimeout(()=>{
+  w.classList.remove("active");
+  document.getElementById("finalMessage").classList.add("show");
+ },3000);
 }
-
 </script>
 
 </body>
