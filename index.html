@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>For Bhavana Manasa ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -10,7 +10,7 @@
 html,body{width:100%;height:100%;overflow:hidden}
 body{font-family:"Cormorant Garamond",serif;background:#030205;color:#fff}
 button{font:inherit}
-.scene{position:fixed;inset:0;width:100%;height:100%;overflow:hidden;opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity 1.1s ease,transform 1.3s ease}
+.scene{position:fixed;inset:0;width:100%;height:100%;overflow:hidden;opacity:0;visibility:hidden;transform:scale(1.025);transition:opacity 1s ease,transform 1.2s ease}
 .scene.active{opacity:1;visibility:visible;transform:none}
 .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5}
 .stars{position:absolute;inset:0;pointer-events:none}
@@ -20,11 +20,10 @@ button{font:inherit}
 .magic{border:1px solid #ffffff55;background:#ffffff12;color:#fff;padding:13px 24px;border-radius:50px;font:10px Montserrat,sans-serif;letter-spacing:2px;cursor:pointer;backdrop-filter:blur(12px);transition:.35s}
 .magic:hover{transform:translateY(-3px);background:#ffffff24}
 
-/* scene 1 */
+/* CANDLE */
 #scene1{background:radial-gradient(circle at 50% 42%,#3b263c,#180f1e 45%,#040307)}
 .candlePage{transition:opacity 1s,transform 1.1s,filter 1.1s}
 .candlePage.hide{opacity:0;transform:scale(1.15);filter:blur(10px)}
-.wish{font:10px Montserrat,sans-serif;letter-spacing:5px;text-transform:uppercase;color:#fff9;margin-bottom:18px}
 .cake{position:relative;width:160px;height:125px}
 .plate{position:absolute;left:50%;bottom:3px;transform:translateX(-50%);width:170px;height:18px;border-radius:50%;background:linear-gradient(#ffe5ef,#ad6684)}
 .cakebody{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);width:120px;height:67px;border-radius:12px 12px 20px 20px;background:linear-gradient(135deg,#fffaff,#e7a9c3);box-shadow:0 10px 30px #0008}
@@ -43,20 +42,16 @@ button{font:inherit}
 .birthday{font:clamp(55px,11vw,120px) "Great Vibes",cursive;color:#ffd7e7;text-shadow:0 0 20px #ff9fc1,0 0 65px #ff4c8d}
 .name{font-size:clamp(28px,5vw,54px);letter-spacing:3px}
 .date{font:9px Montserrat,sans-serif;letter-spacing:4px;color:#fff9;margin-top:15px}
-
-/* dark candle transition */
-.darkBurst{position:fixed;inset:0;z-index:1000;background:#000;opacity:0;pointer-events:none;overflow:hidden}
+.darkBurst{position:fixed;inset:0;z-index:1000;background:#000;opacity:0;pointer-events:none}
 .darkBurst.go{animation:darkGo 2s cubic-bezier(.7,0,.15,1) forwards}
-.darkBurst:after{content:"";position:absolute;left:50%;top:50%;width:70px;height:70px;border-radius:50%;background:#26151f;transform:translate(-50%,-50%) scale(.2);opacity:0;filter:blur(18px)}
-.darkBurst.go:after{animation:warmFade 1.4s ease-out forwards}
-@keyframes darkGo{0%{opacity:0;background:#070509}20%{opacity:1;background:#030204}70%{opacity:1;background:#000}100%{opacity:0;background:#000}}
-@keyframes warmFade{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}25%{opacity:.45}100%{opacity:0;transform:translate(-50%,-50%) scale(4)}}
+@keyframes darkGo{0%{opacity:0}20%{opacity:1}75%{opacity:1}100%{opacity:0}}
 
-/* moon */
+/* MOON */
 #moonScene{background:radial-gradient(circle at 50% 43%,#1e2441,#080a17 58%,#020207)}
 .moonGlow{position:absolute;left:50%;top:43%;width:min(90vw,560px);height:min(90vw,560px);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#ffffff4d,#cbd8ff18 40%,transparent 72%);filter:blur(10px);animation:mh 4s ease-in-out infinite}
 @keyframes mh{50%{transform:translate(-50%,-50%) scale(1.1)}}
-.moon{position:absolute;z-index:5;left:50%;top:43%;width:min(72vw,390px);height:min(72vw,390px);object-fit:contain;opacity:0;transform:translate(-50%,-50%) scale(.08) rotate(-20deg);filter:drop-shadow(0 0 20px #fff) drop-shadow(0 0 75px #9daeff)}
+.moon,.finalMoon{object-fit:contain;filter:drop-shadow(0 0 20px #fff) drop-shadow(0 0 75px #9daeff)}
+.moon{position:absolute;z-index:5;left:50%;top:43%;width:min(72vw,390px);height:min(72vw,390px);opacity:0;transform:translate(-50%,-50%) scale(.08) rotate(-20deg)}
 .moon.reveal{animation:mr 2.5s cubic-bezier(.16,.8,.2,1) forwards}
 @keyframes mr{0%{opacity:0;transform:translate(-50%,-50%) scale(.08) rotate(-25deg);filter:blur(15px)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.12) rotate(5deg)}100%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}}
 .moonText{position:absolute;z-index:8;bottom:5%;left:0;right:0;text-align:center;opacity:0;transform:translateY(25px);transition:1s}
@@ -64,13 +59,13 @@ button{font:inherit}
 .moonDate{font:9px Montserrat,sans-serif;letter-spacing:3px;margin-bottom:8px}
 .moonQuote{font-size:clamp(18px,3vw,28px);font-style:italic}
 
-/* star-field transition */
+/* STAR WARP */
 .starWarp{position:fixed;inset:0;z-index:2000;background:#020207;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden}
 .starWarp.active{opacity:1;visibility:visible}
-.warpStar{position:absolute;left:50%;top:50%;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;animation:warp 1.8s ease-in forwards}
+.warpStar{position:absolute;left:50%;top:50%;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;animation:warp 1.35s ease-in forwards}
 @keyframes warp{0%{opacity:0;transform:translate(0,0) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(3)}}
 
-/* scene 2 cover */
+/* LETTER */
 #scene2{background:radial-gradient(circle at 50% 10%,#fffafd,#ffe7f0 52%,#f1b2cb);color:#603247}
 .cover{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;transition:1s}
 .cover.out{opacity:0;transform:scale(1.08);filter:blur(6px);pointer-events:none}
@@ -88,8 +83,6 @@ button{font:inherit}
 .envelope.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.2)}
 .tap{margin-top:18px;font:9px Montserrat,sans-serif;letter-spacing:3px;color:#9d5872;animation:pulse 1.8s infinite}
 @keyframes pulse{50%{opacity:.35}}
-
-/* letter */
 .letterLayer{position:absolute;inset:0;z-index:15;display:flex;align-items:center;justify-content:center;padding:14px;opacity:0;visibility:hidden;background:#fff0f6ed;transition:.5s}
 .letterLayer.show{opacity:1;visibility:visible}
 .paper{position:relative;width:min(930px,94vw);height:min(84vh,720px);padding:clamp(22px,4vw,50px);overflow:hidden;background:#fffdfd;box-shadow:0 35px 100px #833e5a55;transform:translateY(190px) scale(.18) rotateX(75deg);transform-origin:bottom center;opacity:0}
@@ -103,18 +96,14 @@ button{font:inherit}
 .letterBody::-webkit-scrollbar{display:none}
 .letterBody p{font-size:clamp(12px,1.6vw,18px);line-height:1.48;color:#593142}
 .divider{height:1px;margin:0 15%;background:#e8bdcc}
-
-/* memories button */
-.memoriesButtonWrap{position:absolute;z-index:30;left:0;right:0;bottom:24px;display:flex;justify-content:center;align-items:center;opacity:0;transform:translateY(35px) scale(.9);pointer-events:none;transition:opacity 1s ease,transform 1s cubic-bezier(.16,.8,.2,1)}
+.memoriesButtonWrap{position:absolute;z-index:30;left:0;right:0;bottom:24px;display:flex;justify-content:center;opacity:0;transform:translateY(35px) scale(.9);pointer-events:none;transition:opacity 1s ease,transform 1s cubic-bezier(.16,.8,.2,1)}
 .memoriesButtonWrap.show{opacity:1;transform:none;pointer-events:auto}
-.memoriesBtn{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;min-width:190px;padding:13px 22px;border:1px solid #d88aa7;border-radius:50px;background:linear-gradient(135deg,#ffffffe8,#ffe1edcf);color:#71354d;font:20px "Cormorant Garamond",serif;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 30px #8c375d2e;backdrop-filter:blur(12px);transition:.4s;overflow:hidden}
-.memoriesBtn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 14px 35px #8c375d40,0 0 35px #d66d9140}
-.memoriesHeart{color:#d45d88;font-size:25px;text-shadow:0 0 8px #ff9dbc,0 0 18px #ffb7cc;animation:hb 1.5s ease-in-out infinite}
+.memoriesBtn{display:flex;align-items:center;justify-content:center;gap:12px;min-width:190px;padding:13px 22px;border:1px solid #d88aa7;border-radius:50px;background:linear-gradient(135deg,#ffffffe8,#ffe1edcf);color:#71354d;font:20px "Cormorant Garamond",serif;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 30px #8c375d2e;backdrop-filter:blur(12px);transition:.4s}
+.memoriesBtn:hover{transform:translateY(-4px) scale(1.04)}
+.memoriesHeart{color:#d45d88;font-size:25px;text-shadow:0 0 8px #ff9dbc;animation:hb 1.5s infinite}
 @keyframes hb{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.15)}60%{transform:scale(1)}}
-.memoriesArrow{font:18px Arial,sans-serif;opacity:.55;transition:.4s}
-.memoriesBtn:hover .memoriesArrow{transform:translateX(5px);opacity:1}
 
-/* memories */
+/* MEMORY PAGE */
 #scene3{background:linear-gradient(160deg,#fff6fa,#fbdce8 55%,#f4b6cf);color:#603247}
 .memoryPage{width:100%;height:100%;overflow-y:auto;padding:42px 16px 70px;text-align:center}
 .memoryKicker{font:9px Montserrat,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#a35c76}
@@ -123,32 +112,40 @@ button{font:inherit}
 .memories{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
 .memory{padding:9px;background:#fff9fb;box-shadow:0 12px 30px #8a3e5722;opacity:0;transform:translateY(45px) rotate(var(--r));animation:mi .9s forwards;animation-delay:var(--delay)}
 @keyframes mi{to{opacity:1;transform:translateY(0) rotate(var(--r))}}
-.photo{height:230px;overflow:hidden;background:linear-gradient(135deg,#f2bfd2,#fff1f6);display:flex;align-items:center;justify-content:center;color:#9d6077;font-size:42px}
+.photo{height:230px;overflow:hidden;background:#f2bfd2;display:flex;align-items:center;justify-content:center}
 .photo img{width:100%;height:100%;object-fit:cover}
 .caption{padding:10px 6px 4px;font-size:18px;color:#69364c}
 
-/* film transition */
-.filmTransition{position:fixed;inset:0;z-index:3000;background:#090609;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden}
-.filmTransition.go{opacity:1;visibility:visible}
-.filmStrip{position:absolute;left:-30%;top:50%;width:160%;height:190px;transform:translateY(-50%) rotate(-3deg);display:flex;gap:12px;animation:filmMove 2.2s linear forwards}
-.filmFrame{flex:0 0 230px;height:165px;padding:7px;background:#111;border:2px solid #555}
-.filmFrame img{width:100%;height:100%;object-fit:cover}
-@keyframes filmMove{0%{transform:translate(-25%,-50%) rotate(-3deg)}100%{transform:translate(15%,-50%) rotate(-3deg)}}
+/* FAST SCROLLING REEL */
+.reelTransition{position:fixed;inset:0;z-index:3000;background:#08060a;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden}
+.reelTransition.go{opacity:1;visibility:visible}
+.reelTitle{position:absolute;z-index:5;top:9%;left:0;right:0;text-align:center;font:9px Montserrat,sans-serif;letter-spacing:5px;color:#ffffffaa}
+.reelTrack{position:absolute;left:0;right:0;top:50%;height:280px;transform:translateY(-50%);display:flex;align-items:center;gap:18px;width:max-content;animation:reelFast 2.15s cubic-bezier(.18,.72,.25,1) forwards}
+.reelFrame{width:240px;height:270px;padding:7px;background:#111;border:1px solid #777;box-shadow:0 18px 45px #000}
+.reelFrame img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes reelFast{0%{transform:translate(-100vw,-50%)}100%{transform:translate(calc(-100vw + 100%),-50%)}}
+.reelGlow{position:absolute;inset:0;background:radial-gradient(circle,#ffffff16,transparent 58%);pointer-events:none}
+@media(max-width:600px){.reelFrame{width:185px;height:230px}.reelTrack{height:240px;gap:12px}.reelTitle{top:8%}}
 
-/* journey */
+/* JOURNEY / LINE ART */
 #scene4{background:radial-gradient(circle at 50% 45%,#321c34,#09070d 70%)}
 .journey{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px}
-.journeyItem{position:absolute;max-width:850px;opacity:0;transform:translateY(35px) scale(.95);transition:opacity 1.2s ease,transform 1.2s ease}
+.journeyItem{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;opacity:0;transform:translateY(30px) scale(.97);transition:opacity 1s ease,transform 1s ease;pointer-events:none}
 .journeyItem.show{opacity:1;transform:none}
-.journeyDate{margin-bottom:18px;font:10px Montserrat,sans-serif;letter-spacing:6px;color:#f2b7ce}
+.journeyArt{width:min(520px,80vw);height:min(300px,38vh);margin-bottom:10px;overflow:visible}
+.journeyArt svg{width:100%;height:100%;overflow:visible}
+.lineArt{fill:none;stroke:#ffd7e7;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;opacity:.92;filter:drop-shadow(0 0 5px #ffb8d2) drop-shadow(0 0 12px #ff9fc1);stroke-dasharray:900;stroke-dashoffset:900;animation:drawCouple 2.2s ease forwards}
+.lineArt.secondary{stroke-width:2.3;opacity:.7}
+.journeyItem.show .lineArt{animation:drawCouple 2.2s ease forwards}
+@keyframes drawCouple{to{stroke-dashoffset:0}}
+.journeyDate{margin-bottom:12px;font:10px Montserrat,sans-serif;letter-spacing:6px;color:#f2b7ce}
 .journeyText{font-size:clamp(30px,6vw,70px);line-height:1.05;color:#fff2f7;text-shadow:0 0 30px #ff9fc155}
-.journeySmall{max-width:650px;margin:20px auto 0;font-size:clamp(17px,2.5vw,25px);line-height:1.5;color:#d9b9c7;font-style:italic}
-.journeyProgress{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);font:8px Montserrat,sans-serif;letter-spacing:4px;color:#ffffff77}
+.journeySmall{max-width:650px;margin:16px auto 0;font-size:clamp(17px,2.5vw,25px);line-height:1.5;color:#d9b9c7;font-style:italic}
+.journeyProgress{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);font:8px Montserrat,sans-serif;letter-spacing:4px;color:#ffffff77;z-index:10}
 
-/* final */
+/* FINAL */
 #scene5{background:radial-gradient(circle at 50% 45%,#171b34,#060711 65%,#020205)}
-.finalStars{position:absolute;inset:0}
-.finalMoon{position:absolute;z-index:3;left:50%;top:40%;width:min(62vw,350px);height:min(62vw,350px);object-fit:contain;transform:translate(-50%,-50%) scale(.5);opacity:0;filter:drop-shadow(0 0 22px #fff) drop-shadow(0 0 75px #aebcff);transition:3s cubic-bezier(.16,.8,.2,1)}
+.finalMoon{position:absolute;z-index:3;left:50%;top:40%;width:min(62vw,350px);height:min(62vw,350px);transform:translate(-50%,-50%) scale(.5);opacity:0;transition:3s cubic-bezier(.16,.8,.2,1)}
 .finalMoon.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .finalMessage{position:absolute;z-index:10;left:15px;right:15px;bottom:10%;text-align:center;opacity:0;transform:translateY(30px);transition:2s}
 .finalMessage.show{opacity:1;transform:none}
@@ -157,55 +154,22 @@ button{font:inherit}
 .finalName{margin-top:20px;font:clamp(48px,9vw,90px) "Great Vibes",cursive;color:#ffd8e8;text-shadow:0 0 25px #ff9cbd,0 0 70px #ff4f8e}
 .finalHeart{display:block;margin-top:8px;font-size:28px;animation:fh 1.7s infinite}
 @keyframes fh{50%{transform:scale(1.25)}}
-
-@media(max-width:750px){
- .memories{grid-template-columns:repeat(2,1fr)}
- .photo{height:180px}
- .paper{height:87vh;padding:20px 16px}
- .letterBody{justify-content:flex-start}
- .letterBody p{font-size:11.5px;line-height:1.4}
-}
-@media(max-width:500px){
- .memoriesButtonWrap{bottom:18px}
- .memoriesBtn{min-width:175px;padding:12px 20px;font-size:19px}
- .filmFrame{flex-basis:180px;height:130px}
-}
-@media(max-width:430px){
- .memories{grid-template-columns:1fr}
- .photo{height:260px}
- .letterHead h2{font-size:29px}
-}
+@media(max-width:750px){.memories{grid-template-columns:repeat(2,1fr)}.photo{height:180px}.paper{height:87vh;padding:20px 16px}.letterBody{justify-content:flex-start}.letterBody p{font-size:11.5px;line-height:1.4}}
+@media(max-width:430px){.memories{grid-template-columns:1fr}.photo{height:260px}.letterHead h2{font-size:29px}}
 </style>
 </head>
-
 <body>
 
 <section id="scene1" class="scene active">
 <div class="stars" id="stars1"></div>
-
 <div class="center candlePage" id="candlePage">
-<div class="wish"></div>
-<div class="cake">
-<div class="plate"></div>
-<div class="cakebody"></div>
-<div class="icing"></div>
-<div class="candle">
-<div class="wick"></div>
-<div class="flame" id="flame"></div>
-<div class="smoke" id="smoke"></div>
-</div>
-</div>
-
+<div class="cake"><div class="plate"></div><div class="cakebody"></div><div class="icing"></div><div class="candle"><div class="wick"></div><div class="flame" id="flame"></div><div class="smoke" id="smoke"></div></div></div>
 <div class="makeWish">A little moment, just for you…</div>
 <div class="sub">one little birthday moment for you</div>
-
 <button class="magic" id="blow">✨ BLOW THE CANDLE ✨</button>
 </div>
-
 <div class="center bdayPage" id="bdayPage">
-<div class="birthday">Happy Birthday</div>
-<div class="name">Bhavana Manasa ❤️</div>
-<div class="date">OCTOBER 2 • 2026 • </div>
+<div class="birthday">Happy Birthday</div><div class="name">Bhavana Manasa ❤️</div><div class="date">OCTOBER 2 • 2026</div>
 <button class="magic" id="seeMoon" style="margin-top:28px">🌙 SEE THE NIGHT YOU WERE BORN</button>
 </div>
 </section>
@@ -213,312 +177,124 @@ button{font:inherit}
 <div class="darkBurst" id="darkBurst"></div>
 
 <section id="moonScene" class="scene">
-<div class="stars" id="starsMoon"></div>
-<div class="moonGlow"></div>
+<div class="stars" id="starsMoon"></div><div class="moonGlow"></div>
 <img src="moon-clean-transparent.png" class="moon" id="moon" alt="Moon">
-<div class="moonText" id="moonText">
-<div class="moonDate">OCTOBER 2 • 2003 • ELURU, ANDHRA PRADESH</div>
+<div class="moonText" id="moonText"><div class="moonDate">OCTOBER 2 • 2003 • ELURU, ANDHRA PRADESH</div>
 <div class="moonQuote">“The sky on the night the world became brighter,<br>because you were in it.”</div>
-<button class="magic" id="goLetter" style="margin-top:18px">CONTINUE OUR STORY ✨</button>
-</div>
+<button class="magic" id="goLetter" style="margin-top:18px">CONTINUE OUR STORY ✨</button></div>
 </section>
-
 <div class="starWarp" id="starWarp"></div>
 
 <section id="scene2" class="scene">
-<div class="cover" id="cover">
-<div class="kicker">a little letter, written just for you</div>
+<div class="cover" id="cover"><div class="kicker">a little letter, written just for you</div>
 <h1 class="coverTitle">The Little Things That Became Everything</h1>
-
-<div class="envelope" id="envelope">
-<div class="envBase">
-<div class="eleft"></div>
-<div class="eright"></div>
-<div class="ebottom"></div>
-<div class="flap"></div>
-<div class="seal">♥</div>
-</div>
-</div>
-
-<div class="tap">TAP THE LETTER TO OPEN IT</div>
-</div>
-
-<div class="letterLayer" id="letterLayer">
-<div class="paper">
-
-<div class="letterHead">
-<small>for you, on your birthday</small>
-<h2>The Little Things That Became Everything</h2>
-<div class="heart">♥</div>
-</div>
-
+<div class="envelope" id="envelope"><div class="envBase"><div class="eleft"></div><div class="eright"></div><div class="ebottom"></div><div class="flap"></div><div class="seal">♥</div></div></div>
+<div class="tap">TAP THE LETTER TO OPEN IT</div></div>
+<div class="letterLayer" id="letterLayer"><div class="paper">
+<div class="letterHead"><small>for you, on your birthday</small><h2>The Little Things That Became Everything</h2><div class="heart">♥</div></div>
 <div class="letterBody">
-<p>
-Hey Bhavana, it has been more than a year since you came into my life, and I feel incredibly lucky to have you. This has been the most beautiful phase of my life, and sometimes I still can't believe you're mine.
-
-I still remember seeing you for the first time on June 21, the day of my interview. From that moment, you became my crush — and even after we started our relationship, I never stopped crushing on you.
-
-After I joined the organization, I kept admiring you and secretly waiting for the moment you'd look at me.
-
-Somehow, it feels like the universe planned everything for us. Everything happened like a little miracle, and our journey began. ❤️
-</p>
-
+<p>Hey Bhavana, it has been more than a year since you came into my life, and I feel incredibly lucky to have you. This has been the most beautiful phase of my life, and sometimes I still can't believe you're mine.<br><br>I still remember seeing you for the first time on June 21, the day of my interview. From that moment, you became my crush — and even after we started our relationship, I never stopped crushing on you.<br><br>After I joined the organization, I kept admiring you and secretly waiting for the moment you'd look at me.<br><br>Somehow, it feels like the universe planned everything for us. Everything happened like a little miracle, and our journey began. ❤️</p>
 <div class="divider"></div>
-
-<p>
-Since that day, every little moment with you has become special — our first chat, that beautiful night when we expressed our feelings, our first hand-hold, midnight walk, hug, kiss, and all the little things that followed.
-
-I love the way you hold my hand, lean on my shoulder, look at me with love, and sometimes give me that wonderfully creepy look. 😂❤️
-
-You notice everything about me; you comfort me when I'm sad, celebrate harder when I'm happy, and take care of me when I'm struggling.
-
-You changed me from Adivi Manishi to City Manishi. 😂
-
-Our silly fights somehow make us stronger, and your belief in me makes me believe in myself.
-
-I'm sorry for all the times I've hurt you — although I know after reading this, you may want to hit me anyway. 😂
-
-That's your Wild Love... your Doola Daanaaaaa. ❤️
-
-I never imagined someone could love me this much.
-
-Every gift and every little thing from you means more to me than I can explain.
-
-But more than all the gifts, I love the person who gave them to me.
-
-Love youuuuu, my love — Naa Pilla. ❤️
-</p>
+<p>Since that day, every little moment with you has become special — our first chat, that beautiful night when we expressed our feelings, our first hand-hold, midnight walk, hug, kiss, and all the little things that followed.<br><br>I love the way you hold my hand, lean on my shoulder, look at me with love, and sometimes give me that wonderfully creepy look. 😂❤️<br><br>You notice everything about me; you comfort me when I'm sad, celebrate harder when I'm happy, and take care of me when I'm struggling.<br><br>You changed me from Adivi Manishi to City Manishi. 😂<br><br>Our silly fights somehow make us stronger, and your belief in me makes me believe in myself.<br><br>I'm sorry for all the times I've hurt you — although I know after reading this, you may want to hit me anyway. 😂<br><br>That's your Wild Love... your Doola Daanaaaaa. ❤️<br><br>I never imagined someone could love me this much.<br><br>Every gift and every little thing from you means more to me than I can explain.<br><br>But more than all the gifts, I love the person who gave them to me.<br><br>Love youuuuu, my love — Naa Pilla. ❤️</p>
 </div>
-
-<div class="memoriesButtonWrap" id="memoriesButtonWrap">
-<button class="memoriesBtn" id="enterMemories">
-<span class="memoriesHeart">♥</span>
-<span>Our Memories</span>
-<span class="memoriesArrow">→</span>
-</button>
-</div>
-
-</div>
-</div>
+<div class="memoriesButtonWrap" id="memoriesButtonWrap"><button class="memoriesBtn" id="enterMemories"><span class="memoriesHeart">♥</span><span>Our Memories</span><span>→</span></button></div>
+</div></div>
 </section>
+
+<!-- FAST REEL: captions deliberately omitted here -->
+<div class="reelTransition" id="reelTransition">
+<div class="reelGlow"></div><div class="reelTitle">OUR LITTLE MOMENTS</div>
+<div class="reelTrack" id="reelTrack"></div>
+</div>
 
 <section id="scene3" class="scene">
 <div class="memoryPage">
-
-<div class="memoryKicker">our little universe</div>
-<h2 class="memoryTitle">Our Memories</h2>
+<div class="memoryKicker">our little universe</div><h2 class="memoryTitle">Our Memories</h2>
 <div class="memorySub">little moments that became my favourite memories ❤️</div>
-
 <div class="memories">
-
-<div class="memory" style="--r:-2deg;--delay:.1s"><div class="photo"><img src="memory1.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">Your first photo together</div></div>
-
-<div class="memory" style="--r:2deg;--delay:.2s"><div class="photo"><img src="memory2.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">A memory I'll always keep ❤️</div></div>
-
-<div class="memory" style="--r:-1deg;--delay:.3s"><div class="photo"><img src="memory3.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">One of my favourite moments 🥰</div></div>
-
-<div class="memory" style="--r:2deg;--delay:.4s"><div class="photo"><img src="memory4.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">That smile of yours ✨</div></div>
-
-<div class="memory" style="--r:-2deg;--delay:.5s"><div class="photo"><img src="memory5.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">Just us 💕</div></div>
-
-<div class="memory" style="--r:1deg;--delay:.6s"><div class="photo"><img src="memory6.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">A moment worth remembering 🌹</div></div>
-
-<div class="memory" style="--r:-1deg;--delay:.7s"><div class="photo"><img src="memory7.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">Another beautiful memory 📷</div></div>
-
-<div class="memory" style="--r:2deg;--delay:.8s"><div class="photo"><img src="memory8.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">One more for the memories ❤️</div></div>
-
-<div class="memory" style="--r:-1deg;--delay:.9s"><div class="photo"><img src="memory9.jpg" onerror="this.style.display='none';this.parentElement.innerHTML='📷'"></div><div class="caption">And many more to come... ✨</div></div>
-
+<div class="memory" style="--r:-2deg;--delay:.1s"><div class="photo"><img src="memory1.jpg"></div><div class="caption">Your first photo together</div></div>
+<div class="memory" style="--r:2deg;--delay:.2s"><div class="photo"><img src="memory2.jpg"></div><div class="caption">A memory I'll always keep ❤️</div></div>
+<div class="memory" style="--r:-1deg;--delay:.3s"><div class="photo"><img src="memory3.jpg"></div><div class="caption">One of my favourite moments 🥰</div></div>
+<div class="memory" style="--r:2deg;--delay:.4s"><div class="photo"><img src="memory4.jpg"></div><div class="caption">That smile of yours ✨</div></div>
+<div class="memory" style="--r:-2deg;--delay:.5s"><div class="photo"><img src="memory5.jpg"></div><div class="caption">Just us 💕</div></div>
+<div class="memory" style="--r:1deg;--delay:.6s"><div class="photo"><img src="memory6.jpg"></div><div class="caption">A moment worth remembering 🌹</div></div>
+<div class="memory" style="--r:-1deg;--delay:.7s"><div class="photo"><img src="memory7.jpg"></div><div class="caption">Another beautiful memory 📷</div></div>
+<div class="memory" style="--r:2deg;--delay:.8s"><div class="photo"><img src="memory8.jpg"></div><div class="caption">One more for the memories ❤️</div></div>
+<div class="memory" style="--r:-1deg;--delay:.9s"><div class="photo"><img src="memory9.jpg"></div><div class="caption">And many more to come... ✨</div></div>
 </div>
-
-<button class="magic" id="startJourney" style="margin-top:30px;color:#69364c;border-color:#c67d99;background:#ffffff70">
-Little Things →
-</button>
-
-</div>
-</section>
-
-<div class="filmTransition" id="filmTransition">
-<div class="filmStrip">
-<div class="filmFrame"><img src="memory1.jpg"></div>
-<div class="filmFrame"><img src="memory2.jpg"></div>
-<div class="filmFrame"><img src="memory3.jpg"></div>
-<div class="filmFrame"><img src="memory4.jpg"></div>
-<div class="filmFrame"><img src="memory5.jpg"></div>
-<div class="filmFrame"><img src="memory6.jpg"></div>
-</div>
-</div>
+<button class="magic" id="startJourney" style="margin-top:30px;color:#69364c;border-color:#c67d99;background:#ffffff70">Little Things →</button>
+</div></section>
 
 <section id="scene4" class="scene">
 <div class="stars" id="starsJourney"></div>
-
 <div class="journey">
 
-<div class="journeyItem" data-time="0">
-<div class="journeyDate">SOME STORIES BEGIN QUIETLY...</div>
-<div class="journeyText">It all started<br>with one ordinary day.</div>
-</div>
+<!-- Reusable hand-drawn couple SVGs; each story has its own art pose -->
+<div class="journeyItem" data-time="0"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="225" cy="83" r="28"/><circle cx="302" cy="88" r="28"/><path d="M202 112c-30 32-40 77-30 125M248 112c22 32 31 76 25 125M278 116c-20 30-27 72-20 121M326 116c29 31 38 74 30 121M172 237c22 8 43 8 66 0M258 237c23 9 45 8 67 0M206 132c22 25 54 25 75 2M225 84c12-18 34-18 47-2M302 89c10-18 31-18 43-3"/></g></svg></div><div class="journeyDate">SOME STORIES BEGIN QUIETLY...</div><div class="journeyText">It all started<br>with one ordinary day.</div></div>
 
-<div class="journeyItem" data-time="4500">
-<div class="journeyDate">JUNE 21</div>
-<div class="journeyText">The day I first saw you.</div>
-<div class="journeySmall">I didn't know it then, but you were about to become my favourite person.</div>
-</div>
+<div class="journeyItem" data-time="4500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="215" cy="82" r="27"/><circle cx="310" cy="82" r="27"/><path d="M190 111c-33 31-40 77-31 126M240 111c15 30 18 66 14 126M285 111c-15 31-18 67-14 126M335 111c33 31 40 77 31 126M171 237h42M287 237h42M247 151c18 13 31 13 49 0"/><path d="M198 78c10-25 39-28 55-4M291 77c13-23 42-22 56 2"/></g></svg></div><div class="journeyDate">JUNE 21</div><div class="journeyText">The day I first saw you.</div><div class="journeySmall">I didn't know it then, but you were about to become my favourite person.</div></div>
 
-<div class="journeyItem" data-time="9000">
-<div class="journeyDate">OUR FIRST CHAT</div>
-<div class="journeyText">One conversation...</div>
-<div class="journeySmall">Somehow, one conversation became another.</div>
-</div>
+<div class="journeyItem" data-time="9000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="205" cy="82" r="27"/><circle cx="315" cy="82" r="27"/><path d="M181 111c-28 30-39 72-31 126M230 111c8 30 13 72 10 126M291 111c-8 30-13 72-10 126M340 111c28 30 39 72 31 126M160 237h48M281 237h48M232 151c22-13 34-13 56 0"/><path d="M238 72c16 7 29 7 44 0"/><path d="M180 155c-22 10-35 20-45 38M340 155c22 10 35 20 45 38"/></g></svg></div><div class="journeyDate">OUR FIRST CHAT</div><div class="journeyText">One conversation...</div><div class="journeySmall">Somehow, one conversation became another.</div></div>
 
-<div class="journeyItem" data-time="13500">
-<div class="journeyDate">THE NIGHT WE SAID IT ❤️</div>
-<div class="journeyText">Everything suddenly felt different.</div>
-</div>
+<div class="journeyItem" data-time="13500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="218" cy="83" r="27"/><circle cx="302" cy="83" r="27"/><path d="M194 111c-27 33-35 76-29 126M242 111c13 32 17 70 14 126M278 111c-13 32-17 70-14 126M326 111c27 33 35 76 29 126M165 237h49M278 237h49M245 144c12 8 19 8 31 0M244 151l-8 10M276 151l8 10"/><path d="M198 78c11-20 39-22 53-5M291 74c13-20 40-17 52 5"/></g></svg></div><div class="journeyDate">THE NIGHT WE SAID IT ❤️</div><div class="journeyText">Everything suddenly felt different.</div></div>
 
-<div class="journeyItem" data-time="18000">
-<div class="journeyDate">OUR FIRST WALK 🌙</div>
-<div class="journeyText">Two people.<br>One midnight road.</div>
-</div>
+<div class="journeyItem" data-time="18000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="190" cy="84" r="26"/><circle cx="330" cy="84" r="26"/><path d="M166 111c-30 33-40 75-34 126M214 111c10 31 15 72 13 126M306 111c-10 31-15 72-13 126M354 111c30 33 40 75 34 126M145 237h50M302 237h50M227 143c22 24 44 24 66 0M214 151c23 11 70 11 92 0"/><path class="lineArt secondary" d="M260 42v-18M260 24l-8 9M260 24l8 9"/></g></svg></div><div class="journeyDate">OUR FIRST WALK 🌙</div><div class="journeyText">Two people.<br>One midnight road.</div></div>
 
-<div class="journeyItem" data-time="22500">
-<div class="journeyDate">OUR FIRST HUG 🤍</div>
-<div class="journeyText">And suddenly, the world felt smaller.</div>
-</div>
+<div class="journeyItem" data-time="22500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="215" cy="83" r="27"/><circle cx="305" cy="83" r="27"/><path d="M190 111c-29 31-38 75-31 126M240 111c12 29 16 70 13 126M280 111c-12 29-16 70-13 126M330 111c29 31 38 75 31 126M166 237h48M280 237h48M238 137c18 30 27 30 45 0M231 145c10 25 49 25 59 0"/></g></svg></div><div class="journeyDate">OUR FIRST HUG 🤍</div><div class="journeyText">And suddenly, the world felt smaller.</div></div>
 
-<div class="journeyItem" data-time="27000">
-<div class="journeyDate">OUR FIRST KISS ❤️</div>
-<div class="journeyText">One moment.<br>A thousand feelings.</div>
-</div>
+<div class="journeyItem" data-time="27000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="238" cy="82" r="27"/><circle cx="282" cy="82" r="27"/><path d="M214 111c-22 32-25 76-20 126M262 111c-3 34-3 74 0 126M258 111c3 34 3 74 0 126M306 111c22 32 25 76 20 126M194 237h48M278 237h48M238 137c7 12 37 12 44 0M240 145c10 17 30 17 40 0"/><path d="M225 75c8-15 17-20 27-22M268 53c13 1 21 8 28 22"/></g></svg></div><div class="journeyDate">OUR FIRST KISS ❤️</div><div class="journeyText">One moment.<br>A thousand feelings.</div></div>
 
-<div class="journeyItem" data-time="31500">
-<div class="journeyDate">THEN...</div>
-<div class="journeyText">We became us.</div>
-</div>
+<div class="journeyItem" data-time="31500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="205" cy="82" r="27"/><circle cx="315" cy="82" r="27"/><path d="M181 111c-30 32-38 75-31 126M230 111c11 31 15 72 12 126M291 111c-11 31-15 72-12 126M340 111c30 32 38 75 31 126M160 237h48M281 237h49M232 145c22 18 34 18 56 0M241 165c13 10 25 10 38 0"/></g></svg></div><div class="journeyDate">THEN...</div><div class="journeyText">We became us.</div></div>
 
-<div class="journeyItem" data-time="36000">
-<div class="journeyDate">TODAY</div>
-<div class="journeyText">More than a year later...</div>
-<div class="journeySmall">And I still can't believe I get to call you mine.</div>
-</div>
+<div class="journeyItem" data-time="36000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="215" cy="82" r="27"/><circle cx="305" cy="82" r="27"/><path d="M191 111c-29 32-38 75-31 126M240 111c11 31 15 72 12 126M280 111c-11 31-15 72-12 126M329 111c29 32 38 75 31 126M166 237h48M280 237h48M238 145c20 18 34 18 44 0M195 79c11-22 39-23 53-4M291 75c13-21 39-19 51 4"/></g></svg></div><div class="journeyDate">TODAY</div><div class="journeyText">More than a year later...</div><div class="journeySmall">And I still can't believe I get to call you mine.</div></div>
 
-<div class="journeyItem" data-time="40500">
-<div class="journeyDate">AND THIS...</div>
-<div class="journeyText">Is only the beginning.</div>
+<div class="journeyItem" data-time="40500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="205" cy="82" r="27"/><circle cx="315" cy="82" r="27"/><path d="M181 111c-30 32-38 75-31 126M230 111c11 31 15 72 12 126M291 111c-11 31-15 72-12 126M340 111c30 32 38 75 31 126M160 237h48M281 237h49M232 145c22 18 34 18 56 0M238 165c12 8 31 8 44 0"/></g><path class="lineArt secondary" d="M115 74c18-19 35-19 53 0M352 74c18-19 35-19 53 0"/></svg></div><div class="journeyDate">AND THIS...</div><div class="journeyText">Is only the beginning.</div></div>
 </div>
-
-</div>
-
-<div class="journeyProgress" id="journeyProgress">OUR STORY • ❤️</div>
+<div class="journeyProgress" id="journeyProgress">OUR STORY • 01</div>
 </section>
 
 <section id="scene5" class="scene">
 <div class="stars" id="finalStars"></div>
-
 <img src="moon-clean-transparent.png" class="finalMoon" id="finalMoon" alt="Moon">
-
-<div class="finalMessage" id="finalMessage">
-<div class="finalSmall">AND MANY MORE MEMORIES TO COME...</div>
+<div class="finalMessage" id="finalMessage"><div class="finalSmall">AND MANY MORE MEMORIES TO COME...</div>
 <div class="finalLine">“We may not have forever,<br>but having you in my life for this year was the best gift.”</div>
-<div class="finalName">Happy Birthday, My Love(Naa Pilla)</div>
-<span class="finalHeart">❤️</span>
-</div>
+<div class="finalName">Happy Birthday, My Love<br>(Naa Pilla)</div><span class="finalHeart">❤️</span></div>
 </section>
 
 <script>
 function createStars(id,count){
  const c=document.getElementById(id);
  for(let i=0;i<count;i++){
-  const s=document.createElement("span");
-  s.className="star";
+  const s=document.createElement("span");s.className="star";
   if(Math.random()<.12)s.classList.add("big");
-  s.style.left=Math.random()*100+"%";
-  s.style.top=Math.random()*100+"%";
-  s.style.setProperty("--s",2+Math.random()*4+"s");
-  s.style.animationDelay=-Math.random()*4+"s";
-  c.appendChild(s);
+  s.style.left=Math.random()*100+"%";s.style.top=Math.random()*100+"%";
+  s.style.setProperty("--s",2+Math.random()*4+"s");s.style.animationDelay=-Math.random()*4+"s";c.appendChild(s);
  }
 }
-createStars("stars1",80);
-createStars("starsMoon",130);
-createStars("starsJourney",90);
-createStars("finalStars",120);
-
-function showScene(id){
- document.querySelectorAll(".scene").forEach(s=>s.classList.remove("active"));
- document.getElementById(id).classList.add("active");
+["stars1","starsMoon","starsJourney","finalStars"].forEach((id,i)=>createStars(id,[70,120,85,110][i]));
+function showScene(id){document.querySelectorAll(".scene").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active")}
+function warpStars(count=110){
+ const w=document.getElementById("starWarp");w.innerHTML="";w.classList.add("active");
+ for(let i=0;i<count;i++){const s=document.createElement("span");s.className="warpStar";const a=Math.random()*Math.PI*2,d=300+Math.random()*900;
+ s.style.setProperty("--x",Math.cos(a)*d+"px");s.style.setProperty("--y",Math.sin(a)*d+"px");s.style.animationDelay=Math.random()*.25+"s";w.appendChild(s)}
+ return w;
 }
 
-/* candle -> DARK transition */
+/* candle */
 document.getElementById("blow").onclick=()=>{
- document.getElementById("flame").style.opacity="0";
- document.getElementById("smoke").classList.add("go");
- document.getElementById("candlePage").classList.add("hide");
-
- const dark=document.getElementById("darkBurst");
- dark.classList.add("go");
-
- setTimeout(()=>{
-  document.getElementById("bdayPage").classList.add("show");
- },900);
-
- setTimeout(()=>{
-  dark.classList.remove("go");
- },2100);
+ document.getElementById("flame").style.opacity="0";document.getElementById("smoke").classList.add("go");document.getElementById("candlePage").classList.add("hide");
+ const d=document.getElementById("darkBurst");d.classList.add("go");
+ setTimeout(()=>document.getElementById("bdayPage").classList.add("show"),900);
+ setTimeout(()=>d.classList.remove("go"),2100);
 };
 
-/* birthday -> moon */
+/* moon */
 document.getElementById("seeMoon").onclick=()=>{
- const w=document.getElementById("starWarp");
- w.innerHTML="";
- w.classList.add("active");
-
- for(let i=0;i<110;i++){
-  const s=document.createElement("span");
-  s.className="warpStar";
-  const a=Math.random()*Math.PI*2;
-  const d=300+Math.random()*900;
-  s.style.setProperty("--x",Math.cos(a)*d+"px");
-  s.style.setProperty("--y",Math.sin(a)*d+"px");
-  s.style.animationDelay=Math.random()*.3+"s";
-  w.appendChild(s);
- }
-
- setTimeout(()=>{
-  showScene("moonScene");
-  document.getElementById("moon").classList.add("reveal");
- },850);
-
- setTimeout(()=>{
-  w.classList.remove("active");
-  document.getElementById("moonText").classList.add("show");
- },2500);
+ const w=warpStars();setTimeout(()=>{showScene("moonScene");document.getElementById("moon").classList.add("reveal")},700);
+ setTimeout(()=>{w.classList.remove("active");document.getElementById("moonText").classList.add("show")},2500);
 };
-
-/* moon -> letter */
 document.getElementById("goLetter").onclick=()=>{
- const w=document.getElementById("starWarp");
- w.innerHTML="";
- w.classList.add("active");
-
- for(let i=0;i<85;i++){
-  const s=document.createElement("span");
-  s.className="warpStar";
-  const a=Math.random()*Math.PI*2;
-  const d=250+Math.random()*800;
-  s.style.setProperty("--x",Math.cos(a)*d+"px");
-  s.style.setProperty("--y",Math.sin(a)*d+"px");
-  s.style.animationDelay=Math.random()*.25+"s";
-  w.appendChild(s);
- }
-
- setTimeout(()=>{
-  showScene("scene2");
- },850);
-
- setTimeout(()=>{
-  w.classList.remove("active");
- },2100);
+ const w=warpStars(85);setTimeout(()=>showScene("scene2"),700);setTimeout(()=>w.classList.remove("active"),2100);
 };
 
 /* envelope */
@@ -529,75 +305,49 @@ document.getElementById("envelope").onclick=()=>{
  setTimeout(()=>document.getElementById("memoriesButtonWrap").classList.add("show"),3900);
 };
 
-/* letter -> memories */
+/* Build the same fast 9-photo scrolling reel, with NO captions */
+const reelFiles=["memory1.jpg","memory2.jpg","memory3.jpg","memory4.jpg","memory5.jpg","memory6.jpg","memory7.jpg","memory8.jpg","memory9.jpg"];
+const reel=document.getElementById("reelTrack");
+[...reelFiles,...reelFiles].forEach((file,i)=>{
+ const frame=document.createElement("div");frame.className="reelFrame";
+ const img=document.createElement("img");img.src=file;img.alt="Memory "+((i%9)+1);
+ frame.appendChild(img);reel.appendChild(frame);
+});
+
 document.getElementById("enterMemories").onclick=()=>{
- const film=document.getElementById("filmTransition");
- film.classList.add("go");
- setTimeout(()=>showScene("scene3"),1000);
- setTimeout(()=>film.classList.remove("go"),2500);
+ const r=document.getElementById("reelTransition");
+ const track=document.getElementById("reelTrack");
+ track.style.animation="none";void track.offsetWidth;track.style.animation="reelFast 2.15s cubic-bezier(.18,.72,.25,1) forwards";
+ r.classList.add("go");
+ setTimeout(()=>showScene("scene3"),1500);
+ setTimeout(()=>r.classList.remove("go"),2350);
 };
 
-/* memories -> journey */
+/* memories -> Little Things: stars + couple line-art begins immediately */
 let journeyStarted=false;
-
 document.getElementById("startJourney").onclick=()=>{
- const film=document.getElementById("filmTransition");
- film.classList.add("go");
-
- setTimeout(()=>{
-  showScene("scene4");
-  startJourney();
- },1050);
-
- setTimeout(()=>film.classList.remove("go"),2500);
+ const w=warpStars(75);
+ setTimeout(()=>{showScene("scene4");startJourney()},850);
+ setTimeout(()=>w.classList.remove("active"),2200);
 };
 
 function startJourney(){
- if(journeyStarted)return;
- journeyStarted=true;
-
+ if(journeyStarted)return;journeyStarted=true;
  const items=[...document.querySelectorAll(".journeyItem")];
-
  items.forEach((item,index)=>{
   setTimeout(()=>{
    items.forEach(x=>x.classList.remove("show"));
    item.classList.add("show");
-   document.getElementById("journeyProgress").textContent=
-      "OUR STORY • "+String(index+1).padStart(2,"0");
+   document.getElementById("journeyProgress").textContent="OUR STORY • "+String(index+1).padStart(2,"0");
   },parseInt(item.dataset.time));
  });
-
  setTimeout(goFinal,45500);
 }
-
-/* journey -> stars -> moon */
 function goFinal(){
- const w=document.getElementById("starWarp");
- w.innerHTML="";
- w.classList.add("active");
-
- for(let i=0;i<130;i++){
-  const s=document.createElement("span");
-  s.className="warpStar";
-  const a=Math.random()*Math.PI*2;
-  const d=300+Math.random()*1000;
-  s.style.setProperty("--x",Math.cos(a)*d+"px");
-  s.style.setProperty("--y",Math.sin(a)*d+"px");
-  s.style.animationDelay=Math.random()*.4+"s";
-  w.appendChild(s);
- }
-
- setTimeout(()=>{
-  showScene("scene5");
-  document.getElementById("finalMoon").classList.add("show");
- },1000);
-
- setTimeout(()=>{
-  w.classList.remove("active");
-  document.getElementById("finalMessage").classList.add("show");
- },3000);
+ const w=warpStars(130);
+ setTimeout(()=>{showScene("scene5");document.getElementById("finalMoon").classList.add("show")},950);
+ setTimeout(()=>{w.classList.remove("active");document.getElementById("finalMessage").classList.add("show")},3000);
 }
 </script>
-
 </body>
 </html>
