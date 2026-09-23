@@ -164,21 +164,32 @@ mix-blend-mode:multiply
 .reelGlow{position:absolute;inset:0;background:radial-gradient(circle,#ffffff16,transparent 58%);pointer-events:none}
 @media(max-width:600px){.reelFrame{width:185px;height:230px}.reelTrack{height:240px;gap:12px}.reelTitle{top:8%}}
 
-/* JOURNEY / LINE ART */
-#scene4{background:radial-gradient(circle at 50% 45%,#321c34,#09070d 70%)}
-.journey{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px}
-.journeyItem{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;opacity:0;transform:translateY(30px) scale(.97);transition:opacity 1s ease,transform 1s ease;pointer-events:none}
+/* JOURNEY / LITTLE THINGS — SIMPLE PASTEL BIRTHDAY STYLE */
+#scene4{background:linear-gradient(135deg,#fff3f8 0%,#fce8f1 48%,#e8f2ff 100%);color:#5f4050}
+.journey{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;overflow:hidden}
+.journeyItem{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 24px;opacity:0;transform:translateY(10px);transition:opacity .55s ease,transform .55s ease;pointer-events:none;z-index:5}
 .journeyItem.show{opacity:1;transform:none}
-.journeyArt{width:min(520px,80vw);height:min(300px,38vh);margin-bottom:10px;overflow:visible}
-.journeyArt svg{width:100%;height:100%;overflow:visible}
-.lineArt{fill:none;stroke:#ffd7e7;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;opacity:.92;filter:drop-shadow(0 0 5px #ffb8d2) drop-shadow(0 0 12px #ff9fc1);stroke-dasharray:900;stroke-dashoffset:900;animation:drawCouple 2.2s ease forwards}
-.lineArt.secondary{stroke-width:2.3;opacity:.7}
-.journeyItem.show .lineArt{animation:drawCouple 2.2s ease forwards}
-@keyframes drawCouple{to{stroke-dashoffset:0}}
-.journeyDate{margin-bottom:12px;font:10px Montserrat,sans-serif;letter-spacing:6px;color:#f2b7ce}
-.journeyText{font-size:clamp(30px,6vw,70px);line-height:1.05;color:#fff2f7;text-shadow:0 0 30px #ff9fc155}
-.journeySmall{max-width:650px;margin:16px auto 0;font-size:clamp(17px,2.5vw,25px);line-height:1.5;color:#d9b9c7;font-style:italic}
-.journeyProgress{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);font:8px Montserrat,sans-serif;letter-spacing:4px;color:#ffffff77;z-index:10}
+.journeyDate{margin-bottom:16px;font:10px Montserrat,sans-serif;letter-spacing:5px;color:#a45d7a}
+.journeyText{font-size:clamp(30px,6vw,70px);line-height:1.08;font-weight:500;color:#70445b;text-shadow:none;max-width:900px}
+.journeyItem:nth-child(3n+1) .journeyText{color:#8d5270}
+.journeyItem:nth-child(3n+2) .journeyText{color:#637a9d}
+.journeyItem:nth-child(3n) .journeyText{color:#a46767}
+.journeySmall{max-width:650px;margin:18px auto 0;font-size:clamp(17px,2.5vw,25px);line-height:1.5;color:#866778;font-style:italic}
+.journeyProgress{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font:8px Montserrat,sans-serif;letter-spacing:4px;color:#8d7180;z-index:20}
+
+/* soft birthday balloons in the background */
+.balloons{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.balloon{position:absolute;width:54px;height:70px;border-radius:50% 50% 46% 46%;opacity:.55;filter:blur(.1px);box-shadow:inset -8px -10px 14px #0000000b,0 8px 20px #7b526215;animation:balloonFloat 5s ease-in-out infinite}
+.balloon:before{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:9px solid currentColor}
+.balloon:after{content:"";position:absolute;left:50%;top:68px;width:1px;height:150px;background:#8d718055;transform-origin:top;transform:rotate(2deg)}
+.b1{left:5%;top:14%;background:#f4b6c9;color:#f4b6c9;animation-delay:-1s}
+.b2{left:17%;bottom:4%;width:44px;height:58px;background:#b9d4f1;color:#b9d4f1;animation-delay:-3s}
+.b3{right:8%;top:12%;background:#d8c2ee;color:#d8c2ee;animation-delay:-2s}
+.b4{right:20%;bottom:5%;width:48px;height:64px;background:#f6d29b;color:#f6d29b;animation-delay:-4s}
+.b5{left:42%;top:4%;width:38px;height:50px;background:#b9e0d0;color:#b9e0d0;animation-delay:-.5s}
+.b6{right:42%;bottom:2%;width:40px;height:54px;background:#f2b8b8;color:#f2b8b8;animation-delay:-2.5s}
+@keyframes balloonFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+@media(max-width:600px){.balloon{width:40px;height:54px}.balloon:after{top:52px;height:120px}.journeyItem{padding:25px 18px}.journeyDate{letter-spacing:3px}.journeyText{font-size:clamp(28px,9vw,48px)}}
 
 /* FINAL */
 #scene5{background:radial-gradient(circle at 50% 45%,#171b34,#060711 65%,#020205)}
@@ -232,7 +243,13 @@ mix-blend-mode:multiply
 <div class="letterBody">
 <p>Hey Bhavana, it has been more than a year since you came into my life, and I feel incredibly lucky to have you. This has been the most beautiful phase of my life, and sometimes I still can't believe you're mine.<br><br>I still remember seeing you for the first time on June 21, the day of my interview. From that moment, you became my crush — and even after we started our relationship, I never stopped crushing on you.<br><br>After I joined the organization, I kept admiring you and secretly waiting for the moment you'd look at me.<br><br>Somehow, it feels like the universe planned everything for us. Everything happened like a little miracle, and our journey began. ❤️</p>
 <div class="divider"></div>
-<p>Since that day, every little moment with you has become special — our first chat, that beautiful night when we expressed our feelings, our first hand-hold, midnight walk, hug, kiss, and all the little things that followed.<br><br>I love the way you hold my hand, lean on my shoulder, look at me with love, and sometimes give me that wonderfully creepy look. 😂❤️<br><br>You notice everything about me; you comfort me when I'm sad, celebrate harder when I'm happy, and take care of me when I'm struggling.<br><br>You changed me from Adivi Manishi to City Manishi. 😂<br><br>Our silly fights somehow make us stronger, and your belief in me makes me believe in myself.<br><br>I'm sorry for all the times I've hurt you — although I know after reading this, you may want to hit me anyway. 😂<br><br>That's your Wild Love... your Doola Daanaaaaa. ❤️<br><br>I never imagined someone could love me this much.<br><br>Every gift and every little thing from you means more to me than I can explain.<br><br>But more than all the gifts, I love the person who gave them to me.<br><br>Love youuuuu, my love — Naa Pilla. ❤️</p>
+<p>Since that day, every little moment with you has become special — our first chat, that beautiful night when we expressed our feelings, our first hand-hold, midnight walk, hug, kiss, and all the little things that followed.<br><br>I love the way you hold my hand, lean on my shoulder, look at me with love, and sometimes give me that wonderfully creepy look. 😂❤️<br><br>I love the child in you too — the one who gets excited over little things, laughs without even trying, and makes even the simplest moments feel special. I love that wild, carefree side of you, the part of you that is just completely yourself. And honestly, I hope you never lose that. ❤️<br><br>You notice everything about me; you comfort me when I'm sad, celebrate harder when I'm happy, and take care of me when I'm struggling.<br><br>You changed me from Adivi Manishi to City Manishi. 😂<br><br>Our silly fights somehow make us stronger, and your belief in me makes me believe in myself.<br><br>I'm sorry for all the times I've hurt you — although I know after reading this, you may want to hit me anyway. 😂<br><br>That's your Wild Love... your Doola Daanaaaaa. ❤️<br><br>I never imagined someone could love me this much. And honestly, sometimes I wonder how someone like you can love someone like me this deeply, even when I know I don't always deserve it.<br><br>I don't even do some of the most basic things I should. I forget to ask if you ate, why you haven't eaten, whether you're feeling okay, or if you took your medicine when you're sick. Sometimes I even forget that you are going through something, while you quietly keep tolerating and adjusting with me. And that truth makes me realise how much more I should be there for you.<br><br>I know there are so many people who could choose you, love you, and give you everything you deserve. Still, you chose me. Even when I struggle to keep the balance in our bond, you keep choosing us. That means more to me than I know how to say.<br><br>Most of the time, I imagine so many things in my head. I feel them deeply, but I'm not always good at expressing them. There is so much inside me that stays unsaid because I simply don't know how to put it into words.<br><br>Because of my behaviour, I know you have had to adjust, understand me, and sometimes carry more than you should. I don't always know how to fix all the chaos I create, but somehow you still find a way to make things okay. I am genuinely lucky to have you.<br><br>And maybe that is one of the things I will always be grateful for — even after seeing all my flaws, you still choose me, still stay with me, and still believe in us. ❤️<br><br>When I went home, I missed you more than I expected. I thought I would stay away for a while, but within just ten days, I came back to Hyderabad — on Yamini’s birthday. And the way you treated me that day told me everything. I could see how much you had missed me too. I felt so happy, so loved, and honestly, I just enjoyed being with you again. ❤️<br><br>There is one funny thing I always remember. I once saw a reel where a mother was playing with her little baby, saying things like, “I’ll eat you,” “I’ll bite you,” and making those silly little sounds because she loved her baby so much. Then she realised that sometimes, when you love someone more than you can explain, it comes out in the strangest and cutest ways.<br><br>It always makes me think of you. I remember the first time I asked you to bite me and you didn’t. 😂 But now you come close and try to bite me without me even asking. And every time you do that, I can't help but think about how much you love me and how completely obsessed you are with me. 😂❤️ Maybe that is your own little way of saying, “You are mine, and I love you so much.”<br><br>There is one more thing I have to admit — I am especially a fan of your smile. Actuallyyyyy... a big fan. ❤️ I love your smile, your eyes, and even that small mole on the left side of your neck. Whenever I see you, somehow I notice all these little things without even trying, and I fall for you all over again.
+
+If you call this obsession or kamam, I will accept it. 😂 Because yes, you really do stay in my mind. Whenever I close my eyes and imagine you, I see your face with that beautiful smile. And when you smile wholeheartedly, your eyes glow a little more — actually, a lot more. I don't know how to explain it, but I just stay there in that moment, completely lost in you. ❤️
+
+Your smile is always beautiful, but I love it the most when you do something doola and then smile without holding anything back — that open, happy smile full of love. That is the smile I could keep looking at forever. ❤️
+
+Every gift and every little thing from you means more to me than I can explain.<br><br>But more than all the gifts, I love the person who gave them to me.<br><br>Love youuuuu, my love — Naa Pilla. ❤️</p>
 </div>
 <div class="memoriesButtonWrap" id="memoriesButtonWrap"><button class="memoriesBtn" id="enterMemories"><span class="memoriesHeart">♥</span><span>Our Memories</span><span>→</span></button></div>
 </div></div>
@@ -263,29 +280,28 @@ mix-blend-mode:multiply
 </div></section>
 
 <section id="scene4" class="scene">
-<div class="stars" id="starsJourney"></div>
+<div class="balloons" aria-hidden="true"><span class="balloon b1"></span><span class="balloon b2"></span><span class="balloon b3"></span><span class="balloon b4"></span><span class="balloon b5"></span><span class="balloon b6"></span></div>
 <div class="journey">
 
-<!-- Reusable hand-drawn couple SVGs; each story has its own art pose -->
-<div class="journeyItem" data-time="0"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="225" cy="83" r="28"/><circle cx="302" cy="88" r="28"/><path d="M202 112c-30 32-40 77-30 125M248 112c22 32 31 76 25 125M278 116c-20 30-27 72-20 121M326 116c29 31 38 74 30 121M172 237c22 8 43 8 66 0M258 237c23 9 45 8 67 0M206 132c22 25 54 25 75 2M225 84c12-18 34-18 47-2M302 89c10-18 31-18 43-3"/></g></svg></div><div class="journeyDate">SOME STORIES BEGIN QUIETLY...</div><div class="journeyText">It all started<br>with one ordinary day.</div></div>
+<div class="journeyItem" data-time="0"><div class="journeyDate">SOME STORIES BEGIN QUIETLY...</div><div class="journeyText">It all started<br>with one ordinary day.</div></div>
 
-<div class="journeyItem" data-time="4500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="215" cy="82" r="27"/><circle cx="310" cy="82" r="27"/><path d="M190 111c-33 31-40 77-31 126M240 111c15 30 18 66 14 126M285 111c-15 31-18 67-14 126M335 111c33 31 40 77 31 126M171 237h42M287 237h42M247 151c18 13 31 13 49 0"/><path d="M198 78c10-25 39-28 55-4M291 77c13-23 42-22 56 2"/></g></svg></div><div class="journeyDate">JUNE 21</div><div class="journeyText">The day I first saw you.</div><div class="journeySmall">I didn't know it then, but you were about to become my favourite person.</div></div>
+<div class="journeyItem" data-time="4500"><div class="journeyDate">JUNE 21</div><div class="journeyText">The day I first saw you.</div><div class="journeySmall">I didn't know it then, but you were about to become my favourite person.</div></div>
 
-<div class="journeyItem" data-time="9000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="205" cy="82" r="27"/><circle cx="315" cy="82" r="27"/><path d="M181 111c-28 30-39 72-31 126M230 111c8 30 13 72 10 126M291 111c-8 30-13 72-10 126M340 111c28 30 39 72 31 126M160 237h48M281 237h48M232 151c22-13 34-13 56 0"/><path d="M238 72c16 7 29 7 44 0"/><path d="M180 155c-22 10-35 20-45 38M340 155c22 10 35 20 45 38"/></g></svg></div><div class="journeyDate">OUR FIRST CHAT</div><div class="journeyText">One conversation...</div><div class="journeySmall">Somehow, one conversation became another.</div></div>
+<div class="journeyItem" data-time="9000"><div class="journeyDate">OUR FIRST CHAT</div><div class="journeyText">One conversation...</div><div class="journeySmall">Somehow, one conversation became another.</div></div>
 
-<div class="journeyItem" data-time="13500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="218" cy="83" r="27"/><circle cx="302" cy="83" r="27"/><path d="M194 111c-27 33-35 76-29 126M242 111c13 32 17 70 14 126M278 111c-13 32-17 70-14 126M326 111c27 33 35 76 29 126M165 237h49M278 237h49M245 144c12 8 19 8 31 0M244 151l-8 10M276 151l8 10"/><path d="M198 78c11-20 39-22 53-5M291 74c13-20 40-17 52 5"/></g></svg></div><div class="journeyDate">THE NIGHT WE SAID IT ❤️</div><div class="journeyText">Everything suddenly felt different.</div></div>
+<div class="journeyItem" data-time="13500"><div class="journeyDate">THE NIGHT WE SAID IT ❤️</div><div class="journeyText">Everything suddenly felt different.</div></div>
 
-<div class="journeyItem" data-time="18000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="190" cy="84" r="26"/><circle cx="330" cy="84" r="26"/><path d="M166 111c-30 33-40 75-34 126M214 111c10 31 15 72 13 126M306 111c-10 31-15 72-13 126M354 111c30 33 40 75 34 126M145 237h50M302 237h50M227 143c22 24 44 24 66 0M214 151c23 11 70 11 92 0"/><path class="lineArt secondary" d="M260 42v-18M260 24l-8 9M260 24l8 9"/></g></svg></div><div class="journeyDate">OUR FIRST WALK 🌙</div><div class="journeyText">Two people.<br>One midnight road.</div></div>
+<div class="journeyItem" data-time="18000"><div class="journeyDate">OUR FIRST WALK 🌙</div><div class="journeyText">Two people.<br>One midnight road.</div></div>
 
-<div class="journeyItem" data-time="22500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="215" cy="83" r="27"/><circle cx="305" cy="83" r="27"/><path d="M190 111c-29 31-38 75-31 126M240 111c12 29 16 70 13 126M280 111c-12 29-16 70-13 126M330 111c29 31 38 75 31 126M166 237h48M280 237h48M238 137c18 30 27 30 45 0M231 145c10 25 49 25 59 0"/></g></svg></div><div class="journeyDate">OUR FIRST HUG 🤍</div><div class="journeyText">And suddenly, the world felt smaller.</div></div>
+<div class="journeyItem" data-time="22500"><div class="journeyDate">OUR FIRST HUG 🤍</div><div class="journeyText">And suddenly, the world felt smaller.</div></div>
 
-<div class="journeyItem" data-time="27000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="238" cy="82" r="27"/><circle cx="282" cy="82" r="27"/><path d="M214 111c-22 32-25 76-20 126M262 111c-3 34-3 74 0 126M258 111c3 34 3 74 0 126M306 111c22 32 25 76 20 126M194 237h48M278 237h48M238 137c7 12 37 12 44 0M240 145c10 17 30 17 40 0"/><path d="M225 75c8-15 17-20 27-22M268 53c13 1 21 8 28 22"/></g></svg></div><div class="journeyDate">OUR FIRST KISS ❤️</div><div class="journeyText">One moment.<br>A thousand feelings.</div></div>
+<div class="journeyItem" data-time="27000"><div class="journeyDate">OUR FIRST KISS ❤️</div><div class="journeyText">One moment.<br>A thousand feelings.</div></div>
 
-<div class="journeyItem" data-time="31500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="205" cy="82" r="27"/><circle cx="315" cy="82" r="27"/><path d="M181 111c-30 32-38 75-31 126M230 111c11 31 15 72 12 126M291 111c-11 31-15 72-12 126M340 111c30 32 38 75 31 126M160 237h48M281 237h49M232 145c22 18 34 18 56 0M241 165c13 10 25 10 38 0"/></g></svg></div><div class="journeyDate">THEN...</div><div class="journeyText">We became us.</div></div>
+<div class="journeyItem" data-time="31500"><div class="journeyDate">THEN...</div><div class="journeyText">We became us.</div></div>
 
-<div class="journeyItem" data-time="36000"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="215" cy="82" r="27"/><circle cx="305" cy="82" r="27"/><path d="M191 111c-29 32-38 75-31 126M240 111c11 31 15 72 12 126M280 111c-11 31-15 72-12 126M329 111c29 32 38 75 31 126M166 237h48M280 237h48M238 145c20 18 34 18 44 0M195 79c11-22 39-23 53-4M291 75c13-21 39-19 51 4"/></g></svg></div><div class="journeyDate">TODAY</div><div class="journeyText">More than a year later...</div><div class="journeySmall">And I still can't believe I get to call you mine.</div></div>
+<div class="journeyItem" data-time="36000"><div class="journeyDate">TODAY</div><div class="journeyText">More than a year later...</div><div class="journeySmall">And I still can't believe I get to call you mine.</div></div>
 
-<div class="journeyItem" data-time="40500"><div class="journeyArt"><svg viewBox="0 0 520 300"><g class="lineArt"><circle cx="205" cy="82" r="27"/><circle cx="315" cy="82" r="27"/><path d="M181 111c-30 32-38 75-31 126M230 111c11 31 15 72 12 126M291 111c-11 31-15 72-12 126M340 111c30 32 38 75 31 126M160 237h48M281 237h49M232 145c22 18 34 18 56 0M238 165c12 8 31 8 44 0"/></g><path class="lineArt secondary" d="M115 74c18-19 35-19 53 0M352 74c18-19 35-19 53 0"/></svg></div><div class="journeyDate">AND THIS...</div><div class="journeyText">Is only the beginning.</div></div>
+<div class="journeyItem" data-time="40500"><div class="journeyDate">AND THIS...</div><div class="journeyText">Is only the beginning.</div></div>
 </div>
 <div class="journeyProgress" id="journeyProgress">OUR STORY • 01</div>
 </section>
@@ -360,12 +376,11 @@ document.getElementById("enterMemories").onclick=()=>{
  setTimeout(()=>r.classList.remove("go"),2350);
 };
 
-/* memories -> Little Things: stars + couple line-art begins immediately */
+/* memories -> Little Things: simple pastel transition */
 let journeyStarted=false;
 document.getElementById("startJourney").onclick=()=>{
- const w=warpStars(75);
- setTimeout(()=>{showScene("scene4");startJourney()},850);
- setTimeout(()=>w.classList.remove("active"),2200);
+ showScene("scene4");
+ startJourney();
 };
 
 function startJourney(){
