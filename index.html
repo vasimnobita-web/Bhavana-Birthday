@@ -204,6 +204,17 @@ mix-blend-mode:multiply
 @keyframes fh{50%{transform:scale(1.25)}}
 @media(max-width:750px){.memories{grid-template-columns:repeat(2,1fr)}.photo{height:180px}.paper{height:87vh;padding:20px 16px}.letterBody{justify-content:flex-start}.letterBody p{font-size:17px;line-height:1.38}}
 @media(max-width:430px){.memories{grid-template-columns:1fr}.photo{height:260px}.letterHead h2{font-size:29px}}
+
+/* FULL-SCREEN MEMORY PHOTO */
+.memory .photo img{cursor:zoom-in;transition:transform .35s ease,filter .35s ease}
+.memory .photo img:hover{transform:scale(1.025);filter:brightness(1.04)}
+.memoryLightbox{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;padding:20px;background:#050307f5;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility .35s ease}
+.memoryLightbox.show{opacity:1;visibility:visible;pointer-events:auto}
+.memoryLightboxImg{display:block;max-width:94vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 25px 90px #000;transform:scale(.88);opacity:0;transition:transform .45s cubic-bezier(.16,.8,.2,1),opacity .35s ease}
+.memoryLightbox.show .memoryLightboxImg{transform:scale(1);opacity:1}
+.memoryLightboxClose{position:absolute;top:18px;right:20px;z-index:2;width:46px;height:46px;border:1px solid #ffffff55;border-radius:50%;background:#ffffff14;color:#fff;font:28px/1 Montserrat,sans-serif;cursor:pointer;display:grid;place-items:center}
+.memoryLightboxHint{position:absolute;left:0;right:0;bottom:20px;text-align:center;font:9px Montserrat,sans-serif;letter-spacing:3px;color:#ffffff88;pointer-events:none}
+@media(max-width:600px){.memoryLightbox{padding:12px}.memoryLightboxImg{max-width:96vw;max-height:86vh}.memoryLightboxClose{top:12px;right:12px;width:42px;height:42px;font-size:24px}}
 </style>
 </head>
 <body>
@@ -254,6 +265,12 @@ Every gift and every little thing from you means more to me than I can explain.<
 <div class="memoriesButtonWrap" id="memoriesButtonWrap"><button class="memoriesBtn" id="enterMemories"><span class="memoriesHeart">♥</span><span>Our Memories</span><span>→</span></button></div>
 </div></div>
 </section>
+
+<div class="memoryLightbox" id="memoryLightbox" role="dialog" aria-modal="true" aria-label="Full-screen memory photo">
+<button class="memoryLightboxClose" id="memoryLightboxClose" type="button" aria-label="Close photo">×</button>
+<img class="memoryLightboxImg" id="memoryLightboxImg" src="" alt="">
+<div class="memoryLightboxHint">TAP OUTSIDE OR × TO CLOSE</div>
+</div>
 
 <!-- FAST REEL: captions deliberately omitted here -->
 <div class="reelTransition" id="reelTransition">
@@ -324,7 +341,7 @@ function createStars(id,count){
   s.style.setProperty("--s",2+Math.random()*4+"s");s.style.animationDelay=-Math.random()*4+"s";c.appendChild(s);
  }
 }
-["stars1","starsMoon","starsJourney","finalStars"].forEach((id,i)=>createStars(id,[70,120,85,110][i]));
+["stars1","starsMoon","finalStars"].forEach((id,i)=>createStars(id,[70,120,85,110][i]));
 function showScene(id){document.querySelectorAll(".scene").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active")}
 function warpStars(count=110){
  const w=document.getElementById("starWarp");w.innerHTML="";w.classList.add("active");
@@ -375,6 +392,18 @@ document.getElementById("enterMemories").onclick=()=>{
  setTimeout(()=>showScene("scene3"),1500);
  setTimeout(()=>r.classList.remove("go"),2350);
 };
+
+
+/* memory photo full-screen viewer */
+const memoryLightbox=document.getElementById("memoryLightbox");
+const memoryLightboxImg=document.getElementById("memoryLightboxImg");
+const memoryLightboxClose=document.getElementById("memoryLightboxClose");
+function openMemoryPhoto(img){memoryLightboxImg.src=img.src;memoryLightboxImg.alt=img.alt||"Memory photo";memoryLightbox.classList.add("show");}
+function closeMemoryPhoto(){memoryLightbox.classList.remove("show");setTimeout(()=>{if(!memoryLightbox.classList.contains("show"))memoryLightboxImg.src=""},350);}
+document.querySelectorAll(".memory .photo img").forEach((img,index)=>{img.tabIndex=0;img.addEventListener("click",()=>openMemoryPhoto(img));img.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openMemoryPhoto(img);}});});
+memoryLightboxClose.addEventListener("click",closeMemoryPhoto);
+memoryLightbox.addEventListener("click",e=>{if(e.target===memoryLightbox)closeMemoryPhoto();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&memoryLightbox.classList.contains("show"))closeMemoryPhoto();});
 
 /* memories -> Little Things: simple pastel transition */
 let journeyStarted=false;
