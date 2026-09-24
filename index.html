@@ -344,10 +344,12 @@ mix-blend-mode:multiply
 
 
 <script>
-/* ADD-ONLY NAVIGATION CONTROLS — no existing function is replaced */
+/* ADD-ONLY NAVIGATION CONTROLS — navigation only; existing website functions remain unchanged */
 (function(){
  const scenes=["scene1","moonScene","scene2","scene3","scene4","scene5"];
  let storyIndex=0;
+ let manualStoryNavigation=false;
+ let journeyTimers=[];
  const storyItems=[...document.querySelectorAll("#scene4 .journeyItem")];
  function activeScene(){return document.querySelector(".scene.active")?.id||"scene1";}
  function refresh(){
@@ -356,8 +358,15 @@ mix-blend-mode:multiply
    const scene=nav.closest(".scene")?.id, i=scenes.indexOf(scene);
    if(i<0)return;
    const back=nav.querySelector(".navBack"),next=nav.querySelector(".navNext"),count=nav.querySelector(".navCount");
-   if(scene==="scene4"){count.textContent="STORY "+String(storyIndex+1).padStart(2,"0")+" / 10";back.disabled=false;next.disabled=false;}
-   else{count.textContent=String(i+1).padStart(2,"0")+" / 06";back.disabled=i===0;next.disabled=i===5;}
+   if(scene==="scene4"){
+    count.textContent="STORY "+String(storyIndex+1).padStart(2,"0")+" / 10";
+    back.disabled=storyIndex===0;
+    next.disabled=storyIndex===storyItems.length-1;
+   }else{
+    count.textContent=String(i+1).padStart(2,"0")+" / 06";
+    back.disabled=i===0;
+    next.disabled=i===scenes.length-1;
+   }
   });
  }
  function showMain(target){
@@ -367,24 +376,51 @@ mix-blend-mode:multiply
   if(target==="scene5"){document.getElementById("finalMoon").classList.add("show");document.getElementById("finalMessage").classList.add("show");}
   refresh();
  }
+ function stopJourneyAutoPlay(){
+  journeyTimers.forEach(t=>clearTimeout(t));
+  journeyTimers=[];
+  manualStoryNavigation=true;
+ }
+ function showStory(index){
+  if(index<0||index>=storyItems.length)return;
+  storyIndex=index;
+  storyItems.forEach(x=>x.classList.remove("show"));
+  storyItems[storyIndex].classList.add("show");
+  const p=document.getElementById("journeyProgress");
+  if(p)p.textContent="OUR STORY • "+String(storyIndex+1).padStart(2,"0");
+  refresh();
+ }
  function go(delta){
   const id=activeScene();
   if(id==="scene4"){
+   stopJourneyAutoPlay();
    const n=storyIndex+delta;
    if(n<0){showMain("scene3");return;}
    if(n>=storyItems.length){showMain("scene5");return;}
-   storyIndex=n;storyItems.forEach(x=>x.classList.remove("show"));storyItems[storyIndex].classList.add("show");
-   const p=document.getElementById("journeyProgress");if(p)p.textContent="OUR STORY • "+String(storyIndex+1).padStart(2,"0");
-   refresh();return;
+   showStory(n);
+   return;
   }
-  const i=scenes.indexOf(id),n=i+delta;if(n<0||n>=scenes.length)return;
+  const i=scenes.indexOf(id),n=i+delta;
+  if(n<0||n>=scenes.length)return;
+  if(scenes[n]==="scene4"){
+   manualStoryNavigation=true;
+   showMain("scene4");
+   showStory(storyIndex);
+   return;
+  }
   showMain(scenes[n]);
  }
  document.querySelectorAll(".pageNav .navBack").forEach(b=>b.addEventListener("click",()=>go(-1)));
  document.querySelectorAll(".pageNav .navNext").forEach(b=>b.addEventListener("click",()=>go(1)));
- document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")go(-1);if(e.key==="ArrowRight")go(1);});
+ document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowLeft")go(-1);
+  if(e.key==="ArrowRight")go(1);
+ });
  const observer=new MutationObserver(()=>{
-  if(activeScene()==="scene4"){const i=storyItems.findIndex(x=>x.classList.contains("show"));if(i>=0)storyIndex=i;}
+  if(!manualStoryNavigation && activeScene()==="scene4"){
+   const i=storyItems.findIndex(x=>x.classList.contains("show"));
+   if(i>=0)storyIndex=i;
+  }
   refresh();
  });
  observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:["class"]});
