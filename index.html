@@ -129,16 +129,11 @@ mix-blend-mode:multiply
 .letterHead small{font:9px Montserrat,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#aa6680}
 .letterHead h2{margin:6px 0;font-size:clamp(28px,5vw,53px);line-height:1.05;font-weight:500;color:#6a3047}
 .heart{color:#d66d91}
-.letterBody{height:calc(100% - 145px);min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#d88aa7 transparent;display:block;padding:8px 14px 110px 8px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-.letterBody::-webkit-scrollbar{width:5px}
-.letterBody::-webkit-scrollbar-track{background:transparent}
-.letterBody::-webkit-scrollbar-thumb{background:#d88aa7;border-radius:10px}
-.letterBody p{font-family:"Caveat",cursive;font-size:clamp(18px,2.05vw,24px);font-weight:500;line-height:1.42;letter-spacing:.15px;color:#4f3540;margin:0;display:block}
-.letterBody strong{font-weight:700}
-.letterBody em{font-style:italic}
-.letterBody p::after{content:"";display:block;height:2px}
+.letterBody{height:calc(100% - 145px);overflow:auto;scrollbar-width:none;display:flex;flex-direction:column;justify-content:center;gap:13px}
+.letterBody::-webkit-scrollbar{display:none}
+.letterBody p{font-family:"Caveat",cursive;font-size:clamp(18px,2.05vw,24px);font-weight:500;line-height:1.42;letter-spacing:.15px;color:#4f3540}
 .divider{height:1px;margin:0 15%;background:#e8bdcc}
-.memoriesButtonWrap{position:absolute;z-index:30;left:0;right:0;bottom:12px;display:flex;justify-content:center;opacity:0;transform:translateY(35px) scale(.9);pointer-events:none;transition:opacity 1s ease,transform 1s cubic-bezier(.16,.8,.2,1)}
+.memoriesButtonWrap{position:absolute;z-index:30;left:0;right:0;bottom:24px;display:flex;justify-content:center;opacity:0;transform:translateY(35px) scale(.9);pointer-events:none;transition:opacity 1s ease,transform 1s cubic-bezier(.16,.8,.2,1)}
 .memoriesButtonWrap.show{opacity:1;transform:none;pointer-events:auto}
 .memoriesBtn{display:flex;align-items:center;justify-content:center;gap:12px;min-width:190px;padding:13px 22px;border:1px solid #d88aa7;border-radius:50px;background:linear-gradient(135deg,#ffffffe8,#ffe1edcf);color:#71354d;font:20px "Cormorant Garamond",serif;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 30px #8c375d2e;backdrop-filter:blur(12px);transition:.4s}
 .memoriesBtn:hover{transform:translateY(-4px) scale(1.04)}
@@ -210,21 +205,20 @@ mix-blend-mode:multiply
 @media(max-width:750px){.memories{grid-template-columns:repeat(2,1fr)}.photo{height:180px}.paper{height:87vh;padding:20px 16px}.letterBody{justify-content:flex-start}.letterBody p{font-size:17px;line-height:1.38}}
 @media(max-width:430px){.memories{grid-template-columns:1fr}.photo{height:260px}.letterHead h2{font-size:29px}}
 
-/* FULL-SCREEN MEMORY PHOTO */
-.memory .photo img{cursor:zoom-in;transition:transform .35s ease,filter .35s ease}
-.memory .photo img:hover{transform:scale(1.025);filter:brightness(1.04)}
-.memoryLightbox{position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;padding:20px;background:#050307f5;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility .35s ease}
-.memoryLightbox.show{opacity:1;visibility:visible;pointer-events:auto}
-.memoryLightboxImg{display:block;max-width:94vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 25px 90px #000;transform:scale(.88);opacity:0;transition:transform .45s cubic-bezier(.16,.8,.2,1),opacity .35s ease}
-.memoryLightbox.show .memoryLightboxImg{transform:scale(1);opacity:1}
-.memoryLightboxClose{position:absolute;top:18px;right:20px;z-index:2;width:46px;height:46px;border:1px solid #ffffff55;border-radius:50%;background:#ffffff14;color:#fff;font:28px/1 Montserrat,sans-serif;cursor:pointer;display:grid;place-items:center}
-.memoryLightboxHint{position:absolute;left:0;right:0;bottom:20px;text-align:center;font:9px Montserrat,sans-serif;letter-spacing:3px;color:#ffffff88;pointer-events:none}
-@media(max-width:600px){.memoryLightbox{padding:12px}.memoryLightboxImg{max-width:96vw;max-height:86vh}.memoryLightboxClose{top:12px;right:12px;width:42px;height:42px;font-size:24px}}
+/* UNIVERSAL PAGE NAVIGATION */
+.pageNav{position:fixed;z-index:9000;left:18px;right:18px;bottom:16px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.navBtn{pointer-events:auto;border:1px solid #ffffff66;background:#ffffff18;color:#fff;padding:10px 16px;border-radius:30px;font:9px Montserrat,sans-serif;letter-spacing:1.5px;cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 5px 20px #0002;transition:.3s}
+.navBtn:hover{transform:translateY(-2px) scale(1.03);background:#ffffff30}
+.navBtn:disabled{opacity:.2;cursor:default;transform:none}
+.navCounter{pointer-events:auto;font:8px Montserrat,sans-serif;letter-spacing:2px;color:#ffffff99;background:#00000016;padding:7px 11px;border-radius:20px;backdrop-filter:blur(8px)}
+#scene4 .pageNav .navBtn,#scene3 .pageNav .navBtn,#scene2 .pageNav .navBtn{color:#70445b;border-color:#9d6c8055;background:#ffffff66}
+@media(max-width:600px){.pageNav{left:10px;right:10px;bottom:10px}.navBtn{padding:9px 12px;font-size:8px}.navCounter{font-size:7px}}
 </style>
 </head>
 <body>
 
 <section id="scene1" class="scene active">
+<div class="pageNav" aria-label="Page navigation"><button class="navBtn navBack" type="button">← BACK</button><span class="navCounter">01 / 06</span><button class="navBtn navNext" type="button">NEXT →</button></div>
 <div class="stars" id="stars1"></div>
 <div class="center candlePage" id="candlePage">
 <div class="cake"><div class="plate"></div><div class="cakebody"></div><div class="icing"></div><div class="candle"><div class="wick"></div><div class="flame" id="flame"></div><div class="smoke" id="smoke"></div></div></div>
@@ -241,6 +235,7 @@ mix-blend-mode:multiply
 <div class="darkBurst" id="darkBurst"></div>
 
 <section id="moonScene" class="scene">
+<div class="pageNav" aria-label="Page navigation"><button class="navBtn navBack" type="button">← BACK</button><span class="navCounter">01 / 06</span><button class="navBtn navNext" type="button">NEXT →</button></div>
 <div class="stars" id="starsMoon"></div><div class="moonGlow"></div>
 <img src="moon-clean-transparent.png" class="moon" id="moon" alt="Moon">
 <div class="moonText" id="moonText"><div class="moonDate">OCTOBER 2 • 2003 • ELURU, ANDHRA PRADESH</div>
@@ -250,24 +245,27 @@ mix-blend-mode:multiply
 <div class="starWarp" id="starWarp"></div>
 
 <section id="scene2" class="scene">
+<div class="pageNav" aria-label="Page navigation"><button class="navBtn navBack" type="button">← BACK</button><span class="navCounter">01 / 06</span><button class="navBtn navNext" type="button">NEXT →</button></div>
 <div class="cover" id="cover"><div class="kicker">a little letter, written just for you</div>
 <h1 class="coverTitle">The Little Things That Became Everything</h1>
 <div class="envelope" id="envelope"><div class="envBase"><div class="eleft"></div><div class="eright"></div><div class="ebottom"></div><div class="flap"></div><div class="seal">♥</div></div></div>
 <div class="tap">TAP THE LETTER TO OPEN IT</div></div>
 <div class="letterLayer" id="letterLayer"><div class="paper">
 <div class="letterHead"><small>for you, on your birthday</small><h2>The Little Things That Became Everything</h2><div class="heart">♥</div></div>
-<div class="letterBody" aria-label="Birthday letter — scroll to read the full letter">
-<p><strong>Hey Bhavana,</strong><br><br>It has been more than a year since you came into my life, and I still feel so lucky to have you. Honestly, this has been the most beautiful phase of my life, and sometimes I still can't believe that you're mine.<br><br>I still remember the first time I saw you — <strong>June 21, the day of my interview.</strong> From that day, you became my crush. And somehow, even after we started our relationship, I never stopped having a crush on you.<br><br>After I joined the organization, I would keep looking at you, admiring you, and secretly waiting for the moment you'd look back at me.<br><br>Sometimes I feel like the whole universe planned everything for us. Somehow, everything fell into place like a little miracle, and our journey began. ❤️<br><br>Since that day, every little moment with you has become special to me — our first chat, that beautiful night when we finally expressed our feelings, our first hand-hold, our first midnight walk, our first hug, our first kiss, and all those little moments that slowly became <strong>us.</strong><br><br>I love the way you hold my hand, lean on my shoulder, and look at me with so much love... and sometimes with that wonderfully creepy look of yours. 😂❤️<br><br>You notice every little thing about me. When I'm sad, you know how to comfort me. When I'm happy, somehow you're even happier just because I'm happy. When I'm struggling, you always find your own way to take care of me.<br><br>You changed me from <strong>Adivi Manishi to City Manishi.</strong> 😂❤️<br><br>And you know what I love most?<br><br><strong>I love the child in you, the wild in you, and the way you laugh without even trying.</strong><br><br>That side of you makes me feel like I don't have to be serious all the time. I can just be myself with you, laugh with you, irritate you, and enjoy all the little craziness we have together.<br><br>Our silly fights somehow become another part of our story. And even when things aren't perfect, you still believe in me. You see potential in me even when I don't see it myself, and your belief in me gives me the courage to believe in myself too.<br><br>And I'm sorry for all the times I've hurt you.<br><br>Sometimes I honestly don't understand how someone like you can love me this much.<br><br>There are so many basic things I should do for you, but sometimes I don't even ask if you've eaten, why you're not eating, or how you're feeling. If you're sick, I don't always ask you to take your medicine. Sometimes I even forget that you're not feeling well.<br><br>And the funny part is, <strong>you still tolerate me.</strong> 😂<br><br>You adjust yourself so many times because of my behaviour, and I know you probably suffer more than I realise.<br><br>Sometimes I think, <em>"There are so many people in the queue who would probably love to be with you... and still, you chose me."</em><br><br>And somehow, even after choosing me, you continue to stay, continue to adjust, continue to understand me, and continue to love me.<br><br>I don't always know how to fix the chaos I create. Most of the time, I imagine so many things in my head, but I'm honestly very poor at expressing them.<br><br>Maybe I don't show it properly.<br><br>Maybe I don't always know how to take care of you the way I should.<br><br>But please know that <strong>I notice your love. I feel it. And I am incredibly lucky to have it.</strong><br><br>And then there is your <strong>Wild Love.</strong> 😂❤️<br><br>The pinching, the slapping, the bullying, the hitting...<br><br><strong>Doola Daanaaaaa! ❤️</strong><br><br>I remember once I asked you to bite me and you didn't. 😂<br><br>But now you come close and try to bite me without me even asking. And every time you do it, I remember how much you love me and how completely obsessed you are with me. 😂❤️<br><br>Once I saw a reel where a mother was playing with her little baby and kept saying things like, <em>"I'll eat you, I'll bite you,"</em> and making all those silly sounds because she loved her baby so much.<br><br>It made me realise that sometimes when we love someone more than we can explain, it comes out in the strangest and cutest ways.<br><br>And somehow, your biting reminds me of that.<br><br>Maybe this is your own little way of showing me how much you love me.<br><br>And when I went home, I missed you a lot. I thought I would stay away for some time, but within just <strong>10 days, I came back to Hyderabad — on Yamini's birthday.</strong><br><br>The way you treated me that day told me everything.<br><br>I could see how much you had missed me too.<br><br>I enjoyed that day so much. I felt so happy just being around you again. ❤️<br><br>And then there is something else I'm completely obsessed with...<br><br><strong>Your smile.</strong><br><br>Actuallyyyyy... <strong>I'm a BIG fan of your smile.</strong> ❤️<br><br>I'm a fan of your smile, your eyes, and even that small mole on the left side of your neck.<br><br>Whenever I see you, somehow I notice all these little things without even trying.<br><br>And every single time, I fall for you all over again.<br><br>If you call this <strong>kamam</strong>, I'll accept it. 😂<br><br>Because yes, you are stuck in my mind.<br><br>Whenever I close my eyes and imagine you, I see your face with that beautiful smile.<br><br>And when you're smiling wholeheartedly, your eyes glow a little more...<br><br>Actually, <strong>a lot more.</strong><br><br>I don't know how to explain it, but I just stay there in that moment, completely lost in you.<br><br>Your smile is always beautiful, but I especially love it when you've done something <strong>doola</strong> and then smile with your whole heart — that open, happy smile full of love.<br><br><strong>That smile is my favourite.</strong><br><br>I never imagined someone could love me this much.<br><br>Your birthday gifts, my first Valentine's gift, the shirt you gave me, the watch you gave me, and all those little things you give me just because you thought of me — I treasure every single one.<br><br>Whenever I wear the shirt you gifted me, I feel different. I look at myself in the mirror way too many times and admire myself in that shirt. 😂❤️<br><br>And whenever I wear the watch you gave me, it reminds me of you.<br><br>But honestly, more than all the gifts...<br><br><strong>I love the person who gave them to me.</strong><br><br>I may not always know how to express everything when I'm standing in front of you.<br><br>Most of the time, I have so many things in my head, but the words just don't come out.<br><br>So I'm writing them here.<br><br>You are someone I never want to take for granted.<br><br>You are someone who keeps choosing me even when I don't always make it easy.<br><br>And I'm still learning how to love you better, understand you better, take care of you better, and protect what we have.<br><br>Thank you for being patient with me.<br><br>Thank you for adjusting for me.<br><br>Thank you for believing in me.<br><br>Thank you for loving even the parts of me that I sometimes don't know how to handle myself.<br><br>And most importantly...<br><br><strong>Thank you for still choosing me.</strong><br><br><strong>Love youuuuu, my love — Naa Pilla. ❤️</strong><br><br><strong>I love calling you "Naa Pilla" because, in those two little words, I feel like you're completely mine, and I'm completely yours. ❤️</strong><br><br><strong>Happy Birthday, my love. ❤️</strong></p>
+<div class="letterBody">
+<p>Hey Bhavana, it has been more than a year since you came into my life, and I feel incredibly lucky to have you. This has been the most beautiful phase of my life, and sometimes I still can't believe you're mine.<br><br>I still remember seeing you for the first time on June 21, the day of my interview. From that moment, you became my crush — and even after we started our relationship, I never stopped crushing on you.<br><br>After I joined the organization, I kept admiring you and secretly waiting for the moment you'd look at me.<br><br>Somehow, it feels like the universe planned everything for us. Everything happened like a little miracle, and our journey began. ❤️</p>
+<div class="divider"></div>
+<p>Since that day, every little moment with you has become special — our first chat, that beautiful night when we expressed our feelings, our first hand-hold, midnight walk, hug, kiss, and all the little things that followed.<br><br>I love the way you hold my hand, lean on my shoulder, look at me with love, and sometimes give me that wonderfully creepy look. 😂❤️<br><br>I love the child in you too — the one who gets excited over little things, laughs without even trying, and makes even the simplest moments feel special. I love that wild, carefree side of you, the part of you that is just completely yourself. And honestly, I hope you never lose that. ❤️<br><br>You notice everything about me; you comfort me when I'm sad, celebrate harder when I'm happy, and take care of me when I'm struggling.<br><br>You changed me from Adivi Manishi to City Manishi. 😂<br><br>Our silly fights somehow make us stronger, and your belief in me makes me believe in myself.<br><br>I'm sorry for all the times I've hurt you — although I know after reading this, you may want to hit me anyway. 😂<br><br>That's your Wild Love... your Doola Daanaaaaa. ❤️<br><br>I never imagined someone could love me this much. And honestly, sometimes I wonder how someone like you can love someone like me this deeply, even when I know I don't always deserve it.<br><br>I don't even do some of the most basic things I should. I forget to ask if you ate, why you haven't eaten, whether you're feeling okay, or if you took your medicine when you're sick. Sometimes I even forget that you are going through something, while you quietly keep tolerating and adjusting with me. And that truth makes me realise how much more I should be there for you.<br><br>I know there are so many people who could choose you, love you, and give you everything you deserve. Still, you chose me. Even when I struggle to keep the balance in our bond, you keep choosing us. That means more to me than I know how to say.<br><br>Most of the time, I imagine so many things in my head. I feel them deeply, but I'm not always good at expressing them. There is so much inside me that stays unsaid because I simply don't know how to put it into words.<br><br>Because of my behaviour, I know you have had to adjust, understand me, and sometimes carry more than you should. I don't always know how to fix all the chaos I create, but somehow you still find a way to make things okay. I am genuinely lucky to have you.<br><br>And maybe that is one of the things I will always be grateful for — even after seeing all my flaws, you still choose me, still stay with me, and still believe in us. ❤️<br><br>When I went home, I missed you more than I expected. I thought I would stay away for a while, but within just ten days, I came back to Hyderabad — on Yamini’s birthday. And the way you treated me that day told me everything. I could see how much you had missed me too. I felt so happy, so loved, and honestly, I just enjoyed being with you again. ❤️<br><br>There is one funny thing I always remember. I once saw a reel where a mother was playing with her little baby, saying things like, “I’ll eat you,” “I’ll bite you,” and making those silly little sounds because she loved her baby so much. Then she realised that sometimes, when you love someone more than you can explain, it comes out in the strangest and cutest ways.<br><br>It always makes me think of you. I remember the first time I asked you to bite me and you didn’t. 😂 But now you come close and try to bite me without me even asking. And every time you do that, I can't help but think about how much you love me and how completely obsessed you are with me. 😂❤️ Maybe that is your own little way of saying, “You are mine, and I love you so much.”<br><br>There is one more thing I have to admit — I am especially a fan of your smile. Actuallyyyyy... a big fan. ❤️ I love your smile, your eyes, and even that small mole on the left side of your neck. Whenever I see you, somehow I notice all these little things without even trying, and I fall for you all over again.
+
+If you call this obsession or kamam, I will accept it. 😂 Because yes, you really do stay in my mind. Whenever I close my eyes and imagine you, I see your face with that beautiful smile. And when you smile wholeheartedly, your eyes glow a little more — actually, a lot more. I don't know how to explain it, but I just stay there in that moment, completely lost in you. ❤️
+
+Your smile is always beautiful, but I love it the most when you do something doola and then smile without holding anything back — that open, happy smile full of love. That is the smile I could keep looking at forever. ❤️
+
+Every gift and every little thing from you means more to me than I can explain.<br><br>But more than all the gifts, I love the person who gave them to me.<br><br>Love youuuuu, my love — Naa Pilla. ❤️</p>
 </div>
 <div class="memoriesButtonWrap" id="memoriesButtonWrap"><button class="memoriesBtn" id="enterMemories"><span class="memoriesHeart">♥</span><span>Our Memories</span><span>→</span></button></div>
 </div></div>
 </section>
-
-<div class="memoryLightbox" id="memoryLightbox" role="dialog" aria-modal="true" aria-label="Full-screen memory photo">
-<button class="memoryLightboxClose" id="memoryLightboxClose" type="button" aria-label="Close photo">×</button>
-<img class="memoryLightboxImg" id="memoryLightboxImg" src="" alt="">
-<div class="memoryLightboxHint">TAP OUTSIDE OR × TO CLOSE</div>
-</div>
 
 <!-- FAST REEL: captions deliberately omitted here -->
 <div class="reelTransition" id="reelTransition">
@@ -276,6 +274,7 @@ mix-blend-mode:multiply
 </div>
 
 <section id="scene3" class="scene">
+<div class="pageNav" aria-label="Page navigation"><button class="navBtn navBack" type="button">← BACK</button><span class="navCounter">01 / 06</span><button class="navBtn navNext" type="button">NEXT →</button></div>
 <div class="memoryPage">
 <div class="memoryKicker">our little universe</div><h2 class="memoryTitle">Our Memories</h2>
 <div class="memorySub">little moments that became my favourite memories ❤️</div>
@@ -294,6 +293,7 @@ mix-blend-mode:multiply
 </div></section>
 
 <section id="scene4" class="scene">
+<div class="pageNav" aria-label="Page navigation"><button class="navBtn navBack" type="button">← BACK</button><span class="navCounter">01 / 06</span><button class="navBtn navNext" type="button">NEXT →</button></div>
 <div class="balloons" aria-hidden="true"><span class="balloon b1"></span><span class="balloon b2"></span><span class="balloon b3"></span><span class="balloon b4"></span><span class="balloon b5"></span><span class="balloon b6"></span></div>
 <div class="journey">
 
@@ -321,6 +321,7 @@ mix-blend-mode:multiply
 </section>
 
 <section id="scene5" class="scene">
+<div class="pageNav" aria-label="Page navigation"><button class="navBtn navBack" type="button">← BACK</button><span class="navCounter">01 / 06</span><button class="navBtn navNext" type="button">NEXT →</button></div>
 <div class="stars" id="finalStars"></div>
 <img src="moon-clean-transparent.png" class="finalMoon" id="finalMoon" alt="Moon">
 <div class="finalMessage" id="finalMessage"><div class="finalSmall">AND MANY MORE MEMORIES TO COME...</div>
@@ -338,7 +339,7 @@ function createStars(id,count){
   s.style.setProperty("--s",2+Math.random()*4+"s");s.style.animationDelay=-Math.random()*4+"s";c.appendChild(s);
  }
 }
-["stars1","starsMoon","finalStars"].forEach((id,i)=>createStars(id,[70,120,85,110][i]));
+["stars1","starsMoon","starsJourney","finalStars"].forEach((id,i)=>createStars(id,[70,120,85,110][i]));
 function showScene(id){document.querySelectorAll(".scene").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active")}
 function warpStars(count=110){
  const w=document.getElementById("starWarp");w.innerHTML="";w.classList.add("active");
@@ -390,42 +391,40 @@ document.getElementById("enterMemories").onclick=()=>{
  setTimeout(()=>r.classList.remove("go"),2350);
 };
 
-
-/* memory photo full-screen viewer */
-const memoryLightbox=document.getElementById("memoryLightbox");
-const memoryLightboxImg=document.getElementById("memoryLightboxImg");
-const memoryLightboxClose=document.getElementById("memoryLightboxClose");
-function openMemoryPhoto(img){memoryLightboxImg.src=img.src;memoryLightboxImg.alt=img.alt||"Memory photo";memoryLightbox.classList.add("show");}
-function closeMemoryPhoto(){memoryLightbox.classList.remove("show");setTimeout(()=>{if(!memoryLightbox.classList.contains("show"))memoryLightboxImg.src=""},350);}
-document.querySelectorAll(".memory .photo img").forEach((img,index)=>{img.tabIndex=0;img.addEventListener("click",()=>openMemoryPhoto(img));img.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openMemoryPhoto(img);}});});
-memoryLightboxClose.addEventListener("click",closeMemoryPhoto);
-memoryLightbox.addEventListener("click",e=>{if(e.target===memoryLightbox)closeMemoryPhoto();});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&memoryLightbox.classList.contains("show"))closeMemoryPhoto();});
-
-/* memories -> Little Things: simple pastel transition */
-let journeyStarted=false;
-document.getElementById("startJourney").onclick=()=>{
- showScene("scene4");
- startJourney();
-};
-
-function startJourney(){
- if(journeyStarted)return;journeyStarted=true;
- const items=[...document.querySelectorAll(".journeyItem")];
- items.forEach((item,index)=>{
-  setTimeout(()=>{
-   items.forEach(x=>x.classList.remove("show"));
-   item.classList.add("show");
-   document.getElementById("journeyProgress").textContent="OUR STORY • "+String(index+1).padStart(2,"0");
-  },parseInt(item.dataset.time));
+/* UNIVERSAL NAVIGATION + 10 STORY CONTROLS */
+const pageOrder=["scene1","moonScene","scene2","scene3","scene4","scene5"];
+let pageIndex=0,journeyIndex=0,journeyTimer=null;
+const journeyItems=[...document.querySelectorAll(".journeyItem")];
+function currentPage(){return document.querySelector(".scene.active")?.id||pageOrder[pageIndex]}
+function updateNav(){
+ const id=currentPage(); pageIndex=Math.max(0,pageOrder.indexOf(id));
+ document.querySelectorAll(".pageNav").forEach(n=>{
+  const idx=pageOrder.indexOf(n.closest(".scene")?.id); if(idx<0)return;
+  const back=n.querySelector(".navBack"),next=n.querySelector(".navNext"),counter=n.querySelector(".navCounter");
+  if(idx===4){counter.textContent="STORY "+String(journeyIndex+1).padStart(2,"0")+" / 10";back.disabled=false;next.disabled=false}
+  else{counter.textContent=String(idx+1).padStart(2,"0")+" / 06";back.disabled=idx===0;next.disabled=idx===5}
  });
- setTimeout(goFinal,45500);
 }
-function goFinal(){
- const w=warpStars(130);
- setTimeout(()=>{showScene("scene5");document.getElementById("finalMoon").classList.add("show")},950);
- setTimeout(()=>{w.classList.remove("active");document.getElementById("finalMessage").classList.add("show")},3000);
+function goPage(delta){
+ const id=currentPage();
+ if(id==="scene4"){goStory(delta);return}
+ const i=pageOrder.indexOf(id),target=i+delta;if(target<0||target>=pageOrder.length)return;
+ showScene(pageOrder[target]);pageIndex=target;
+ if(pageOrder[target]==="moonScene"){document.getElementById("moon").classList.add("reveal");document.getElementById("moonText").classList.add("show")}
+ if(pageOrder[target]==="scene4")startJourneyManual();
+ if(pageOrder[target]==="scene5"){document.getElementById("finalMoon").classList.add("show");document.getElementById("finalMessage").classList.add("show")}
+ updateNav();
 }
+function showStory(i){if(!journeyItems.length)return;journeyIndex=Math.max(0,Math.min(9,i));journeyItems.forEach(x=>x.classList.remove("show"));journeyItems[journeyIndex].classList.add("show");document.getElementById("journeyProgress").textContent="OUR STORY • "+String(journeyIndex+1).padStart(2,"0");updateNav()}
+function goStory(delta){if(journeyIndex===9&&delta>0){goPage(1);return}if(journeyIndex===0&&delta<0){goPage(-1);return}showStory(journeyIndex+delta)}
+function startJourneyManual(){clearTimeout(journeyTimer);showStory(journeyIndex)}
+document.querySelectorAll(".navBack").forEach(b=>b.onclick=()=>goPage(-1));
+document.querySelectorAll(".navNext").forEach(b=>b.onclick=()=>goPage(1));
+window.addEventListener("keydown",e=>{if(["INPUT","TEXTAREA"].includes(document.activeElement.tagName))return;if(e.key==="ArrowLeft")goPage(-1);if(e.key==="ArrowRight")goPage(1)});
+journeyStarted=false;
+document.getElementById("startJourney").onclick=()=>{showScene("scene4");journeyIndex=0;startJourneyManual()};
+updateNav();
+
 </script>
 </body>
 </html>
