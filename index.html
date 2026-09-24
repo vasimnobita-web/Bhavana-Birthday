@@ -219,6 +219,11 @@ mix-blend-mode:multiply
 </head>
 <body>
 
+<!-- Birthday music: put birthday.mp3 in the same folder as this HTML file -->
+<audio id="birthdayMusic" preload="auto">
+<source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
 <section id="scene1" class="scene active">
 <div class="stars" id="stars1"></div>
 <div class="center candlePage" id="candlePage">
@@ -352,7 +357,17 @@ function warpStars(count=110){
 
 /* candle */
 document.getElementById("blow").onclick=()=>{
- document.getElementById("flame").style.opacity="0";document.getElementById("smoke").classList.add("go");document.getElementById("candlePage").classList.add("hide");
+ const music=document.getElementById("birthdayMusic");
+ music.currentTime=0;
+ music.volume=0.7;
+ const playAttempt=music.play();
+ if(playAttempt!==undefined){
+  playAttempt.catch(error=>console.log("Birthday music could not start:",error));
+ }
+
+ document.getElementById("flame").style.opacity="0";
+ document.getElementById("smoke").classList.add("go");
+ document.getElementById("candlePage").classList.add("hide");
  const d=document.getElementById("darkBurst");d.classList.add("go");
  setTimeout(()=>document.getElementById("bdayPage").classList.add("show"),900);
  setTimeout(()=>d.classList.remove("go"),2100);
